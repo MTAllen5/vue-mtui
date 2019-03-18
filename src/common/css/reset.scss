@@ -1,0 +1,114 @@
+@import './variable.scss';
+
+*, &::before, &::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  height: 100%;
+  background: white;
+}
+
+body {
+  font-size: $fontMedium;
+  font-family: $font;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $fontColor;
+}
+
+body, img, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td, iframe {
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section, summary, time, mark, audio, video {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: $fontXLarge;
+}
+
+h2 {
+  font-size: $fontLarge;
+}
+
+h3 {
+  font-size: $fontXMedium;
+}
+
+h4 {
+  font-size: $fontMedium;
+}
+
+h5 {
+  font-size: $fontSmall;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, dfn, em, th, var, i, em {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a, label, button, input, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, select, button {
+  font-family: $font;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=checkbox], input[type=radio] {
+  vertical-align: middle;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  margin: 0;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset;
+}
+
+textarea {
+  font-family: $font;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  overflow: auto;
+  resize: none;
+}

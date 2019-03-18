@@ -1,0 +1,54 @@
+/**
+ * Component: Variables
+ * Description:	Define all variables
+ *
+*/
+
+// ======== 【global】 ========
+
+// ======== 【color】 ========
+$black: #2c2c2c;
+$gray: #eee;
+$colorBg: #f5f5f5;
+$colorLine: #ccc;
+$colorDefault: #999;
+$colorPrimary: #348AE0;
+$colorWarn: #f90;
+$colorError: #E03434;
+$colorLink: #348AE0;
+$colorSuccess: #50bcb4;
+$colorDisabled: #ddd;
+
+// ======== 【font】 ========
+// $font = -apple-system-font, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+$font: 'Avenir', Helvetica, Arial, sans-serif;
+$fontXSmall: 10px;
+$fontSmall: 12px;
+$fontMedium: 14px;
+$fontXMedium: 16px;
+$fontLarge: 18px;
+$fontXLarge: 22px;
+
+// ======== 【icon】 ========
+$iconLoading: 'data:image/png;base64,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';
+$iconLoadingWhite: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAAnFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TINBkAAAAM3RSTlMA9ArRFaj68eImjgJHbV0HWSrsu9/ct7Gdg3ZwVR4aik3WrJeUh2Yg6HcPyMZhUL14NaV44ScFAAACcUlEQVRYw6zVZ3OCQBAG4NfjkI6CilFsMRrNqCmz//+/Za6Iw6hIueczLLe3BbzAw2g3ej/2qJ9OrNEuCjnaYxvfojuWv2FoIQjtHj3Rs8MAzbB8TJXGOWsSbp7SS+m8dsihW8rPsmf5ZbG45DPbKt2CO0Qdy4wKzjRPUJJEU4cK2RIvxcXz/WzB8ABbZP3iizGqDd6KTP0Vnlr5Re5vA1Tg5+vp1hyV+Pp6ynPFk4cJKSMPL3kjUiYHPJG4OtsYtcQ6bzfBQ56OZ3moybN0xIdvcJ2vzVAbs3XWHHcGJ5J8NLIm6XRfa90vMzQ0091zd8EkfaCxD5JilCzVfGwDNBZs1cyUpzBT9WVogalaZ8DNUPWfh1Y81Y9DFJirr6EdXQD3lt9czRtam5Iwh8ZSuQ88tHaQSacMSkTCGh3sSYggBWNZEY4OuDziOIAQ6pHrxBdb4A+SLW9whU5Wjr+EwuRpt+gowNU3CRsYI4fbGcAYuVdtGMNJ+IQpumkSGPMruzqAMXL1WzDnx3BN8C4C7mHOUQT8gjmO4a6B/h2Y89+cGa0gCARRlBCWXqSIQIjtQcjMhR6q//+3QFYuqOi4HHDPByiy68zcM45+4IX+5Ct9KEV/bXK+2PHXy7g4xPKVcYEdWkDGTQpuo2r0FBpFIDQsUWicg9DASaGRGEJDO4ViBYWCD4WiGUWr8MigeEuhAA4gRUDeb0mMhNLIaBZhEEEQ93qDqmrVKS0yrVmTaY0rguWsH3bd577B1LMkJCt/mn2pr6LquyUo03JJmR4/qVK3fPvzs5tKXVY7d1tqU1gX4wFW9/svF8brj9/hVVvWH3/TOLKTy8ebcwAAAABJRU5ErkJggg==';
+
+// ======== 【transition】 ========
+// .fadeIn-enter-active
+//   transition opacity .2s
+// .fadeIn-leave-active
+//   transition opacity .1s
+// .fadeIn-enter, .fadeIn-leave-to
+//   opacity 0
+
+// .zoomIn-enter-active, .zoomIn-leave-active
+//   transition all .2s
+// .zoomIn-enter, .zoomIn-leave-to
+//   opacity 0
+//   transform scale3d(0.3, 0.3, 0.3)
+
+// .slide-enter-active, .slide-leave-active
+//   transition all .2s
+// .slide-enter, .slide-leave-to
+//   opacity 0
+//   transform scale3d(1, 0, 1)
