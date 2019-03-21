@@ -1,16 +1,12 @@
 // 遮罩层
-@mixin mask($zIndex: 500, $opacity: .6, $color: 'black') {
+@mixin mask($zIndex: 100, $opacity: .4, $color: black) {
   position: fixed;
   z-index: zIndex;
   bottom: 0;
   right: 0;
   left: 0;
   top: 0;
-  @if $color == 'black' {
-    background-color: rgba(0,0,0,opacity);
-  } @else if $color == 'white' {
-    background-color: rgba(255,255,255,opacity);
-  }
+  background-color: transparentize($color, $opacity)
 }
 
 // 多行文本溢出显示省略号
@@ -32,54 +28,41 @@
 }
 
 // 一像素边框通用
-@mixin fix-1px-line() {
+@mixin mtui-border-line() {
   content: '';
   position: absolute;
   z-index: 0;
   transform-origin: 0 0;
 }
-@mixin top-line($color: #d9d9d9) {
-  @include fix-1px-line;
+@mixin mtui-border-top-line($color: #d9d9d9) {
+  @include mtui-border-line;
   top: 0;
   left: 0;
   width: 100%;
   border-top: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin bottom-line($color: #d9d9d9) {
-  @include fix-1px-line;
+@mixin mtui-border-bottom-line($color: #d9d9d9) {
+  @include mtui-border-line;
   left: 0;
   bottom: 0;
   width: 100%;
   border-bottom: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin left-line($color: #d9d9d9) {
-  @include fix-1px-line;
+@mixin mtui-border-left-line($color: #d9d9d9) {
+  @include mtui-border-line;
   top: 0;
   left: 0;
   height: 100%;
   border-left: 1px solid $color;
   transform: scaleX(.5);
 }
-@mixin right-line($color: #d9d9d9) {
-  @include fix-1px-line;
+@mixin mtui-border-right-line($color: #d9d9d9) {
+  @include mtui-border-line;
   top: 0;
   right: 0;
   height: 100%;
   border-right: 1px solid $color;
   transform: scaleX(.5);
 }
-
-// @keyframes fadeIn
-//   0%
-//     opacity 0
-//   100%
-//     opacity 1
-
-// @keyframes zoomIn
-//   0%
-//     opacity 0
-//     transform scale3d(0.3, 0.3, 0.3)
-//   50%
-//     opacity 1

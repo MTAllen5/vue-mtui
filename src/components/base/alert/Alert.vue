@@ -59,10 +59,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import '../../../common/css/variable.scss'
-@import '../../../common/css/mixins.scss'
-
-.alert-container
+.alert-container {
   mask(990)
   display flex
   align-items center
