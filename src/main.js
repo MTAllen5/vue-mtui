@@ -2,6 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import Button from './components/base/Button'
+Vue.component(
+  'MButton',
+  Button
+)
+
 /* 导入基础组件 start */
 // import Alert from './components/base/alert'
 // import Confirm from './components/base/confirm'

@@ -1,20 +1,26 @@
 <template>
   <div class="home">
     <div class="testDiv">
-      <p>
-        <Button class="blue" @click="showAlert">显示alert</Button>
-        <Button class="blue plain" @click="showAlertClose">显示alert(可关闭)</Button>
-        <Button class="primary" @click="showConfirm">显示confirm</Button>
-        <Button class="success" @click="showToast">显示toast</Button>
-        <Button class="text blue">文本按钮</Button>
-        <Button class="warn" @click="showOptions">显示options</Button>
-        <Button class="primary" disabled>不可用</Button>
-        <Button class="info" @click="setLoading">显示加载中</Button>
-        <Button class="primary plain" @click="loadingPage">显示加载条</Button>
-        <Button class="success plain" @click="showDatePicker">显示日期选择器</Button>
-        <Button class="warn plain" :loading="btnLoading" @click="setBtnLoading" style="width: 200px;">加载状态按钮</Button>
-      </p>
-      <p><Number :value.sync="counter" style="margin-right: 16px"></Number><Number type="input" :value.sync="counter"></Number></p>
+      <div class="panel">
+        <m-button>default</m-button>
+        <m-button primary>primary</m-button>
+        <m-button error>error</m-button>
+        <m-button>warning</m-button>
+        <m-button>success</m-button>
+        <m-button inline>inline</m-button><m-button inline round>round</m-button>
+        <!-- <MButton class="blue" inline @click="showAlert">显示alert</MButton>
+        <MButton class="blue plain" inline @click="showAlertClose">显示alert(可关闭)</MButton>
+        <MButton class="primary" @click="showConfirm">显示confirm</MButton>
+        <MButton class="success" @click="showToast">显示toast</MButton>
+        <MButton class="text blue">文本按钮</MButton>
+        <MButton class="warn" @click="showOptions">显示options</MButton>
+        <MButton class="primary" disabled>不可用</MButton>
+        <MButton class="info" @click="setLoading">显示加载中</MButton>
+        <MButton class="primary plain" @click="loadingPage">显示加载条</MButton>
+        <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton>
+        <MButton class="warn plain" :loading="btnLoading" @click="setBtnLoading" style="width: 200px;">加载状态按钮</MButton> -->
+      </div>
+      <!-- <p><Number :value.sync="counter" style="margin-right: 16px"></Number><Number type="input" :value.sync="counter"></Number></p>
       <p><Switcher :value="switcher" @change="handleSwitch"></Switcher></p>
       <div style="padding: 0 30px">
         <Former inline label-width="100px">
@@ -28,9 +34,9 @@
             </Selecter>
           </FormItem>
         </Former>
-      </div>
+      </div> -->
       <!-- <p @touchstart="manualSlideStart" @touchmove="manualSlideMove" @touchend="manualSlideEnd"> -->
-      <p>
+      <!-- <p>
         <swiper :options="swiperOption" ref="mySwiper" style="height: 160px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
           <swiper-slide>I'm Slide 1</swiper-slide>
           <swiper-slide>I'm Slide 2</swiper-slide>
@@ -40,21 +46,21 @@
           <swiper-slide>I'm Slide 6</swiper-slide>
           <swiper-slide>I'm Slide 7</swiper-slide>
         </swiper>
-      </p>
+      </p> -->
     </div>
 
-    <Options ref="options">
+    <!-- <Options ref="options">
       <Button class="long plain info" @click="handleOption1" style="border: 0">选项1</Button>
       <Button class="long plain blue" @click="handleOption2" style="border: 0">选项2</Button>
       <Button class="long plain primary" @click="handleOption3" style="border: 0">选项3</Button>
-    </Options>
+    </Options> -->
 
-    <DatePicker ref="datepicker"></DatePicker>
+    <!-- <DatePicker ref="datepicker"></DatePicker> -->
   </div>
 </template>
 
 <script>
-import DatePicker from '@/components/DatePicker'
+// import DatePicker from '@/components/DatePicker'
 
 export default {
   name: 'home',
@@ -75,7 +81,7 @@ export default {
   //   }
   // },
   components: {
-    DatePicker
+    // DatePicker
   },
   methods: {
     showAlert () {
@@ -179,9 +185,14 @@ export default {
 }
 </script>
 
-<style scoped>
-  p { margin-bottom: 10px; }
-  p > button { margin-right: 16px; margin-bottom: 10px; }
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  .panel {
+    padding: 20px;
+  }
   .swiper-slide {
     display: flex;
     justify-content: center;

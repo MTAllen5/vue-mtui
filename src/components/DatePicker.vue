@@ -88,76 +88,76 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../common/css/variable.scss';
-@import '../common/css/mixins.scss';
+// @import '../common/css/variable.scss';
+// @import '../common/css/mixins.scss';
 
-.datepicker-container {
-  @include mask(101);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .datepicker-container {
+//   @include mask(101);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  .datepicker-body {
-    width: 75%;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: $fontXMedium;
-    text-align: center;
-    animation: zoomIn .15s ease forwards;
+//   .datepicker-body {
+//     width: 75%;
+//     background-color: white;
+//     border-radius: 8px;
+//     overflow: hidden;
+//     font-size: $fontXMedium;
+//     text-align: center;
+//     animation: zoomIn .15s ease forwards;
 
-    .datepicker-main {
-      box-sizing: content-box;
-      padding: 30px 0;
-      height: 160px;
-      overflow: hidden;
+//     .datepicker-main {
+//       box-sizing: content-box;
+//       padding: 30px 0;
+//       height: 160px;
+//       overflow: hidden;
 
-      .datepicker-swiper {
-        margin: 0 16px;
-        height: 100%;
+//       .datepicker-swiper {
+//         margin: 0 16px;
+//         height: 100%;
 
-        .swiper-slide {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 40px;
-          border-bottom: 1px solid #e9e9e9;
-          font-size: 20px;
-          opacity: .1;
-          transition: transform .1s;
-          transform: scale(.625);
-          &:last-child {
-            border-bottom: 0;
-          }
-          &.swiper-slide-active {
-            transform: scale(1);
-            opacity: 1;
-          }
-          &.swiper-slide-next,
-          &.swiper-slide-prev {
-            transform: scale(.8);
-            opacity: .6;
-          }
-          &.swiper-disabled {
-            opacity: .1;
-          }
-        }
-      }
-    }
+//         .swiper-slide {
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           height: 40px;
+//           border-bottom: 1px solid #e9e9e9;
+//           font-size: 20px;
+//           opacity: .1;
+//           transition: transform .1s;
+//           transform: scale(.625);
+//           &:last-child {
+//             border-bottom: 0;
+//           }
+//           &.swiper-slide-active {
+//             transform: scale(1);
+//             opacity: 1;
+//           }
+//           &.swiper-slide-next,
+//           &.swiper-slide-prev {
+//             transform: scale(.8);
+//             opacity: .6;
+//           }
+//           &.swiper-disabled {
+//             opacity: .1;
+//           }
+//         }
+//       }
+//     }
 
-    .datepicker-footer {
-      position: relative;
-      display: flex;
-      &::after {
-        @include top-line();
-      }
+//     .datepicker-footer {
+//       position: relative;
+//       display: flex;
+//       &::after {
+//         @include top-line();
+//       }
 
-      button {
-        flex: 1;
-        border: 0;
-        border-radius: 0!important;
-      }
-    }
-  }
-}
+//       button {
+//         flex: 1;
+//         border: 0;
+//         border-radius: 0!important;
+//       }
+//     }
+//   }
+// }
 </style>
