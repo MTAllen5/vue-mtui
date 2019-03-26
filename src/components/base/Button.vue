@@ -1,5 +1,5 @@
 <template>
-  <button class="mtui-btn" :class="classObj" :disabled="disabled || loading" @click.prevent="click">
+  <button :class="classAry" :disabled="disabled || loading" @click.prevent="click">
     <i v-if="loading"></i>
     <span><slot></slot></span>
   </button>
@@ -24,28 +24,32 @@ export default {
       type: Boolean,
       default: false
     },
-    outline: {
+    plain: {
       type: Boolean,
       default: false
+    },
+    size: {
+      type: String,
+      default: 'normal'
     },
     type: {
       type: String,
       default: 'default'
-    },
-    primary: {
-      type: Boolean,
-      defautl: false
     }
   },
   data () {
     return {
-      classObj: {
-        'is-loading': this.loading,
-        'mtui-btn-round': this.round,
-        'mtui-btn-inline': this.inline,
-        'mtui-btn-border': this.outline,
-        'mtui-btn-primary': this.primary
-      }
+      classAry: [
+        'mtui-btn',
+        'mtui-btn-' + this.type,
+        { 'is-loading': this.loading },
+        { 'is-disabled': this.disabled },
+        { 'is-large': this.size === 'large' },
+        { 'is-small': this.size === 'small' },
+        { 'mtui-btn-round': this.round },
+        { 'mtui-btn-inline': this.inline },
+        { 'mtui-btn-plain': this.plain }
+      ]
     }
   },
   methods: {
@@ -68,11 +72,8 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 44px;
-  background-color: white;
   border: 1px solid $colorLine;
-  line-height: 44px;
   font-size: $fontXMedium;
-  color: $black;
   @include text-overflow;
   cursor: pointer;
   outline: none;
@@ -86,7 +87,17 @@ export default {
   }
 
   &-round {
-    border-radius: 4px;
+    border-radius: 6px;
+  }
+
+  &.is-small {
+    height: 34px;
+    font-size: $fontMedium;
+  }
+
+  &.is-large {
+    height: 54px;
+    font-size: $fontXLarge;
   }
 
   &:active {
@@ -107,6 +118,10 @@ export default {
   //         transform rotate(0)
   //       100%
   //         transform rotate(360deg)
+  &-default {
+    background-color: white;
+    color: $black;
+  }
   &-primary {
     background-color: $colorPrimary;
     border-color: $colorPrimary;
@@ -125,30 +140,30 @@ export default {
       background-color: transparentize($colorError, .3);
     }
   }
-  // &.info
-  //   background-color $gray
-  //   color white
-  //   &:active,
-  //   &.is-loading
-  //     background-color alpha($gray, .7)
-  // &.success
-  //   background-color $successColor
-  //   color white
-  //   &:active,
-  //   &.is-loading
-  //     background-color alpha($successColor, .7)
-  // &.warn
-  //   background-color $warnColor
-  //   color white
-  //   &:active,
-  //   &.is-loading
-  //     background-color alpha($warnColor, .7)
-  // &[disabled]
-  //   background-color $lightGray
-  //   color white
-  //   border-color $lightGray
-  //   cursor not-allowed
-
+  &-success {
+    background-color: $colorSuccess;
+    border-color: $colorSuccess;
+    color: white;
+    &:active,
+    &.is-loading {
+      background-color: transparentize($colorSuccess, .3);
+    }
+  }
+  &-warn {
+    background-color: $colorWarn;
+    border-color: $colorWarn;
+    color: white;
+    &:active,
+    &.is-loading {
+      background-color: transparentize($colorWarn, .3);
+    }
+  }
+  &.is-disabled {
+    background-color: $colorDisabled!important;
+    border-color: $colorDisabled!important;
+    color: white;
+    cursor: not-allowed!important;
+  }
 
   // &.plain
   //   border 1px solid $lineColor

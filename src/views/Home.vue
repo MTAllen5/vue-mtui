@@ -3,11 +3,19 @@
     <div class="testDiv">
       <div class="panel">
         <m-button>default</m-button>
-        <m-button primary>primary</m-button>
-        <m-button error>error</m-button>
-        <m-button>warning</m-button>
-        <m-button>success</m-button>
-        <m-button inline>inline</m-button><m-button inline round>round</m-button>
+        <m-button type="primary">primary</m-button>
+        <m-button type="error" size="small">error</m-button>
+        <m-button type="warn" size="large">warn</m-button>
+        <m-button type="success">success</m-button>
+        <m-button disabled>disabled</m-button>
+        <m-button type="error" inline round size="small">small</m-button>
+        <m-button type="warn" inline>inline</m-button>
+        <m-button type="primary" inline round>round</m-button>
+        <m-button type="success" inline round size="large">large</m-button>
+        <m-button type="primary" inline>plain</m-button>
+        <m-button type="success" inline>plain</m-button>
+        <m-button type="error" inline>plain</m-button>
+        <m-button type="warn" inline>plain</m-button>
         <!-- <MButton class="blue" inline @click="showAlert">显示alert</MButton>
         <MButton class="blue plain" inline @click="showAlertClose">显示alert(可关闭)</MButton>
         <MButton class="primary" @click="showConfirm">显示confirm</MButton>
