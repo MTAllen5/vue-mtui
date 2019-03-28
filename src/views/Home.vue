@@ -4,18 +4,30 @@
       <div class="panel">
         <m-button>default</m-button>
         <m-button type="primary">primary</m-button>
-        <m-button type="error" size="small">error</m-button>
-        <m-button type="warn" size="large">warn</m-button>
-        <m-button type="success">success</m-button>
-        <m-button disabled>disabled</m-button>
-        <m-button type="error" inline round size="small">small</m-button>
-        <m-button type="warn" inline>inline</m-button>
-        <m-button type="primary" inline round>round</m-button>
-        <m-button type="success" inline round size="large">large</m-button>
-        <m-button type="primary" inline>plain</m-button>
-        <m-button type="success" inline>plain</m-button>
-        <m-button type="error" inline>plain</m-button>
-        <m-button type="warn" inline>plain</m-button>
+        <m-button type="minor">minor</m-button>
+
+        <m-button disabled>default</m-button>
+        <m-button type="primary" disabled>primary disabled</m-button>
+        <m-button type="minor" disabled>minor disabled</m-button>
+
+        <m-button type="primary" plain>primary plain</m-button>
+        <m-button type="minor" plain>primary plain</m-button>
+
+        <m-button inline style="margin-right: 10px;">default</m-button>
+        <m-button type="primary" inline style="margin-right: 10px;">primary</m-button>
+        <m-button type="minor" inline style="margin-right: 10px;">minor</m-button>
+        <br>
+        <m-button inline small style="margin-right: 10px;">default</m-button>
+        <m-button type="primary" inline small style="margin-right: 10px;">primary</m-button>
+        <m-button type="minor" inline small style="margin-right: 10px;">minor</m-button>
+        <br>
+        <m-button inline small round style="margin-right: 10px;">default</m-button>
+        <m-button type="primary" inline small round style="margin-right: 10px;">primary</m-button>
+        <m-button type="minor" inline small round style="margin-right: 10px;">minor</m-button>
+        <br>
+        <m-button inline text>default</m-button>
+        <m-button type="primary" inline text>primary</m-button>
+        <m-button type="minor" inline text>minor</m-button>
         <!-- <MButton class="blue" inline @click="showAlert">显示alert</MButton>
         <MButton class="blue plain" inline @click="showAlertClose">显示alert(可关闭)</MButton>
         <MButton class="primary" @click="showConfirm">显示confirm</MButton>

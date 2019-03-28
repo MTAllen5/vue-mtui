@@ -1,40 +1,44 @@
 <template>
   <button :class="classAry" :disabled="disabled || loading" @click.prevent="click">
     <i v-if="loading"></i>
-    <span><slot></slot></span>
+    <label><slot></slot></label>
   </button>
 </template>
 
 <script>
 export default {
   props: {
-    round: {
+    round: { // 圆角按钮
       type: Boolean,
       default: false
     },
-    loading: {
+    loading: { // 正在加载
       type: Boolean,
       default: false
     },
-    disabled: {
+    disabled: { // 不可用
       type: Boolean,
       default: false
     },
-    inline: {
+    inline: { // 行内按钮
       type: Boolean,
       default: false
     },
-    plain: {
+    plain: { // 平面按钮
       type: Boolean,
       default: false
     },
-    size: {
-      type: String,
-      default: 'normal'
+    small: { // 尺寸
+      type: Boolean,
+      default: false
     },
-    type: {
+    type: { // 按钮类型
       type: String,
       default: 'default'
+    },
+    text: { // 文本按钮
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -44,11 +48,11 @@ export default {
         'mtui-btn-' + this.type,
         { 'is-loading': this.loading },
         { 'is-disabled': this.disabled },
-        { 'is-large': this.size === 'large' },
-        { 'is-small': this.size === 'small' },
-        { 'mtui-btn-round': this.round },
-        { 'mtui-btn-inline': this.inline },
-        { 'mtui-btn-plain': this.plain }
+        { 'is-small': this.small },
+        { 'is-round': this.round },
+        { 'is-inline': this.inline },
+        { 'is-plain': this.plain },
+        { 'is-text': this.text }
       ]
     }
   },
@@ -66,28 +70,28 @@ export default {
 
 .mtui-btn {
   margin-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   display: block;
   box-sizing: border-box;
   width: 100%;
   height: 44px;
-  border: 1px solid $colorLine;
+  border: 1px solid $colorDefault;
+  border-radius: 4px;
   font-size: $fontXMedium;
   @include text-overflow;
   cursor: pointer;
   outline: none;
   transition: all .2s;
+  -webkit-appearance: none;
 
-  &-inline {
-    margin-left: 10px;
-    margin-right: 10px;
+  &.is-inline {
     display: inline-block;
     width: auto;
   }
 
-  &-round {
-    border-radius: 6px;
+  &.is-round {
+    border-radius: 44px;
   }
 
   &.is-small {
@@ -95,13 +99,22 @@ export default {
     font-size: $fontMedium;
   }
 
-  &.is-large {
-    height: 54px;
-    font-size: $fontXLarge;
+  &.is-disabled {
+    opacity: .6;
+  }
+
+  &.is-plain {
+    background-color: white;
+    color: $black;
+  }
+
+  &.is-text {
+    background-color: white;
+    border-color: transparent;
   }
 
   &:active {
-    background-color: transparentize($colorDefault, .7);
+    opacity: .6;
   }
   // &.is-loading
   //   i
@@ -126,74 +139,20 @@ export default {
     background-color: $colorPrimary;
     border-color: $colorPrimary;
     color: white;
-    &:active,
-    &.is-loading {
-      background-color: transparentize($colorPrimary, .3);
+    &.is-plain,
+    &.is-text {
+      color: $colorPrimary;
     }
   }
-  &-error {
-    background-color: $colorError;
-    border-color: $colorError;
+  &-minor {
+    background-color: $colorMinor;
+    border-color: $colorMinor;
     color: white;
-    &:active,
-    &.is-loading {
-      background-color: transparentize($colorError, .3);
+    &.is-plain,
+    &.is-text {
+      color: $colorMinor;
     }
   }
-  &-success {
-    background-color: $colorSuccess;
-    border-color: $colorSuccess;
-    color: white;
-    &:active,
-    &.is-loading {
-      background-color: transparentize($colorSuccess, .3);
-    }
-  }
-  &-warn {
-    background-color: $colorWarn;
-    border-color: $colorWarn;
-    color: white;
-    &:active,
-    &.is-loading {
-      background-color: transparentize($colorWarn, .3);
-    }
-  }
-  &.is-disabled {
-    background-color: $colorDisabled!important;
-    border-color: $colorDisabled!important;
-    color: white;
-    cursor: not-allowed!important;
-  }
-
-  // &.plain
-  //   border 1px solid $lineColor
-  //   background-color transparent
-  //   &:active
-  //     background-color transparent
-  //     opacity .5
-  //   &.is-loading
-  //     background-color transparent
-  //     i
-  //       background-image url($iconLoading)
-  //   &.info
-  //     border-color $gray
-  //     color $gray
-  //   &.primary
-  //     border-color $mainColor
-  //     color $mainColor
-  //   &.warn
-  //     border-color $warnColor
-  //     color $warnColor
-  //   &.success
-  //     border-color $successColor
-  //     color $successColor
-  //   &.blue
-  //     border-color $linkColor
-  //     color $linkColor
-  //   &[disabled]
-  //     opacity .5
-  //     cursor not-allowed
-  
 
   // &.text
   //   padding 0 16px
