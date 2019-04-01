@@ -1,11 +1,13 @@
 <template>
-  <button :class="classAry" :disabled="disabled || loading" @click.prevent="click">
-    <i v-if="loading"></i>
+  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @click.prevent="click">
+    <icon type="ios-sync" v-if="loading && !isIconOnly"></icon>
     <label><slot></slot></label>
   </button>
 </template>
 
 <script>
+import Icon from './icon/Icon'
+
 export default {
   props: {
     round: { // 圆角按钮
@@ -39,6 +41,10 @@ export default {
     text: { // 文本按钮
       type: Boolean,
       default: false
+    },
+    noRadius: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -47,34 +53,41 @@ export default {
         'mtui-btn',
         'mtui-btn-' + this.type,
         { 'is-loading': this.loading },
-        { 'is-disabled': this.disabled },
+        { 'is-disabled': this.disabled || this.loading },
         { 'is-small': this.small },
         { 'is-round': this.round },
         { 'is-inline': this.inline },
         { 'is-plain': this.plain },
-        { 'is-text': this.text }
-      ]
+        { 'is-text': this.text },
+        { 'no-radius': this.noRadius }
+      ],
+      isIconOnly: false
+    }
+  },
+  mounted () {
+    if (this.$slots.default.length === 1 && this.$slots.default[0].elm.nodeName.toUpperCase() === 'I') {
+      this.isIconOnly = true
     }
   },
   methods: {
     click () {
       this.$emit('click')
     }
+  },
+  components: {
+    Icon
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../../common/css/variable.scss';
-@import '../../common/css/mixins.scss';
-
 .mtui-btn {
-  margin-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
   display: block;
   box-sizing: border-box;
   width: 100%;
+  min-width: 44px;
   height: 44px;
   border: 1px solid $colorDefault;
   border-radius: 4px;
@@ -105,7 +118,6 @@ export default {
 
   &.is-plain {
     background-color: white;
-    color: $black;
   }
 
   &.is-text {
@@ -113,24 +125,33 @@ export default {
     border-color: transparent;
   }
 
+  &.is-icon-only {
+    padding: 0;
+    font-size: $fontXLarge;
+    &.is-small {
+      font-size: $fontXMedium;
+    }
+  }
+
+  &.no-radius {
+    border-radius: 0;
+  }
+
   &:active {
     opacity: .6;
   }
-  // &.is-loading
-  //   i
-  //     display inline-block
-  //     margin-right 6px
-  //     width 1em
-  //     height 1em
-  //     background url($iconLoadingWhite) center center no-repeat
-  //     background-size 100% 100%
-  //     vertical-align middle
-  //     animation rotate-loading 1s linear forwards infinite
-  //     @keyframes rotate-loading
-  //       0%
-  //         transform rotate(0)
-  //       100%
-  //         transform rotate(360deg)
+
+  &.is-loading {
+    >.ion {
+      margin-right: 6px;
+      animation: rotate-loading 1s linear forwards infinite;
+      @keyframes rotate-loading {
+        0% { transform: rotate(0); }
+        100% { transform: rotate(360deg); }
+      }
+    }
+  }
+
   &-default {
     background-color: white;
     color: $black;
@@ -153,24 +174,5 @@ export default {
       color: $colorMinor;
     }
   }
-
-  // &.text
-  //   padding 0 16px
-  //   font-size $fontMedium
-  //   background-color transparent
-  //   &:active
-  //     background-color transparent
-  //     opacity .7
-  //   &.info
-  //     color $gray
-  //   &.primary
-  //     color $mainColor
-  //   &.warn
-  //     color $warnColor
-  //   &.success
-  //     color $successColor
-  //   &.blue
-  //     color $linkColor
 }
 </style>
-

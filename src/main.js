@@ -2,23 +2,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import Button from './components/base/Button'
-Vue.component(
-  'MButton',
-  Button
-)
+import Button from './components/Button'
+import Icon from './components/icon/Icon'
 
 /* 导入基础组件 start */
-// import Alert from './components/base/alert'
-// import Confirm from './components/base/confirm'
-// import Toast from './components/base/toast'
-// import Loading from './components/base/loading'
+import Alert from './components/alert'
+import Confirm from './components/confirm'
+import Toast from './components/toast'
+import Loading from './components/loading'
 // import LoadingBar from './components/base/loadingbar'
 
-// Vue.use(Alert)
-// Vue.use(Confirm)
-// Vue.use(Toast)
-// Vue.use(Loading)
+Vue.use(Alert)
+Vue.use(Confirm)
+Vue.use(Toast, 'haha')
+Vue.use(Loading)
 // Vue.use(LoadingBar)
 
 // const requireComponent = require.context(
@@ -44,6 +41,14 @@ Vue.component(
 //   )
 // })
 /* 导入基础组件 end */
+Vue.component(
+  'MButton',
+  Button
+)
+Vue.component(
+  'MIcon',
+  Icon
+)
 
 Vue.config.productionTip = false
 

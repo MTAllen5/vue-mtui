@@ -6,18 +6,20 @@ Loading.install = function (Vue, options = {}) {
   let LoadingInstance = new LoadingConstructor().$mount()
   document.body.appendChild(LoadingInstance.$el)
 
-  Vue.prototype.$loading = (isLoading, title) => {
-    if (isLoading) {
-      // 配置参数
-      if (title) {
-        LoadingInstance.$data.title = title
-      }
-
-      LoadingInstance.show()
-    } else {
-      LoadingInstance.hide()
+  Vue.prototype.$loading = (type, tips) => {
+    // 配置参数
+    if (tips) {
+      LoadingInstance.$data.tips = tips
     }
+
+    LoadingInstance[type]()
   }
+
+  ['show', 'hide'].forEach(type => {
+    Vue.prototype.$loading[type] = (tips) => {
+      return Vue.prototype.$loading(type, tips)
+    }
+  })
 }
 
 export default Loading

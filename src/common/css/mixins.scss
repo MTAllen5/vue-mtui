@@ -9,6 +9,12 @@
   background-color: transparentize($color, $opacity)
 }
 
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // 多行文本溢出显示省略号
 @mixin line-limit($lines: 2) {
   overflow: hidden;

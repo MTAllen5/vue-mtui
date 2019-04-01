@@ -7,11 +7,11 @@
         <m-button type="minor">minor</m-button>
 
         <m-button disabled>default</m-button>
-        <m-button type="primary" disabled>primary disabled</m-button>
-        <m-button type="minor" disabled>minor disabled</m-button>
+        <m-button type="primary" disabled>primary</m-button>
+        <m-button type="minor" disabled>minor</m-button>
 
-        <m-button type="primary" plain>primary plain</m-button>
-        <m-button type="minor" plain>primary plain</m-button>
+        <m-button type="primary" plain>primary</m-button>
+        <m-button type="minor" plain>minor</m-button>
 
         <m-button inline style="margin-right: 10px;">default</m-button>
         <m-button type="primary" inline style="margin-right: 10px;">primary</m-button>
@@ -28,14 +28,20 @@
         <m-button inline text>default</m-button>
         <m-button type="primary" inline text>primary</m-button>
         <m-button type="minor" inline text>minor</m-button>
-        <!-- <MButton class="blue" inline @click="showAlert">显示alert</MButton>
-        <MButton class="blue plain" inline @click="showAlertClose">显示alert(可关闭)</MButton>
-        <MButton class="primary" @click="showConfirm">显示confirm</MButton>
-        <MButton class="success" @click="showToast">显示toast</MButton>
-        <MButton class="text blue">文本按钮</MButton>
-        <MButton class="warn" @click="showOptions">显示options</MButton>
+        <br>
+        <m-button inline loading style="margin-right: 10px;">default</m-button>
+        <m-button inline type="primary" loading style="margin-right: 10px;">primary</m-button>
+        <m-button inline type="minor" plain loading style="margin-right: 10px;">minor</m-button>
+        <br>
+        <m-button inline round style="margin-right: 10px;"><m-icon type="ios-search"></m-icon></m-button>
+        <m-button inline round type="primary" style="margin-right: 10px;"><m-icon type="ios-checkmark"></m-icon></m-button>
+        <m-button inline round type="minor" style="margin-right: 10px;"><m-icon type="ios-trash"></m-icon></m-button>
+        <m-button type="primary" @click="showAlert">显示alert</m-button>
+        <m-button type="minor" @click="showConfirm">显示confirm</m-button>
+        <m-button @click="showToast">显示toast</m-button>
+        <m-button @click="setLoading">显示加载中</m-button>
+        <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
         <MButton class="primary" disabled>不可用</MButton>
-        <MButton class="info" @click="setLoading">显示加载中</MButton>
         <MButton class="primary plain" @click="loadingPage">显示加载条</MButton>
         <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton>
         <MButton class="warn plain" :loading="btnLoading" @click="setBtnLoading" style="width: 200px;">加载状态按钮</MButton> -->
@@ -106,27 +112,19 @@ export default {
   methods: {
     showAlert () {
       this.$alert({
-        message: '客官老爷，小的还没有开拓完疆土， 待打下这一片江山后，欢迎您再来啊！',
-        confirmTxt: '朕一定会再来的'
-      })
-    },
-    showAlertClose () {
-      this.$alert({
         message: '您还未加入企业，需要绑定企业才可享受团餐优惠！',
-        confirmTxt: '加入企业团餐',
-        closeable: true
+        confirmTxt: '知道啦'
       })
     },
     showConfirm () {
       this.$confirm({
         message: '贵公司还未加入平台吗？贵客可直接创建一个新的企业团餐账号或者将页面分享给企业福利主管~',
-        cancelTxt: '分享',
-        confirmTxt: '创建',
-        closeable: true
+        cancelTxt: '不要',
+        confirmTxt: '创建'
       })
     },
     showToast () {
-      this.$toast.center('信息信息')
+      this.$toast.bottom('信息信息')
     },
     getIncrease (val) {
       this.counter = val
@@ -140,9 +138,9 @@ export default {
       this.$refs.options.show()
     },
     setLoading () {
-      this.$loading(1)
+      this.$loading.show()
       setTimeout(() => {
-        this.$loading(0)
+        this.$loading.hide()
       }, 2000)
     },
     handleOption1 () {

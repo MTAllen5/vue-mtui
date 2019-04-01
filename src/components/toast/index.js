@@ -1,10 +1,11 @@
 import Toast from './Toast'
 
 Toast.install = function (Vue, options = {}) {
-  Vue.prototype.$toast = (message, type, timeout) => {
-    let ToastConstructor = Vue.extend(Toast)
-    let ToastInstance = new ToastConstructor().$mount()
+  // 创建子类
+  let ToastConstructor = Vue.extend(Toast)
+  let ToastInstance = new ToastConstructor().$mount()
 
+  Vue.prototype.$toast = (message, type, timeout) => {
     if (typeof options !== 'number' || typeof message === 'string') {
       ToastInstance.$data.message = message
     }
