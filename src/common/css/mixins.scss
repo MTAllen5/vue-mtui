@@ -33,38 +33,38 @@
 }
 
 // 一像素边框通用
-@mixin mtui-border-line() {
+@mixin border-line() {
   content: '';
   position: absolute;
   z-index: 0;
   transform-origin: 0 0;
 }
-@mixin mtui-border-top-line($color: #d9d9d9) {
-  @include mtui-border-line;
+@mixin border-top-line($color: #d9d9d9) {
+  @include border-line;
   top: 0;
   left: 0;
   width: 100%;
   border-top: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin mtui-border-bottom-line($color: #d9d9d9) {
-  @include mtui-border-line;
+@mixin border-bottom-line($color: #d9d9d9) {
+  @include border-line;
   left: 0;
   bottom: 0;
   width: 100%;
   border-bottom: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin mtui-border-left-line($color: #d9d9d9) {
-  @include mtui-border-line;
+@mixin border-left-line($color: #d9d9d9) {
+  @include border-line;
   top: 0;
   left: 0;
   height: 100%;
   border-left: 1px solid $color;
   transform: scaleX(.5);
 }
-@mixin mtui-border-right-line($color: #d9d9d9) {
-  @include mtui-border-line;
+@mixin border-right-line($color: #d9d9d9) {
+  @include border-line;
   top: 0;
   right: 0;
   height: 100%;

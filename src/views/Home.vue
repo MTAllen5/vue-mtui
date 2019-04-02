@@ -1,50 +1,13 @@
 <template>
   <div class="home">
     <div class="testDiv">
-      <div class="panel">
-        <m-button>default</m-button>
-        <m-button type="primary">primary</m-button>
-        <m-button type="minor">minor</m-button>
-
-        <m-button disabled>default</m-button>
-        <m-button type="primary" disabled>primary</m-button>
-        <m-button type="minor" disabled>minor</m-button>
-
-        <m-button type="primary" plain>primary</m-button>
-        <m-button type="minor" plain>minor</m-button>
-
-        <m-button inline style="margin-right: 10px;">default</m-button>
-        <m-button type="primary" inline style="margin-right: 10px;">primary</m-button>
-        <m-button type="minor" inline style="margin-right: 10px;">minor</m-button>
-        <br>
-        <m-button inline small style="margin-right: 10px;">default</m-button>
-        <m-button type="primary" inline small style="margin-right: 10px;">primary</m-button>
-        <m-button type="minor" inline small style="margin-right: 10px;">minor</m-button>
-        <br>
-        <m-button inline small round style="margin-right: 10px;">default</m-button>
-        <m-button type="primary" inline small round style="margin-right: 10px;">primary</m-button>
-        <m-button type="minor" inline small round style="margin-right: 10px;">minor</m-button>
-        <br>
-        <m-button inline text>default</m-button>
-        <m-button type="primary" inline text>primary</m-button>
-        <m-button type="minor" inline text>minor</m-button>
-        <br>
-        <m-button inline loading style="margin-right: 10px;">default</m-button>
-        <m-button inline type="primary" loading style="margin-right: 10px;">primary</m-button>
-        <m-button inline type="minor" plain loading style="margin-right: 10px;">minor</m-button>
-        <br>
-        <m-button inline round style="margin-right: 10px;"><m-icon type="ios-search"></m-icon></m-button>
-        <m-button inline round type="primary" style="margin-right: 10px;"><m-icon type="ios-checkmark"></m-icon></m-button>
-        <m-button inline round type="minor" style="margin-right: 10px;"><m-icon type="ios-trash"></m-icon></m-button>
+        <m-button @click="showToast">显示toast</m-button>
         <m-button type="primary" @click="showAlert">显示alert</m-button>
         <m-button type="minor" @click="showConfirm">显示confirm</m-button>
-        <m-button @click="showToast">显示toast</m-button>
-        <m-button @click="setLoading">显示加载中</m-button>
+        <m-button type="primary" plain @click="setLoading">显示加载中</m-button>
+        <m-button type="minor" plain @click="loadingPage">显示加载条</m-button>
         <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
-        <MButton class="primary" disabled>不可用</MButton>
-        <MButton class="primary plain" @click="loadingPage">显示加载条</MButton>
-        <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton>
-        <MButton class="warn plain" :loading="btnLoading" @click="setBtnLoading" style="width: 200px;">加载状态按钮</MButton> -->
+        <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton> -->
       </div>
       <!-- <p><Number :value.sync="counter" style="margin-right: 16px"></Number><Number type="input" :value.sync="counter"></Number></p>
       <p><Switcher :value="switcher" @change="handleSwitch"></Switcher></p>
@@ -82,7 +45,6 @@
     </Options> -->
 
     <!-- <DatePicker ref="datepicker"></DatePicker> -->
-  </div>
 </template>
 
 <script>
@@ -204,13 +166,6 @@ export default {
 </script>
 
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  .panel {
-    padding: 20px;
-  }
   .swiper-slide {
     display: flex;
     justify-content: center;

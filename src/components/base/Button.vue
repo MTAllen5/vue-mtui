@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .mtui-btn {
   padding-left: 15px;
   padding-right: 15px;
@@ -121,7 +121,7 @@ export default {
   }
 
   &.is-text {
-    background-color: white;
+    background-color: transparent;
     border-color: transparent;
   }
 
@@ -134,6 +134,7 @@ export default {
   }
 
   &.no-radius {
+    border: none;
     border-radius: 0;
   }
 

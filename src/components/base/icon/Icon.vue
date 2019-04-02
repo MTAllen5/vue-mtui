@@ -18,7 +18,7 @@
   }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 @import 'ionicons/css/ionicons.min.css'
 </style>
 

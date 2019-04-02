@@ -1,7 +1,7 @@
 <template>
   <transition name="fadeIn">
-  <div class="loadingbar-container" @touchmove.prevent v-if="showFlag">
-    <div class="loadingbar-progress" :style="{'width': progress + '%'}"></div>
+  <div class="mtui-loadingbar-container" @touchmove.prevent v-if="showFlag">
+    <div class="mtui-loadingbar-progress" :style="{'width': progress + '%'}"></div>
   </div>
   </transition>
 </template>
@@ -51,21 +51,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../common/css/variable.scss'
-@import '../../../common/css/mixins.scss'
+.mtui-loadingbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  height: 2px;
 
-.loadingbar-container
-  position fixed
-  top 0
-  left 0
-  z-index 900
-  width 100%
-  height 2px
-
-  .loadingbar-progress
-    width 0
-    height 100%
-    background-color $mainColor
-    transition width .2s linear
+  .mtui-loadingbar-progress {
+    width: 0;
+    height: 100%;
+    background-color: $colorPrimary;
+    transition: width .2s linear;
+  }
+}
 </style>
-

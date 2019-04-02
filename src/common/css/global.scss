@@ -9,6 +9,11 @@
   }
 }
 
+.mtui-box {
+  padding: 20px;
+  background-color: white;
+}
+
 // 遮罩层
 .mtui-mask {
   @include mask();

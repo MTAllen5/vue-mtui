@@ -15,7 +15,7 @@
       padding: 15px 20px 0 20px;
       overflow: hidden;
       // &::after {
-      //   @include mtui-border-bottom-line();
+      //   @include border-bottom-line();
       // }
 
       .mtui-dialog-title {
@@ -37,7 +37,7 @@
       position: relative;
       @include flex-center();
       &::before {
-        @include mtui-border-top-line();
+        @include border-top-line();
       }
     }
   }
