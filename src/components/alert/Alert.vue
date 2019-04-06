@@ -30,7 +30,7 @@ export default {
       title: '',
       message: '',
       confirmTxt: '确定',
-      confirmFn: null,
+      onConfirm: null,
       closeable: false
     }
   },
@@ -43,14 +43,14 @@ export default {
       this.showFlag = true
     },
     alert () {
+      this.onConfirm && this.onConfirm()
       this.hide()
-      this.confirmFn && this.confirmFn()
     },
     dataReset () { // 关闭的时候重置默认数据，以防下次调用使用了旧数据
       this.title = ''
       this.message = ''
       this.confirmTxt = '确定'
-      this.confirmFn = null
+      this.onConfirm = null
       this.closeable = false
     }
   }

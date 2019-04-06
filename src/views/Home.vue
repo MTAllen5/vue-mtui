@@ -1,9 +1,35 @@
 <template>
   <div class="home">
+    <m-tl type="1">MTUI</m-tl>
+    <p class="mtui-p">这是一套基于vue2.0的UI框架，组件参考了weui、mint-ui、ElementUI、ant design的设计。目前只是作者用来练习Vue组件使用。</p>
+    <m-panel>
+      <div slot="head">Basic 基础组件</div>
+      <div>
+        <m-cell icon="ios-basketball" link="/demo/buttons" arrow>Button 按钮</m-cell>
+        <m-cell icon="ios-camera" link="/demo/icons" arrow>Icon 图标</m-cell>
+        <m-cell icon="ios-home" link="/demo/titles" arrow>Title 标题</m-cell>
+        <m-cell icon="ios-airplane" link="/demo/panels" arrow>Panel 面板</m-cell>
+        <m-cell icon="ios-alarm" link="/demo/cells" arrow>Cell 单行列表</m-cell>
+        <m-cell icon="ios-beer" link="/demo/grids" arrow>Grid 网格</m-cell>
+      </div>
+    </m-panel>
+    <m-panel>
+      <div slot="head">MessageBox 消息组件</div>
+      <div>
+        <m-cell icon="ios-cellular" link="/demo/alert" arrow>Alert 提示窗</m-cell>
+        <m-cell icon="ios-cafe" link="/demo/confirm" arrow>Confirm 确认窗</m-cell>
+        <m-cell icon="ios-flash" link="/demo/toast" arrow>Toast 消息提示</m-cell>
+      </div>
+    </m-panel>
+    <m-panel>
+      <div slot="head">Other 其他组件</div>
+      <div>
+        <m-cell icon="ios-eye" link="/demo/loading" arrow>Loading 加载提示</m-cell>
+        <m-cell icon="ios-heart" link="/demo/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
+      </div>
+    </m-panel>
     <div class="testDiv">
         <m-button @click="showToast">显示toast</m-button>
-        <m-button type="primary" @click="showAlert">显示alert</m-button>
-        <m-button type="minor" @click="showConfirm">显示confirm</m-button>
         <m-button type="primary" plain @click="setLoading">显示加载中</m-button>
         <m-button type="minor" plain @click="loadingPage">显示加载条</m-button>
         <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
@@ -72,19 +98,6 @@ export default {
     // DatePicker
   },
   methods: {
-    showAlert () {
-      this.$alert({
-        message: '您还未加入企业，需要绑定企业才可享受团餐优惠！',
-        confirmTxt: '知道啦'
-      })
-    },
-    showConfirm () {
-      this.$confirm({
-        message: '贵公司还未加入平台吗？贵客可直接创建一个新的企业团餐账号或者将页面分享给企业福利主管~',
-        cancelTxt: '不要',
-        confirmTxt: '创建'
-      })
-    },
     showToast () {
       this.$toast.bottom('信息信息')
     },

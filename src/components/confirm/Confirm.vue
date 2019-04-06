@@ -32,8 +32,8 @@ export default {
       message: '',
       cancelTxt: '取消',
       confirmTxt: '确定',
-      cancelFn: null,
-      confirmFn: null,
+      onCancel: null,
+      onConfirm: null,
       closeable: false
     }
   },
@@ -46,20 +46,20 @@ export default {
       this.showFlag = true
     },
     confirm () {
+      this.onConfirm && this.onConfirm()
       this.hide()
-      this.confirmFn && this.confirmFn()
     },
     cancel () {
+      this.onCancel && this.onCancel()
       this.hide()
-      this.cancelFn && this.cancelFn()
     },
     dataReset () { // 关闭的时候重置默认数据，以防下次调用使用了旧数据
       this.title = ''
       this.message = ''
       this.cancelTxt = '取消'
       this.confirmTxt = '确定'
-      this.cancelFn = null
-      this.confirmFn = null
+      this.onCancel = null
+      this.onConfirm = null
       this.closeable = false
     }
   }

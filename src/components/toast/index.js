@@ -6,7 +6,7 @@ Toast.install = function (Vue, options = {}) {
   let ToastInstance = new ToastConstructor().$mount()
 
   Vue.prototype.$toast = (message, type, timeout) => {
-    if (typeof options !== 'number' || typeof message === 'string') {
+    if (typeof message === 'string') {
       ToastInstance.$data.message = message
     }
     if (typeof type === 'string') {

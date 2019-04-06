@@ -1,5 +1,7 @@
 <template>
   <div>
+    <m-tl type="1">Button</m-tl>
+
     <m-panel>
       <div slot="head">普通按钮</div>
       <m-box>
@@ -96,7 +98,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-btn {
 
   &:not(:last-child) {

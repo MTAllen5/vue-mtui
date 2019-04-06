@@ -1,5 +1,5 @@
 <template>
-  <div class="mtui mtui-panel">
+  <div class="mtui-panel">
     <div class="mtui-panel-head" v-if="hasHead">
       <slot name="head"></slot>
     </div>
@@ -16,6 +16,7 @@
 export default {
   data () {
     return {
+      hasTitle: false,
       hasHead: false,
       hasFoot: false
     }
@@ -29,8 +30,8 @@ export default {
 
 <style lang="scss">
 .mtui-panel {
+  @extend .mtui;
   position: relative;
-  background-color: white;
   
   &:not(:first-child) {
     margin-top: 10px;
@@ -43,8 +44,14 @@ export default {
     @include border-bottom-line();
   }
 
-  .mtui-panel-head {
+  .mtui-panel-head,
+  .mtui-panel-body,
+  .mtui-panel-foot {
     position: relative;
+    background: #fff;
+  }
+
+  .mtui-panel-head {
     padding: 10px 15px;
     color: lighten($black, 40%);
     font-size: $fontSmall;

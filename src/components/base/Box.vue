@@ -1,5 +1,5 @@
 <template>
-  <div class="mtui mtui-box">
+  <div class="mtui-box">
     <slot></slot>
   </div>
 </template>
@@ -9,3 +9,10 @@ export default {
   
 }
 </script>
+
+<style lang="scss">
+.mtui-box {
+  @extend .mtui;
+}
+</style>
+

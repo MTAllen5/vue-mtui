@@ -8,10 +8,10 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: $colorBg;
 }
 
 #app {
-  background-color: $colorBg;
   font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
