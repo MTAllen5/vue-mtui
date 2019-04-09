@@ -4,6 +4,7 @@
 
 <script>
   export default {
+    name: 'mtui-icon',
     props: {
       type: {
         type: String,

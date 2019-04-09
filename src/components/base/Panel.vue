@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'mtui-panel',
   data () {
     return {
       hasTitle: false,
@@ -32,6 +33,7 @@ export default {
 .mtui-panel {
   @extend .mtui;
   position: relative;
+  overflow: hidden;
   
   &:not(:first-child) {
     margin-top: 10px;
@@ -54,9 +56,26 @@ export default {
   .mtui-panel-head {
     padding: 10px 15px;
     color: lighten($black, 40%);
-    font-size: $fontSmall;
+    font-size: $fontMedium;
     &::after {
       @include border-bottom-line();
+      left: 15px;
+    }
+  }
+
+  .mtui-panel-foot {
+    padding: 10px 15px;
+    color: lighten($black, 60%);
+    font-size: $fontMedium;
+    &::before {
+      @include border-top-line();
+      left: 15px;
+    }
+
+    .mtui-cell {
+      padding: 0;
+      font-size: $fontMedium;
+      color: $colorMinor;
     }
   }
 

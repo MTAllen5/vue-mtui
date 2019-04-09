@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'mtui-loading',
   data () {
     return {
       showFlag: false,

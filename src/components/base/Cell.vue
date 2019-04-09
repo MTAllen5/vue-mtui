@@ -1,5 +1,5 @@
 <template>
-  <div class="mtui-cell" @click="toLink">
+  <div :class="['mtui-cell', {'has-icon': icon !== ''}]" @click="toLink">
     <div class="mtui-cell-icon" v-if="icon !== ''">
       <m-icon :type="icon"></m-icon>
     </div>
@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'mtui-cell',
   props: {
     icon: {
       type: String,
@@ -47,9 +48,14 @@ export default {
   padding: 10px 15px;
   font-size: $fontXMedium;
   line-height: 1.6;
+  overflow: hidden;
 
   &:not(:first-child)::before {
     @include border-top-line();
+  }
+
+  &.has-icon::before {
+    left: 48px;
   }
 
   .mtui-cell-icon {

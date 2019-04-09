@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'mtui-loadingbar',
   data () {
     return {
       showFlag: false,

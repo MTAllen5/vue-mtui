@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'mtui-title',
   props: {
     type: {
       type: String,

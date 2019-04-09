@@ -9,6 +9,7 @@
 import Icon from './icon/Icon'
 
 export default {
+  name: 'mtui-button',
   props: {
     round: { // 圆角按钮
       type: Boolean,
