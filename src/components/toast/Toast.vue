@@ -1,5 +1,6 @@
 <template>
   <div class="mtui-toast" :class="'mtui-toast-' + type">
+    <m-icon :type="icon" v-if="icon !== ''"></m-icon>
     <div class="mtui-toast-content">{{ message }}</div>
   </div>
 </template>
@@ -9,6 +10,7 @@ export default {
   name: 'mtui-toast',
   data () {
     return {
+      icon: '',
       message: '',
       timeout: 1000,
       type: 'bottom'
@@ -29,13 +31,22 @@ export default {
   text-align: center;
   color: white;
 
+  .ion {
+    display: block;
+    font-size: 100px;
+    line-height: .8;
+    &::before {
+      line-height: inherit;
+    }
+  }
+
   .mtui-toast-content {
-    font-size: $fontMedium;
+    font-size: $fontXMedium;
     word-break: break-all;
   }
 
   &.mtui-toast-top {
-    top: 8%;
+    top: 1%;
     transform: translate3d(-50%, 0, 0);
     animation: zoomIn-top .1s ease-out forwards;
   }

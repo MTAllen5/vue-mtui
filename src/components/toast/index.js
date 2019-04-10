@@ -1,19 +1,26 @@
 import Toast from './Toast'
 
 Toast.install = function (Vue, options = {}) {
-  // 创建子类
-  let ToastConstructor = Vue.extend(Toast)
-  let ToastInstance = new ToastConstructor().$mount()
+  
+  Vue.prototype.$toast = (params) => {
+    // 创建子类
+    let ToastConstructor = Vue.extend(Toast)
+    let ToastInstance = new ToastConstructor().$mount()
 
-  Vue.prototype.$toast = (message, type, timeout) => {
-    if (typeof message === 'string') {
-      ToastInstance.$data.message = message
-    }
-    if (typeof type === 'string') {
-      ToastInstance.$data.type = type
-    }
-    if (typeof timeout === 'number') {
-      ToastInstance.$data.timeout = timeout
+    if (typeof params === 'string') {
+      ToastInstance.$data.message = params
+    } else if (typeof params === 'object') {
+      if (params.message && typeof params.message === 'string') {
+        Object.keys(ToastInstance.$data).forEach(key => {
+          if (typeof params[key] !== 'undefined') {
+            ToastInstance.$data[key] = params[key]
+          }
+        })
+      } else {
+        throw new TypeError('错误的提示文本类型')
+      }
+    } else {
+      throw new TypeError('参数错误')
     }
 
     document.body.appendChild(ToastInstance.$el)
@@ -23,8 +30,18 @@ Toast.install = function (Vue, options = {}) {
   }
 
   ['bottom', 'center', 'top'].forEach(type => {
-    Vue.prototype.$toast[type] = (tips) => {
-      return Vue.prototype.$toast(tips, type)
+    Vue.prototype.$toast[type] = (params) => {
+      if (typeof params === 'string') {
+        params = {
+          message: params,
+          type: type
+        }
+      } else if (typeof params === 'object') {
+        params.type = type
+      } else {
+        throw new TypeError('参数错误')
+      }
+      return Vue.prototype.$toast(params)
     }
   })
 }

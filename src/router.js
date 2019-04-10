@@ -6,9 +6,13 @@ import Button from './views/Button.vue'
 import Icon from './views/Icon.vue'
 import Title from './views/Title.vue'
 import Panel from './views/Panel.vue'
+import Cell from './views/Cell.vue'
 import Grid from './views/Grid.vue'
 import Alert from './views/Alert.vue'
 import Confirm from './views/Confirm.vue'
+import Toast from './views/Toast.vue'
+import Loading from './views/Loading.vue'
+import LoadingBar from './views/LoadingBar.vue'
 
 Vue.use(Router)
 
@@ -19,9 +23,13 @@ export default new Router({
     { path: '/demo/icons', name: 'icons', component: Icon },
     { path: '/demo/titles', name: 'titles', component: Title },
     { path: '/demo/panels', name: 'panels', component: Panel },
+    { path: '/demo/cells', name: 'cells', component: Cell },
     { path: '/demo/grids', name: 'grid', component: Grid },
     { path: '/demo/alert', name: 'alert', component: Alert },
     { path: '/demo/confirm', name: 'confirm', component: Confirm },
-    { path: '/:other/:other?', name: '404', component: NotFound }
+    { path: '/demo/toast', name: 'toast', component: Toast },
+    { path: '/demo/loading', name: 'loading', component: Loading },
+    { path: '/demo/loadingbar', name: 'loadingbar', component: LoadingBar },
+    { path: '/:other/:subOther?', name: '404', component: NotFound }
   ]
 })

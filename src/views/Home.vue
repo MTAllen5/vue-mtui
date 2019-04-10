@@ -29,9 +29,6 @@
       </div>
     </m-panel>
     <div class="testDiv">
-        <m-button @click="showToast">显示toast</m-button>
-        <m-button type="primary" plain @click="setLoading">显示加载中</m-button>
-        <m-button type="minor" plain @click="loadingPage">显示加载条</m-button>
         <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
         <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton> -->
       </div>
@@ -98,9 +95,6 @@ export default {
     // DatePicker
   },
   methods: {
-    showToast () {
-      this.$toast.bottom('信息信息')
-    },
     getIncrease (val) {
       this.counter = val
       this.$toast.bottom(val)
@@ -111,12 +105,6 @@ export default {
     },
     showOptions () {
       this.$refs.options.show()
-    },
-    setLoading () {
-      this.$loading.show()
-      setTimeout(() => {
-        this.$loading.hide()
-      }, 2000)
     },
     handleOption1 () {
       this.$refs.options.hide()
@@ -129,14 +117,6 @@ export default {
     },
     handleSwitch () {
       this.switcher = !this.switcher
-    },
-    loadingPage () {
-      if (!this.$loadingbar.isLoading()) {
-        this.$loadingbar.start()
-        setTimeout(() => {
-          this.$loadingbar.finish()
-        }, 1000)
-      }
     },
     sendCode () {
       this.$alert('发送成功！')

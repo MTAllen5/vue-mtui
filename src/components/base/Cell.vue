@@ -6,8 +6,9 @@
     <div class="mtui-cell-body">
       <slot></slot>
     </div>
-    <div class="mtui-cell-arrow" v-if="arrow">
-      <m-icon type="ios-arrow-forward"></m-icon>
+    <div class="mtui-cell-foot">
+      <label>{{ footText }}</label>
+      <m-icon type="ios-arrow-forward" v-if="arrow"></m-icon>
     </div>
   </div>
 </template>
@@ -27,7 +28,8 @@ export default {
     arrow: {
       type: Boolean,
       default: false
-    }
+    },
+    footText: String
   },
   methods: {
     toLink () {
@@ -45,6 +47,7 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px 15px;
   font-size: $fontXMedium;
   line-height: 1.6;
@@ -71,9 +74,12 @@ export default {
     flex: 1;
   }
 
-  .mtui-cell-arrow {
+  .mtui-cell-foot {
     color: lighten($black, 60%);
-    text-align: center;
+    
+    .ion {
+      margin-left: 5px;
+    }
   }
 }
 </style>
