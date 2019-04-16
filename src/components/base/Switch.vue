@@ -1,9 +1,14 @@
 <template>
-  <span class="lz-switch" :class="{'active': value}" @click.prevent="change"></span>
+  <span class="mtui-switch" :class="{'active': value}" @click.prevent="change"></span>
 </template>
 
 <script>
 export default {
+  name: 'mtui-switch',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     value: {
       type: Boolean,
@@ -12,23 +17,24 @@ export default {
   },
   methods: {
     change () {
-      this.$emit('change')
+      this.$emit('change', !this.value)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../common/css/variable.scss';
+<style lang="scss">
 
-.lz-switch {
+.mtui-switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  margin: 0 15px;
+  width: 50px;
   height: 28px;
-  background-color: $lightGray;
+  background-color: $colorBg;
   border-radius: 28px;
   transition: background-color .15s linear;
+
   &:after {
     content: '';
     position: absolute;
@@ -42,10 +48,11 @@ export default {
     box-shadow: 0 3px 5px rgba(0,0,0,.3);
     transition: left .15s linear;
   }
+
   &.active {
-    background-color: $mainColor;
+    background-color: $colorPrimary;
     &:after {
-      left: 34px;
+      left: 24px;
     }
   }
 }

@@ -22,6 +22,13 @@
       </div>
     </m-panel>
     <m-panel>
+      <div slot="head">Form 表单</div>
+      <div>
+        <m-cell icon="ios-bookmark" link="/demo/inputs" arrow>Input 输入框</m-cell>
+        <m-cell icon="ios-bookmark" link="/demo/form" arrow>Form 表单</m-cell>
+      </div>
+    </m-panel>
+    <m-panel>
       <div slot="head">Other 其他组件</div>
       <div>
         <m-cell icon="ios-eye" link="/demo/loading" arrow>Loading 加载提示</m-cell>
@@ -36,8 +43,6 @@
       <p><Switcher :value="switcher" @change="handleSwitch"></Switcher></p>
       <div style="padding: 0 30px">
         <Former inline label-width="100px">
-          <FormItem label="企业名称"><Inputer placeholder="请输入企业名称" clearable></Inputer></FormItem>
-          <FormItem label="手机验证码"><Inputer type="tel" maxlength="6" clearable placeholder="请输入验证码"><Button class="text blue" @click="sendCode">发送验证码</Button></Inputer></FormItem>
           <FormItem label="楼宇选择">
             <Selecter placeholder="请选择楼宇">
               <Option label="环球都汇" value="1"></Option>
@@ -117,15 +122,6 @@ export default {
     },
     handleSwitch () {
       this.switcher = !this.switcher
-    },
-    sendCode () {
-      this.$alert('发送成功！')
-    },
-    setBtnLoading () {
-      this.btnLoading = true
-      setTimeout(() => {
-        this.btnLoading = false
-      }, 2000)
     },
     showDatePicker () {
       this.$refs.datepicker.show()

@@ -11,6 +11,8 @@ import Grid from './views/Grid.vue'
 import Alert from './views/Alert.vue'
 import Confirm from './views/Confirm.vue'
 import Toast from './views/Toast.vue'
+import Input from './views/Input.vue'
+import Form from './views/Form.vue'
 import Loading from './views/Loading.vue'
 import LoadingBar from './views/LoadingBar.vue'
 
@@ -28,6 +30,8 @@ export default new Router({
     { path: '/demo/alert', name: 'alert', component: Alert },
     { path: '/demo/confirm', name: 'confirm', component: Confirm },
     { path: '/demo/toast', name: 'toast', component: Toast },
+    { path: '/demo/inputs', name: 'inputs', component: Input },
+    { path: '/demo/form', name: 'form', component: Form },
     { path: '/demo/loading', name: 'loading', component: Loading },
     { path: '/demo/loadingbar', name: 'loadingbar', component: LoadingBar },
     { path: '/:other/:subOther?', name: '404', component: NotFound }
