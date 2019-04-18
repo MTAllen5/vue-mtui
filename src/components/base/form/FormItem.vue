@@ -1,7 +1,7 @@
 <template>
   <div class="mtui-form-item">
     <div class="mtui-form-item-hd">
-      <label :style="{width: labelWidth + 'px', 'text-align': align}">{{ label }}</label>
+      <label v-if="typeof label !== 'undefined'" :style="{width: labelWidth + 'px', 'text-align': align}">{{ label }}</label>
     </div>
     <div class="mtui-form-item-bd">
       <slot></slot>
@@ -41,7 +41,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   padding: 0 15px;
-  height: 46px;
+  min-height: 46px;
 
   &:not(:first-child)::before {
     @include border-top-line();

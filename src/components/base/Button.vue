@@ -1,13 +1,11 @@
 <template>
-  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @click.prevent="click">
-    <icon type="ios-sync" v-if="loading && !isIconOnly"></icon>
+  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @touchend="click">
+    <m-icon type="ios-sync" v-if="loading && !isIconOnly"></m-icon>
     <label><slot></slot></label>
   </button>
 </template>
 
 <script>
-import Icon from './icon/Icon'
-
 export default {
   name: 'mtui-button',
   props: {
@@ -43,14 +41,19 @@ export default {
       type: Boolean,
       default: false
     },
-    noRadius: {
+    noRadius: { // 无圆角
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      classAry: [
+      isIconOnly: false
+    }
+  },
+  computed: {
+    classAry () {
+      return [
         'mtui-btn',
         'mtui-btn-' + this.type,
         { 'is-loading': this.loading },
@@ -61,22 +64,21 @@ export default {
         { 'is-plain': this.plain },
         { 'is-text': this.text },
         { 'no-radius': this.noRadius }
-      ],
-      isIconOnly: false
+      ]
     }
   },
-  mounted () {
-    if (this.$slots.default.length === 1 && this.$slots.default[0].elm.nodeName.toUpperCase() === 'I') {
+  created () {
+    if (this.$slots.default.length === 1 && this.$slots.default[0].componentOptions.tag === 'm-icon') {
       this.isIconOnly = true
     }
   },
   methods: {
     click () {
-      this.$emit('click')
+      if (this.disabled) {
+        return
+      }
+      this.$emit('on-click')
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

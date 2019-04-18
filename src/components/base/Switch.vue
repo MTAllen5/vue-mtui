@@ -1,5 +1,5 @@
 <template>
-  <span class="mtui-switch" :class="{'active': value}" @click.prevent="change"></span>
+  <span class="mtui-switch" :class="{'active': value}" @touchend.prevent="change"></span>
 </template>
 
 <script>
@@ -28,12 +28,11 @@ export default {
 .mtui-switch {
   position: relative;
   display: inline-block;
-  margin: 0 15px;
   width: 50px;
   height: 28px;
   background-color: $colorBg;
   border-radius: 28px;
-  transition: background-color .15s linear;
+  transition: background-color .1s linear;
 
   &:after {
     content: '';
@@ -46,7 +45,7 @@ export default {
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 3px 5px rgba(0,0,0,.3);
-    transition: left .15s linear;
+    transition: left .1s linear;
   }
 
   &.active {
