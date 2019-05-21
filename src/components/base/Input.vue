@@ -93,7 +93,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $fontXLarge * 2;
+  width: 100%;
+  height: $fontXMedium * 2;
   background-color: white;
   border-radius: 6px;
 
@@ -126,11 +127,11 @@ export default {
     }
   }
 
-  &-clear {
+  &-clear.ion {
     display: inline-block;
     width: 40px;
     height: 100%;
-    line-height:  $fontXLarge * 2;
+    line-height:  $fontXMedium * 2;
     text-align: center;
     font-size: $fontXLarge;
     color: lighten($black, 60%);
@@ -143,11 +144,12 @@ export default {
   flex-direction: column;
 
   textarea {
-    padding: 15px;
+    padding: 10px 15px;
     width: 100%;
     border: 0;
     border-radius: inherit;
     font-size: $fontXMedium;
+    font-family: $font;
     color: lighten($black, 50%);
     outline: none;
     resize: none;

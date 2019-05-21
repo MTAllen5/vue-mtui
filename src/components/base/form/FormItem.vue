@@ -19,7 +19,7 @@ export default {
     label: String,
     labelWidth: {
       type: Number,
-      default: 100
+      default: 110
     },
     align: {
       type: String,
@@ -40,25 +40,34 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 15px;
-  min-height: 46px;
+  box-sizing: border-box;
+  padding: 8px 15px;
+  min-height: 48px;
 
   &:not(:first-child)::before {
     @include border-top-line();
   }
 
   &-hd {
-    padding-right: 5px;
     font-size: $fontXMedium;
 
     label {
+      padding-right: 10px;
       display: flex;
+      line-height: 1.5;
     }
   }
 
   &-bd {
     flex: auto;
-    // text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+
+    .mtui-input input {
+      padding: 0;
+    }
   }
 }
 </style>

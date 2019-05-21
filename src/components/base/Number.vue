@@ -52,25 +52,24 @@ export default {
 
 .mtui-number {
   display: inline-block;
-  height: 28px;
 
   &-ctn {
     display: flex;
     align-items: center;
+    height: 32px;
 
     .mtui-number-span {
       display: inline-block;
-      min-width: 28px;
-      height: 28px;
-      line-height: 28px;
+      min-width: 32px;
+      line-height: 100%;
       text-align: center;
       font-size: $fontMedium;
     }
     .mtui-number-ipt {
       margin: 0 3px;
       padding: 0 3px;
-      width: 30px;
-      height: 28px;
+      width: 32px;
+      height: 100%;
       border: 1px solid $colorLine;
       border-radius: 4px;
       text-align: center;
@@ -78,9 +77,9 @@ export default {
     }
 
     .mtui-btn {
-      width: 28px;
+      width: 32px;
       min-width: auto;
-      height: 28px;
+      height: 100%;
     }
   }
 }

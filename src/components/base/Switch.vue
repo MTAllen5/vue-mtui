@@ -28,6 +28,7 @@ export default {
 .mtui-switch {
   position: relative;
   display: inline-block;
+  margin: 2px 0;
   width: 50px;
   height: 28px;
   background-color: $colorBg;
