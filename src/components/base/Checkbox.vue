@@ -1,29 +1,30 @@
 <template>
-  <label :class="['mtui-radio', {'is-checked': isChecked}, 'is-' + type]">
+  <label :class="['mtui-checkbox', {'is-checked': value}, 'is-' + type]">
     <input
-      type="radio"
-      :checked="isChecked"
+      type="checkbox"
+      :checked="value"
       @change="handleChange"
     >
+    <m-icon type="ios-checkmark" class="mtui-checkbox-default-icon"></m-icon>
     <slot></slot>
   </label>
 </template>
 
 <script>
 export default {
-  name: 'mtui-radio',
+  name: 'mtui-checkbox',
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
     value: {
-      type: [String, Number, Boolean],
+      type: Boolean,
       default: false
     },
     label: {
       type: [String, Number, Boolean],
-      required: true
+      default: false
     },
     type: {
       type: String,
@@ -36,20 +37,20 @@ export default {
     }
   },
   computed: {
-    isChecked () {
-      return this.value == this.label
+    checkboxIcon () {
+      return this.value ? 'ios-checkbox' : 'ios-square-outline'
     }
   },
   methods: {
     handleChange (event) {
-      this.$emit('change', this.label)
+      this.$emit('change', event.target.checked)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.mtui-radio {
+.mtui-checkbox {
   position: relative;
   box-sizing: border-box;
   display: inline-block;
@@ -63,7 +64,7 @@ export default {
     margin-right: 20px;
   }
 
-  input[type='radio'] {
+  input[type='checkbox'] {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -74,45 +75,45 @@ export default {
     outline: none;
   }
 
+  &-default-icon.ion {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 1px solid lighten($black, 50%);
+    border-radius: 2px;
+    transition: all .15s;
+    font-size: 22px;
+
+    &::before {
+      transform: scale(0);
+      transition: all .12s;
+    }
+  }
+
   &.is-default {
     padding-left: 26px;
     line-height: 32px;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      background-color: white;
-      border: 1px solid lighten($black, 50%);
-      border-radius: 50%;
-      transition: all .1s;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 50%;
-      transform: translateY(-50%) scale(0);
-      width: 4px;
-      height: 4px;
-      background-color: white;
-      border-radius: 50%;
-      transition: all .15s;
+    .mtui-checkbox-default-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     &.is-checked {
       color: $colorPrimary;
-      &::before {
+      .mtui-checkbox-default-icon {
         background-color: $colorPrimary;
         border-color: $colorPrimary;
-      }
-      &::after {
-        transform: translateY(-50%) scale(1);
+        color: white;
+        &::before {
+          transform: scale(1);
+        }
       }
     }
   }

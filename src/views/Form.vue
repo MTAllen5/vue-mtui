@@ -18,10 +18,12 @@
           <m-radio v-model="radio" type="button" label="2">选项二</m-radio>
         </m-form-item>
         <m-form-item label="复选框">
-
+          <m-checkbox v-model="checkbox1">选项一</m-checkbox>
+          <m-checkbox v-model="checkbox2" label="2">选项二</m-checkbox>
         </m-form-item>
         <m-form-item label="复选按钮">
-
+          <m-checkbox v-model="checkbox1" type="button">选项一</m-checkbox>
+          <m-checkbox v-model="checkbox2" type="button" label="2">选项二</m-checkbox>
         </m-form-item>
         <m-form-item label="加减按钮">
           <m-number v-model="text3"></m-number>
@@ -45,7 +47,9 @@ export default {
       text2: false,
       text3: '0',
       text4: '',
-      radio: '1'
+      radio: '1',
+      checkbox1: true,
+      checkbox2: false
     }
   }
 }
