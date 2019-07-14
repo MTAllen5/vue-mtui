@@ -51,7 +51,7 @@ export default {
     },
     sendCode () {
       this.$toast('发送成功！')
-    },
+    }
   }
 }
 </script>
@@ -61,4 +61,3 @@ export default {
   margin-bottom: 15px;
 }
 </style>
-

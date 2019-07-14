@@ -44,7 +44,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 .mtui-grid-item {
   position: relative;
@@ -81,4 +80,3 @@ export default {
   }
 }
 </style>
-

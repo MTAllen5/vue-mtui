@@ -52,7 +52,7 @@ export default {
       this.$toast.center({
         icon: 'ios-checkmark',
         message: '提交成功',
-        timeout: 2000,
+        timeout: 2000
       })
     }
   }
@@ -64,4 +64,3 @@ export default {
   margin-bottom: 15px;
 }
 </style>
-

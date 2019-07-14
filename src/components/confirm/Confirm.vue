@@ -64,7 +64,7 @@ export default {
       this.closeable = false
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -79,4 +79,3 @@ export default {
   }
 }
 </style>
-

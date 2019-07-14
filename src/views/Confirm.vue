@@ -33,7 +33,7 @@ export default {
         title: '这是提示标题',
         message: '这是提示内容',
         confirmTxt: '好了啦',
-        cancelTxt: '不要啦',
+        cancelTxt: '不要啦'
       })
     },
     showConfirm3 () {
@@ -53,7 +53,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 

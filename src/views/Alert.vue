@@ -26,6 +26,7 @@
 export default {
   methods: {
     showAlert1 () {
+      console.log(1)
       this.$alert('这是一条提示消息')
     },
     showAlert2 () {
@@ -48,7 +49,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 

@@ -26,4 +26,3 @@
   color: lighten($black, 50%);
 }
 </style>
-

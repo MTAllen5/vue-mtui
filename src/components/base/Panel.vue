@@ -34,7 +34,7 @@ export default {
   @extend .mtui;
   position: relative;
   overflow: hidden;
-  
+
   &:not(:first-child) {
     margin-top: 10px;
   }
@@ -78,8 +78,5 @@ export default {
       color: $colorMinor;
     }
   }
-
 }
 </style>
-
-

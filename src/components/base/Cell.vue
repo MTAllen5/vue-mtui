@@ -76,7 +76,7 @@ export default {
 
   .mtui-cell-foot {
     color: lighten($black, 60%);
-    
+
     .ion {
       margin-left: 5px;
     }

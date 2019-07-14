@@ -55,7 +55,7 @@ export default {
       this.closeable = false
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -65,4 +65,3 @@ export default {
   z-index: 990;
 }
 </style>
-

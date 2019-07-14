@@ -45,7 +45,7 @@
         <m-button inline small type="minor">minor</m-button>
       </m-box>
     </m-panel>
-    
+
     <m-panel>
       <div slot="head">圆角按钮</div>
       <m-box>
@@ -54,7 +54,7 @@
         <m-button inline small round type="minor">minor</m-button>
       </m-box>
     </m-panel>
-    
+
     <m-panel>
       <div slot="head">文本按钮</div>
       <m-box>
@@ -72,7 +72,7 @@
         <m-button inline loading plain type="minor">minor</m-button>
       </m-box>
     </m-panel>
-    
+
     <m-panel>
       <div slot="head">纯图标按钮</div>
       <m-box>
@@ -94,7 +94,7 @@
 
 <script>
 export default {
-  
+
 }
 </script>
 
@@ -110,5 +110,3 @@ export default {
   }
 }
 </style>
-
-

@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     isChecked () {
-      return this.value == this.label
+      return this.value.toString() === this.label.toString()
     }
   },
   methods: {
@@ -131,4 +131,3 @@ export default {
   }
 }
 </style>
-

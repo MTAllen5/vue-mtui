@@ -1,10 +1,10 @@
 <template>
   <div class="mtui-number">
     <div class="mtui-number-ctn">
-      <m-button inline type="primary" :disabled="value <= 0" @on-click="reduce"><m-icon type="ios-remove"></m-icon></m-button>
+      <m-button inline type="primary" :disabled="value <= min" @click="reduce"><m-icon type="ios-remove"></m-icon></m-button>
       <input v-if="type === 'input'" class="mtui-number-ipt" type="tel" v-model="value" readonly>
       <span v-if="type === 'span'" class="mtui-number-span">{{ value }}</span>
-      <m-button inline type="primary" :disabled="value >= max" @on-click="increase"><m-icon type="ios-add"></m-icon></m-button>
+      <m-button inline type="primary" :disabled="value >= max" @click="increase"><m-icon type="ios-add"></m-icon></m-button>
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
     type: {
       type: String,
       default: 'span'
+    },
+    min: {
+      type: Number,
+      default: 0
     },
     max: {
       type: Number,

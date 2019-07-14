@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import mIcon from './icon/Icon.vue'
+
 export default {
   name: 'mtui-button',
+  components: {
+    mIcon
+  },
   props: {
     round: { // 圆角按钮
       type: Boolean,
@@ -68,7 +73,7 @@ export default {
     }
   },
   created () {
-    if (this.$slots.default.length === 1 && this.$slots.default[0].componentOptions.tag === 'm-icon') {
+    if (this.$slots.default.length === 1 && this.$slots.default[0].componentOptions && this.$slots.default[0].componentOptions.tag === 'm-icon') {
       this.isIconOnly = true
     }
   },
@@ -77,7 +82,7 @@ export default {
       if (this.disabled) {
         return
       }
-      this.$emit('on-click')
+      this.$emit('click')
     }
   }
 }
@@ -100,6 +105,7 @@ export default {
   outline: none;
   transition: all .2s;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   &.is-inline {
     display: inline-block;

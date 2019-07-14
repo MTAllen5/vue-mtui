@@ -138,7 +138,7 @@ export default {
     // manualSlideEnd () {
     //   let longSwipesRatio = this.swiper.width * 0.1
     //   let diff = event.changedTouches[0].clientX - this.swiperTouchStart.changedTouches[0].clientX
-      
+
     //   if (Math.abs(diff) > longSwipesRatio) {
     //     if (diff > 0) {
     //       // this.swiper.slidePrev() 有bug
@@ -164,4 +164,3 @@ export default {
     color: #fff;
   }
 </style>
-

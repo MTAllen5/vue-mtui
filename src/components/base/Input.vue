@@ -153,6 +153,9 @@ export default {
     color: lighten($black, 50%);
     outline: none;
     resize: none;
+    &::-webkit-input-placeholder {
+      color: lighten($black, 60%);
+    }
   }
 
   &-counter {
@@ -163,4 +166,3 @@ export default {
   }
 }
 </style>
-

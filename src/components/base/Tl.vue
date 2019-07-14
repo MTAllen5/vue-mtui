@@ -35,4 +35,3 @@ export default {
 .mtui-h5 { font-size: $fontMedium; }
 .mtui-h6 { font-size: $fontSmall; }
 </style>
-

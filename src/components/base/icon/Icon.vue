@@ -3,23 +3,22 @@
 </template>
 
 <script>
-  export default {
-    name: 'mtui-icon',
-    props: {
-      type: {
-        type: String,
-        default: ''
-      }
-    },
-    computed: {
-      classList () {
-        return 'ion ' + this.type.split(' ').map((item) => 'ion-' + item).join(' ')
-      }
+export default {
+  name: 'mtui-icon',
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    classList () {
+      return 'ion ' + this.type.split(' ').map((item) => 'ion-' + item).join(' ')
     }
   }
+}
 </script>
 
 <style lang="sass">
 @import 'ionicons/css/ionicons.min.css'
 </style>
-

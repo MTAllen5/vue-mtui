@@ -327,10 +327,9 @@
 <style lang="scss" scoped>
 .mtui-grid-item {
   background-color: white;
-  
+
   /deep/ .mtui-grid-item-label {
     font-size: $fontMedium;
   }
 }
 </style>
-
