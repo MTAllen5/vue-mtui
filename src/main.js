@@ -1,47 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Button from './components/Button/Button'
 
-/* 导入基础组件 start */
-import Alert from './components/alert'
-import Confirm from './components/confirm'
-import Toast from './components/toast'
-import Loading from './components/loading'
-import LoadingBar from './components/loadingbar'
+const install = function (Vue, config = {}) {
+  if (install.installed) {
+    return
+  }
 
-Vue.use(Alert)
-Vue.use(Confirm)
-Vue.use(Toast)
-Vue.use(Loading)
-Vue.use(LoadingBar)
+  Vue.component('M' + Button.name, Button)
+}
 
-const requireComponent = require.context(
-  './components/base', // 其组件目录的相对路径
-  true, // 是否查询其子目录
-  /[A-Z]\w+\.(vue|js)$/ // 匹配基础组件文件名的正则表达式
-)
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
 
-requireComponent.keys().forEach(fileName => {
-  // 获取组件配置
-  const componentConfig = requireComponent(fileName)
-
-  // 获取组件的 PascalCase 命名
-  const componentName = 'M' + fileName.replace(/^\.\/(?:.*\/)*(.*)\.\w+$/, '$1') // 剥去文件名开头的 `./xxx/xxx/` 和结尾的扩展名
-
-  // 全局注册组件
-  Vue.component(
-    componentName,
-    // 如果这个组件选项是通过 `export default` 导出的，
-    // 那么就会优先使用 `.default`，
-    // 否则回退到使用模块的根。
-    componentConfig.default || componentConfig
-  )
-})
-/* 导入基础组件 end */
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+export default {
+  install,
+  Button
+}

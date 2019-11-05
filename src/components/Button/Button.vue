@@ -1,18 +1,13 @@
 <template>
   <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @touchend="click">
-    <m-icon type="ios-sync" v-if="loading && !isIconOnly"></m-icon>
+    <i type="ios ios-sync" v-if="loading && !isIconOnly"></i>
     <label><slot></slot></label>
   </button>
 </template>
 
 <script>
-import mIcon from './icon/Icon.vue'
-
 export default {
   name: 'mtui-button',
-  components: {
-    mIcon
-  },
   props: {
     round: { // 圆角按钮
       type: Boolean,

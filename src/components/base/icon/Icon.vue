@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import 'ionicons/css/ionicons.min.css'
+@import '@/common/ionicons/css/ionicons.min.css'
 </style>
