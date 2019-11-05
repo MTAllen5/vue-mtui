@@ -1,5 +1,5 @@
 <template>
-  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @touchend="click">
+  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @click="click">
     <m-icon type="ios-sync" v-if="loading && !isIconOnly"></m-icon>
     <label><slot></slot></label>
   </button>
@@ -89,15 +89,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/common/css/base.scss';
+
 .mtui-btn {
   padding-left: 15px;
   padding-right: 15px;
   display: block;
   box-sizing: border-box;
   width: 100%;
-  min-width: 44px;
-  height: 44px;
-  border: 1px solid $colorDefault;
+  min-width: 46px;
+  height: 46px;
+  border: 1px solid $colorLine;
   border-radius: 4px;
   font-size: $fontXMedium;
   @include text-overflow;
@@ -113,7 +115,7 @@ export default {
   }
 
   &.is-round {
-    border-radius: 44px;
+    border-radius: 46px;
   }
 
   &.is-small {
@@ -122,7 +124,7 @@ export default {
   }
 
   &.is-disabled {
-    opacity: .6;
+    opacity: .3;
   }
 
   &.is-plain {

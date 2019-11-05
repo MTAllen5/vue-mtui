@@ -10,7 +10,7 @@
         <m-cell icon="ios-home" link="/demo/titles" arrow>Title 标题</m-cell>
         <m-cell icon="ios-airplane" link="/demo/panels" arrow>Panel 面板</m-cell>
         <m-cell icon="ios-alarm" link="/demo/cells" arrow>Cell 单行列表</m-cell>
-        <m-cell icon="ios-beer" link="/demo/grids" arrow>Grid 网格</m-cell>
+        <m-cell icon="ios-grid" link="/demo/grids" arrow>Grid 网格</m-cell>
       </div>
     </m-panel>
     <m-panel>
@@ -25,7 +25,8 @@
       <div slot="head">Form 表单</div>
       <div>
         <m-cell icon="ios-bookmark" link="/demo/inputs" arrow>Input 输入框</m-cell>
-        <m-cell icon="ios-bookmark" link="/demo/form" arrow>Form 表单</m-cell>
+        <m-cell icon="ios-beer" link="/demo/form" arrow>Form 表单</m-cell>
+        <m-cell icon="ios-calendar" link="/demo/datepicker" arrow>DatePicker 日期选择器</m-cell>
       </div>
     </m-panel>
     <m-panel>
@@ -72,12 +73,9 @@
       <Button class="long plain primary" @click="handleOption3" style="border: 0">选项3</Button>
     </Options> -->
 
-    <!-- <DatePicker ref="datepicker"></DatePicker> -->
 </template>
 
 <script>
-// import DatePicker from '@/components/DatePicker'
-
 export default {
   name: 'home',
   data () {
@@ -97,7 +95,7 @@ export default {
   //   }
   // },
   components: {
-    // DatePicker
+
   },
   methods: {
     getIncrease (val) {

@@ -1,20 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import NotFound from './views/404.vue'
-import Button from './views/Button.vue'
-import Icon from './views/Icon.vue'
-import Title from './views/Title.vue'
-import Panel from './views/Panel.vue'
-import Cell from './views/Cell.vue'
-import Grid from './views/Grid.vue'
-import Alert from './views/Alert.vue'
-import Confirm from './views/Confirm.vue'
-import Toast from './views/Toast.vue'
-import Input from './views/Input.vue'
-import Form from './views/Form.vue'
-import Loading from './views/Loading.vue'
-import LoadingBar from './views/LoadingBar.vue'
+import Home from './views/Home'
+import NotFound from './views/404'
+import Button from './views/Button'
+import Icon from './views/Icon'
+import Title from './views/Title'
+import Panel from './views/Panel'
+import Cell from './views/Cell'
+import Grid from './views/Grid'
+import Alert from './views/Alert'
+import Confirm from './views/Confirm'
+import Toast from './views/Toast'
+import Input from './views/Input'
+import Datepicker from './views/Datepicker'
+import Form from './views/Form'
+import Loading from './views/Loading'
+import LoadingBar from './views/LoadingBar'
 
 Vue.use(Router)
 
@@ -31,6 +32,7 @@ export default new Router({
     { path: '/demo/confirm', name: 'confirm', component: Confirm },
     { path: '/demo/toast', name: 'toast', component: Toast },
     { path: '/demo/inputs', name: 'inputs', component: Input },
+    { path: '/demo/datepicker', name: 'datepicker', component: Datepicker },
     { path: '/demo/form', name: 'form', component: Form },
     { path: '/demo/loading', name: 'loading', component: Loading },
     { path: '/demo/loadingbar', name: 'loadingbar', component: LoadingBar },
