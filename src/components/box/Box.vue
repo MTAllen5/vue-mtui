@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: 'mtui-box'
+  name: 'm-box'
 }
 </script>
 
 <style lang="scss">
 .mtui-box {
-  @extend .mtui;
+  @extend .mtui-common;
   padding: 15px;
   background-color: white;
 }

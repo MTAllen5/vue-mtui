@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'mtui-title',
+  name: 'm-title',
   props: {
     type: {
       type: String,
@@ -21,6 +21,7 @@ export default {
 .mtui-h4,
 .mtui-h5,
 .mtui-h6 {
+  @extend .mtui-common;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0 20px;

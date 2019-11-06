@@ -1,22 +1,22 @@
 <template>
   <div>
-    <m-tl type="1">Alert</m-tl>
+    <m-title type="1">Alert</m-title>
     <m-panel>
       <div slot="head">默认弹窗</div>
       <m-box>
-        <m-button type="primary" @click="showAlert1">显示alert</m-button>
+        <m-button type="primary" @onClick="showAlert1">显示alert</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">可文本配置弹窗</div>
       <m-box>
-        <m-button type="minor" @click="showAlert2">显示alert</m-button>
+        <m-button type="minor" @onClick="showAlert2">显示alert</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">绑定确定处理函数</div>
       <m-box>
-        <m-button type="primary" plain @click="showAlert3">显示alert</m-button>
+        <m-button type="primary" plain @onClick="showAlert3">显示alert</m-button>
       </m-box>
     </m-panel>
   </div>

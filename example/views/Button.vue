@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Button</m-tl>
+    <m-title type="1">Button</m-title>
 
     <m-panel>
       <div slot="head">普通按钮</div>
@@ -93,20 +93,18 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
 .mtui-btn {
-
   &:not(:last-child) {
     margin-bottom: 10px;
   }
 
   &.is-inline {
     margin-right: 10px;
+    margin-bottom: 0;
   }
 }
 </style>

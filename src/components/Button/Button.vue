@@ -1,13 +1,23 @@
 <template>
-  <button :class="[classAry, {'is-icon-only': isIconOnly}]" :disabled="disabled || loading" @touchend="click">
-    <i type="ios ios-sync" v-if="loading && !isIconOnly"></i>
+  <button
+    :class="[
+      classAry,
+      { 'is-icon-only': isIconOnly }
+    ]"
+    :disabled="disabled || loading"
+    @click="click"
+  >
+    <m-icon type="ios-sync" v-if="loading && !isIconOnly"></m-icon>
     <label><slot></slot></label>
   </button>
 </template>
 
 <script>
+import Icon from '../icon'
+
 export default {
-  name: 'mtui-button',
+  name: 'm-button',
+  components: { Icon },
   props: {
     round: { // 圆角按钮
       type: Boolean,
@@ -33,7 +43,7 @@ export default {
       type: Boolean,
       default: false
     },
-    type: { // 按钮类型
+    type: { // 按钮类型 可选值：['default', 'primary', 'minor']
       type: String,
       default: 'default'
     },
@@ -74,10 +84,9 @@ export default {
   },
   methods: {
     click () {
-      if (this.disabled) {
-        return
-      }
-      this.$emit('click')
+      if (this.disabled) return
+
+      this.$emit('onClick')
     }
   }
 }
@@ -85,10 +94,10 @@ export default {
 
 <style lang="scss">
 .mtui-btn {
+  @extend .mtui-common;
   padding-left: 15px;
   padding-right: 15px;
   display: block;
-  box-sizing: border-box;
   width: 100%;
   min-width: 44px;
   height: 44px;

@@ -3,9 +3,11 @@
     <div class="mtui-cell-icon" v-if="icon !== ''">
       <m-icon :type="icon"></m-icon>
     </div>
+
     <div class="mtui-cell-body">
       <slot></slot>
     </div>
+
     <div class="mtui-cell-foot">
       <label>{{ footText }}</label>
       <m-icon type="ios-arrow-forward" v-if="arrow"></m-icon>
@@ -15,7 +17,7 @@
 
 <script>
 export default {
-  name: 'mtui-cell',
+  name: 'm-cell',
   props: {
     icon: {
       type: String,
@@ -43,7 +45,7 @@ export default {
 
 <style lang="scss">
 .mtui-cell {
-  @extend .mtui;
+  @extend .mtui-common;
   position: relative;
   display: flex;
   align-items: center;

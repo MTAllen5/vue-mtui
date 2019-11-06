@@ -1,18 +1,35 @@
-import Button from './components/Button/Button'
+import Alert from './components/alert'
+import Box from './components/box'
+import Button from './components/button'
+import Cell from './components/cell'
+import Icon from './components/icon'
+import Panel from './components/panel'
+import Title from './components/title'
+
+const components = {
+  Alert,
+  Box,
+  Button,
+  Cell,
+  Icon,
+  Panel,
+  Title
+}
 
 const install = function (Vue, config = {}) {
-  if (install.installed) {
-    return
-  }
+  if (install.installed) return
 
-  Vue.component('M' + Button.name, Button)
+  Object.keys(components).forEach(component => {
+    if (component !== 'install') {
+      components[component].install(Vue)
+    }
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export default {
-  install,
-  Button
-}
+components.install = install
+
+export default components

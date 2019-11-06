@@ -14,10 +14,9 @@
 
 <script>
 export default {
-  name: 'mtui-panel',
+  name: 'm-panel',
   data () {
     return {
-      hasTitle: false,
       hasHead: false,
       hasFoot: false
     }
@@ -31,7 +30,7 @@ export default {
 
 <style lang="scss">
 .mtui-panel {
-  @extend .mtui;
+  @extend .mtui-common;
   position: relative;
   overflow: hidden;
 

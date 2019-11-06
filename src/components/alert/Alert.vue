@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'mtui-alert',
+  name: 'm-alert',
   data () {
     return {
       showFlag: false,

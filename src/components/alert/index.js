@@ -16,6 +16,7 @@ Alert.install = function (Vue, options = {}) {
       AlertInstance.$data.message = options
     } else if (typeof options === 'object') {
       let keys = Object.keys(AlertInstance.$data)
+
       keys.forEach(key => {
         if (typeof options[key] !== 'undefined' && options[key] !== null) {
           AlertInstance.$data[key] = options[key]

@@ -3,8 +3,10 @@
 </template>
 
 <script>
+import '@/common/ionicons/css/ionicons.min.css';
+
 export default {
-  name: 'mtui-icon',
+  name: 'm-icon',
   props: {
     type: {
       type: String,
@@ -18,7 +20,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-@import '@/common/ionicons/css/ionicons.min.css'
-</style>

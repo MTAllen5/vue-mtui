@@ -21,19 +21,19 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', name: 'home', component: Home },
-    { path: '/demo/buttons', name: 'buttons', component: Button },
-    { path: '/demo/icons', name: 'icons', component: Icon },
-    { path: '/demo/titles', name: 'titles', component: Title },
-    { path: '/demo/panels', name: 'panels', component: Panel },
-    { path: '/demo/cells', name: 'cells', component: Cell },
-    { path: '/demo/grids', name: 'grid', component: Grid },
-    { path: '/demo/alert', name: 'alert', component: Alert },
-    { path: '/demo/confirm', name: 'confirm', component: Confirm },
-    { path: '/demo/toast', name: 'toast', component: Toast },
-    { path: '/demo/inputs', name: 'inputs', component: Input },
-    { path: '/demo/form', name: 'form', component: Form },
-    { path: '/demo/loading', name: 'loading', component: Loading },
-    { path: '/demo/loadingbar', name: 'loadingbar', component: LoadingBar },
-    { path: '/:other/:subOther?', name: '404', component: NotFound }
+    { path: '/buttons', name: 'buttons', component: Button },
+    { path: '/icons', name: 'icons', component: Icon },
+    { path: '/titles', name: 'titles', component: Title },
+    { path: '/panels', name: 'panels', component: Panel },
+    { path: '/cells', name: 'cells', component: Cell },
+    { path: '/grids', name: 'grid', component: Grid },
+    { path: '/alert', name: 'alert', component: Alert },
+    { path: '/confirm', name: 'confirm', component: Confirm },
+    { path: '/toast', name: 'toast', component: Toast },
+    { path: '/inputs', name: 'inputs', component: Input },
+    { path: '/form', name: 'form', component: Form },
+    { path: '/loading', name: 'loading', component: Loading },
+    { path: '/loadingbar', name: 'loadingbar', component: LoadingBar },
+    { path: '/:other', name: '404', component: NotFound }
   ]
 })
