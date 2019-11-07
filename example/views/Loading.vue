@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Loading</m-tl>
+    <m-title type="1">Loading</m-title>
     <m-panel>
       <div slot="head">默认加载</div>
       <m-box>

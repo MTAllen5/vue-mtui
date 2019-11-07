@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Input</m-tl>
+    <m-title type="1">Input</m-title>
     <m-panel>
       <div slot="head">默认Input</div>
       <m-box>

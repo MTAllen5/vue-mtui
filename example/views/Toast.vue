@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Toast</m-tl>
+    <m-title type="1">Toast</m-title>
     <m-panel>
       <div slot="head">默认提示</div>
       <m-box>

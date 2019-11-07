@@ -1,19 +1,30 @@
-import Alert from './components/alert'
-import Box from './components/box'
+// 基本元素
 import Button from './components/button'
-import Cell from './components/cell'
 import Icon from './components/icon'
-import Panel from './components/panel'
 import Title from './components/title'
+// 布局
+import Box from './components/box'
+import Cell from './components/cell'
+import Grid from './components/grid/index_grid'
+import GridItem from './components/grid/index_grid_item'
+import Panel from './components/panel'
+// 消息弹窗
+import Alert from './components/alert'
+import Dialog from './components/dialog'
 
 const components = {
-  Alert,
-  Box,
   Button,
-  Cell,
   Icon,
+  Title,
+
+  Box,
+  Cell,
+  Grid,
+  GridItem,
   Panel,
-  Title
+
+  Alert,
+  Dialog
 }
 
 const install = function (Vue, config = {}) {

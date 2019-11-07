@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import Icon from '../icon/Icon'
+
 export default {
-  name: 'mtui-grid-item',
+  name: 'm-grid-item',
+  components: { MIcon: Icon },
   props: {
     icon: {
       type: String,
@@ -30,7 +33,7 @@ export default {
     let parent = this.$parent || this.$root
     let name = parent.$options.name
 
-    while (parent && (!name || name !== 'mtui-grid')) {
+    while (parent && (!name || name !== 'm-grid')) {
       parent = parent.$parent
 
       if (parent) {

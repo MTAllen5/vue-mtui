@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Confirm</m-tl>
+    <m-title type="1">Confirm</m-title>
     <m-panel>
       <div slot="head">默认弹窗</div>
       <m-box>

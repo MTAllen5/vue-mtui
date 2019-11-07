@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Grid</m-tl>
+    <m-title type="1">Grid</m-title>
     <m-panel>
       <div slot="head">默认Grid</div>
       <m-grid>

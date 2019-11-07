@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Form</m-tl>
+    <m-title type="1">Form</m-title>
     <div>
       <m-form>
         <m-form-item label="输入框">

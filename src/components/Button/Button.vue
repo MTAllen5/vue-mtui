@@ -7,17 +7,17 @@
     :disabled="disabled || loading"
     @click="click"
   >
-    <m-icon type="ios-sync" v-if="loading && !isIconOnly"></m-icon>
+    <m-icon type="load-c" v-if="loading && !isIconOnly"></m-icon>
     <label><slot></slot></label>
   </button>
 </template>
 
 <script>
-import Icon from '../icon'
+import Icon from '../icon/Icon'
 
 export default {
   name: 'm-button',
-  components: { Icon },
+  components: { MIcon: Icon },
   props: {
     round: { // 圆角按钮
       type: Boolean,
@@ -121,6 +121,7 @@ export default {
   }
 
   &.is-small {
+    min-width: 34px;
     height: 34px;
     font-size: $fontMedium;
   }

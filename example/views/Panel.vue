@@ -1,16 +1,16 @@
 <template>
   <div>
-    <m-tl type="1">Panel</m-tl>
-    <m-tl type="5">普通Panel</m-tl>
+    <m-title type="1">Panel</m-title>
+    <m-title type="5">普通Panel</m-title>
     <m-panel>
       <m-box>我是内容</m-box>
     </m-panel>
-    <m-tl type="5">带头部Panel</m-tl>
+    <m-title type="5">带头部Panel</m-title>
     <m-panel>
       <div slot="head"><m-icon type="ios-cloud" style="margin-right: 10px;"></m-icon>我是头部</div>
       <m-box>我是内容</m-box>
     </m-panel>
-    <m-tl type="5">带脚部Panel</m-tl>
+    <m-title type="5">带脚部Panel</m-title>
     <m-panel>
       <div slot="head">我是头部</div>
       <m-box>我是内容</m-box>

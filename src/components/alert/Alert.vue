@@ -1,30 +1,26 @@
 <template>
-  <transition name="fadeIn">
-  <div class="mtui-dialog-container mtui-mask" v-if="showFlag">
+  <m-dialog v-model="showFlag" :closeOnClickMask="false" :showCancelButton="closeable">
+    <!-- 弹窗标题 -->
+    <template slot="title" v-if="title !== ''">{{ title }}</template>
 
-    <!-- 弹窗主体 -->
-    <div class="mtui-dialog-main">
-      <!-- 弹窗标题 -->
-      <div class="mtui-dialog-head" v-if="title !== ''">
-        <strong class="mtui-dialog-title">{{ title }}</strong>
-      </div>
+    <!-- 弹窗内容 -->
+    <div>{{ message }}</div>
 
-      <!-- 弹窗内容 -->
-      <div class="mtui-dialog-body">{{ message }}</div>
-
-      <!-- 弹窗按钮组 -->
-      <div class="mtui-dialog-foot">
-        <m-button type="primary" no-radius @click="alert">{{ confirmTxt }}</m-button>
-      </div>
-    </div>
-
-  </div>
-  </transition>
+    <!-- 弹窗按钮组 -->
+    <m-button type="primary" text no-radius @onClick="alert" slot="foot">{{ confirmTxt }}</m-button>
+  </m-dialog>
 </template>
 
 <script>
+import Dialog from '../dialog/Dialog'
+import Button from '../button/Button'
+
 export default {
   name: 'm-alert',
+  components: {
+    MDialog: Dialog,
+    MButton: Button
+  },
   data () {
     return {
       showFlag: false,
@@ -35,18 +31,27 @@ export default {
       closeable: false
     }
   },
+  watch: {
+    showFlag (val) {
+      if (!val) {
+        this.dataReset()
+      }
+    }
+  },
   methods: {
     hide () {
       this.showFlag = false
-      this.dataReset()
     },
+
     show () {
       this.showFlag = true
     },
+
     alert () {
       this.onConfirm && this.onConfirm()
       this.hide()
     },
+
     dataReset () { // 关闭的时候重置默认数据，以防下次调用使用了旧数据
       this.title = ''
       this.message = ''
@@ -59,9 +64,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/common/css/mtui-dialog.scss';
-
-.mtui-dialog-container {
+.mtui-dialog {
   z-index: 990;
 }
 </style>

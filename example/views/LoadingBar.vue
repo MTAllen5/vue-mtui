@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">LoadingBar</m-tl>
+    <m-title type="1">LoadingBar</m-title>
     <m-panel>
       <div slot="head">默认加载进度条</div>
       <m-box>

@@ -1,38 +1,39 @@
 <template>
   <div class="home">
     <m-title type="1">MTUI</m-title>
-    <p class="mtui-p">这是一套基于vue2.0的UI框架，组件参考了weui、mint-ui、ElementUI、ant design的设计。目前只是作者用来练习Vue组件使用。</p>
+    <p class="mtui-p">这是一套基于vue2.0的UI框架，组件参考了weui、<a href="https://github.com/ElemeFE/mint-ui">mint-ui</a>、<a href="https://github.com/didi/cube-ui">cube-ui</a>、<a href="https://ant.design/index-cn">ant design设计规范</a>。</p>
     <m-panel>
       <div slot="head">Basic 基础组件</div>
       <div>
-        <m-cell icon="ios-basketball" link="/buttons" arrow>Button 按钮</m-cell>
-        <m-cell icon="ios-camera" link="/icons" arrow>Icon 图标</m-cell>
-        <m-cell icon="ios-home" link="/titles" arrow>Title 标题</m-cell>
-        <m-cell icon="ios-airplane" link="/panels" arrow>Panel 面板</m-cell>
-        <m-cell icon="ios-alarm" link="/cells" arrow>Cell 单行列表</m-cell>
-        <m-cell icon="ios-beer" link="/grids" arrow>Grid 网格</m-cell>
+        <m-cell link="/buttons" arrow>Button 按钮</m-cell>
+        <m-cell link="/icons" arrow>Icon 图标</m-cell>
+        <m-cell link="/titles" arrow>Title 标题</m-cell>
+        <m-cell link="/panels" arrow>Panel 面板</m-cell>
+        <m-cell link="/cells" arrow>Cell 单行列表</m-cell>
+        <m-cell link="/grids" arrow>Grid 网格</m-cell>
       </div>
     </m-panel>
     <m-panel>
       <div slot="head">MessageBox 消息组件</div>
       <div>
-        <m-cell icon="ios-cellular" link="/alert" arrow>Alert 提示窗</m-cell>
-        <m-cell icon="ios-cafe" link="/confirm" arrow>Confirm 确认窗</m-cell>
-        <m-cell icon="ios-flash" link="/toast" arrow>Toast 消息提示</m-cell>
+        <m-cell link="/dialog" arrow>Dialog 对话窗</m-cell>
+        <m-cell link="/alert" arrow>Alert 提示窗</m-cell>
+        <m-cell link="/confirm" arrow>Confirm 确认窗</m-cell>
+        <m-cell link="/toast" arrow>Toast 消息提示</m-cell>
       </div>
     </m-panel>
     <m-panel>
       <div slot="head">Form 表单</div>
       <div>
-        <m-cell icon="ios-bookmark" link="/inputs" arrow>Input 输入框</m-cell>
-        <m-cell icon="ios-bookmark" link="/form" arrow>Form 表单</m-cell>
+        <m-cell link="/inputs" arrow>Input 输入框</m-cell>
+        <m-cell link="/form" arrow>Form 表单</m-cell>
       </div>
     </m-panel>
     <m-panel>
       <div slot="head">Other 其他组件</div>
       <div>
-        <m-cell icon="ios-eye" link="/loading" arrow>Loading 加载提示</m-cell>
-        <m-cell icon="ios-heart" link="/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
+        <m-cell link="/loading" arrow>Loading 加载提示</m-cell>
+        <m-cell link="/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
       </div>
     </m-panel>
     <div class="testDiv">

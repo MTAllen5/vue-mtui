@@ -19,13 +19,13 @@
 }
 
 // 遮罩层
-.mtui-mask {
-  @include mask();
-}
+// .mtui-mask {
+//   @include mask();
+// }
 
-.mtui-white-mask {
-  @include mask(100, .6, white);
-}
+// .mtui-white-mask {
+//   @include mask(100, .6, white);
+// }
 
 @keyframes fadeIn {
   0% { opacity: 0; }

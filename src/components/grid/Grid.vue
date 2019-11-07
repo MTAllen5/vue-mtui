@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'mtui-grid',
+  name: 'm-grid',
   props: {
     col: {
       type: Number,

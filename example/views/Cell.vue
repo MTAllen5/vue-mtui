@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-tl type="1">Cell</m-tl>
+    <m-title type="1">Cell</m-title>
     <m-panel>
       <div slot="head">普通单行列表</div>
       <m-cell>我是内容</m-cell>
