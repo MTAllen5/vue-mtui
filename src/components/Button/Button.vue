@@ -93,8 +93,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/common/css/base.scss';
-
 .mtui-btn {
   @extend .mtui-common;
   padding-left: 15px;
