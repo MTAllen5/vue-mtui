@@ -27,6 +27,7 @@
       <div>
         <m-cell link="/inputs" arrow>Input 输入框</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
+        <m-cell link="/demo/datepicker" arrow>DatePicker 日期选择器</m-cell>
       </div>
     </m-panel>
     <m-panel>
@@ -73,12 +74,9 @@
       <Button class="long plain primary" @click="handleOption3" style="border: 0">选项3</Button>
     </Options> -->
 
-    <!-- <DatePicker ref="datepicker"></DatePicker> -->
 </template>
 
 <script>
-// import DatePicker from '@/components/DatePicker'
-
 export default {
   name: 'home',
   data () {
@@ -98,7 +96,7 @@ export default {
   //   }
   // },
   components: {
-    // DatePicker
+
   },
   methods: {
     getIncrease (val) {

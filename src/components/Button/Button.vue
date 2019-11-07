@@ -93,15 +93,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/common/css/base.scss';
+
 .mtui-btn {
   @extend .mtui-common;
   padding-left: 15px;
   padding-right: 15px;
   display: block;
   width: 100%;
-  min-width: 44px;
-  height: 44px;
-  border: 1px solid $colorDefault;
+  min-width: 46px;
+  height: 46px;
+  border: 1px solid $colorLine;
   border-radius: 4px;
   font-size: $fontXMedium;
   @include text-overflow;
@@ -117,7 +119,7 @@ export default {
   }
 
   &.is-round {
-    border-radius: 44px;
+    border-radius: 46px;
   }
 
   &.is-small {
@@ -127,7 +129,7 @@ export default {
   }
 
   &.is-disabled {
-    opacity: .6;
+    opacity: .3;
   }
 
   &.is-plain {
