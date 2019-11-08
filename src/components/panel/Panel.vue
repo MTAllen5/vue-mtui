@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-panel {
   @extend .mtui-common;
   position: relative;
@@ -54,11 +54,14 @@ export default {
 
   .mtui-panel-head {
     padding: 10px 15px;
-    color: lighten($black, 40%);
+    color: lighten($black, 60%);
     font-size: $fontMedium;
+    line-height: 1.4;
     &::after {
       @include border-bottom-line();
-      left: 15px;
+    }
+    .ion {
+      font-size: 16px;
     }
   }
 

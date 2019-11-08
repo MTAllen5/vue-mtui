@@ -86,9 +86,9 @@
     <m-panel>
       <div slot="head">无圆角按钮（适合100%宽按钮）</div>
       <div style="padding: 20px 0;">
-        <m-button no-radius type="primary">primary</m-button>
-        <m-button no-radius>default</m-button>
-        <m-button no-radius type="minor">minor</m-button>
+        <m-button no-radius big type="primary">大按钮</m-button>
+        <m-button no-radius big>大按钮</m-button>
+        <m-button no-radius big type="minor">大按钮</m-button>
       </div>
     </m-panel>
   </div>

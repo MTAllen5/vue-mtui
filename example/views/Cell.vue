@@ -13,18 +13,8 @@
     </m-panel>
     <m-panel>
       <div slot="head">带图标单行列表</div>
-      <m-cell icon="ios-moon" arrow>我是内容</m-cell>
-      <m-cell icon="ios-moon" arrow>我是内容</m-cell>
+      <m-cell icon="social-android" arrow>我是内容</m-cell>
+      <m-cell icon="social-apple" arrow>我是内容</m-cell>
     </m-panel>
   </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style lang="scss" scoped>
-
-</style>

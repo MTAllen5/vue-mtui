@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-checkbox {
   position: relative;
   box-sizing: border-box;

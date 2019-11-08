@@ -10,13 +10,13 @@
     <m-panel>
       <div slot="head">可文本配置弹窗</div>
       <m-box>
-        <m-button type="minor" @onClick="showAlert2">显示alert</m-button>
+        <m-button type="default" @onClick="showAlert2">显示alert</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">绑定确定处理函数</div>
       <m-box>
-        <m-button type="primary" plain @onClick="showAlert3">显示alert</m-button>
+        <m-button type="minor" plain @onClick="showAlert3">显示alert</m-button>
       </m-box>
     </m-panel>
   </div>
@@ -26,7 +26,6 @@
 export default {
   methods: {
     showAlert1 () {
-      console.log(1)
       this.$alert('这是一条提示消息')
     },
     showAlert2 () {
@@ -49,7 +48,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

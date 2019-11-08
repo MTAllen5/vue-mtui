@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-h1,
 .mtui-h2,
 .mtui-h3,
@@ -29,10 +29,10 @@ export default {
   line-height: 2;
 }
 
-.mtui-h1 { font-size: $fontXXLarge; }
-.mtui-h2 { font-size: $fontXLarge; }
-.mtui-h3 { font-size: $fontLarge; }
-.mtui-h4 { font-size: $fontXMedium; }
-.mtui-h5 { font-size: $fontMedium; }
-.mtui-h6 { font-size: $fontSmall; }
+.mtui-h1 { color: lighten($black, 10%); font-size: $fontXXLarge; }
+.mtui-h2 { color: lighten($black, 20%); font-size: $fontXLarge; }
+.mtui-h3 { color: lighten($black, 30%); font-size: $fontLarge; }
+.mtui-h4 { color: lighten($black, 40%); font-size: $fontXMedium; }
+.mtui-h5 { color: lighten($black, 50%); font-size: $fontMedium; }
+.mtui-h6 { color: lighten($black, 60%); font-size: $fontSmall; }
 </style>

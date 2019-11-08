@@ -20,6 +20,7 @@
         <m-cell link="/alert" arrow>Alert 提示窗</m-cell>
         <m-cell link="/confirm" arrow>Confirm 确认窗</m-cell>
         <m-cell link="/toast" arrow>Toast 消息提示</m-cell>
+        <m-cell link="/loading" arrow>Loading 加载提示</m-cell>
       </div>
     </m-panel>
     <m-panel>
@@ -33,7 +34,6 @@
     <m-panel>
       <div slot="head">Other 其他组件</div>
       <div>
-        <m-cell link="/loading" arrow>Loading 加载提示</m-cell>
         <m-cell link="/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
       </div>
     </m-panel>

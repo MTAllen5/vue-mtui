@@ -1,5 +1,5 @@
 <template>
-  <m-dialog v-model="showFlag" :closeOnClickMask="false" :showCancelButton="closeable">
+  <m-dialog v-model="showFlag" :closeOnClickMask="false" :showCloseButton="closeable">
     <!-- 弹窗标题 -->
     <template slot="title" v-if="title !== ''">{{ title }}</template>
 
@@ -7,7 +7,7 @@
     <div>{{ message }}</div>
 
     <!-- 弹窗按钮组 -->
-    <m-button type="primary" text no-radius @onClick="alert" slot="foot">{{ confirmTxt }}</m-button>
+    <m-button type="minor" text no-radius @onClick="alert" slot="foot">{{ confirmTxt }}</m-button>
   </m-dialog>
 </template>
 
@@ -52,7 +52,8 @@ export default {
       this.hide()
     },
 
-    dataReset () { // 关闭的时候重置默认数据，以防下次调用使用了旧数据
+    // 关闭的时候重置默认数据，以防下次调用使用了旧数据
+    dataReset () {
       this.title = ''
       this.message = ''
       this.confirmTxt = '确定'

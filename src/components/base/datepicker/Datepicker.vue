@@ -323,7 +323,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-datepicker-wrapper {
   padding: 16px 10px 0;
   background-color: white;

@@ -1,11 +1,15 @@
 <template>
+  <!-- 添加taouchstart事件是为了解决ios下:active无效的bug -->
   <button
     :class="[
       classAry,
-      { 'is-icon-only': isIconOnly }
+      { 'is-icon-only': isIconOnly },
+      { active }
     ]"
     :disabled="disabled || loading"
     @click="click"
+    @touchstart.stop="handleTouchStart"
+    @touchend.stop="handleTouchEnd"
   >
     <m-icon type="load-c" v-if="loading && !isIconOnly"></m-icon>
     <label><slot></slot></label>
@@ -43,6 +47,10 @@ export default {
       type: Boolean,
       default: false
     },
+    big: {
+      type: Boolean,
+      default: false
+    },
     type: { // 按钮类型 可选值：['default', 'primary', 'minor']
       type: String,
       default: 'default'
@@ -58,7 +66,8 @@ export default {
   },
   data () {
     return {
-      isIconOnly: false
+      isIconOnly: false,
+      active: false
     }
   },
   computed: {
@@ -69,6 +78,7 @@ export default {
         { 'is-loading': this.loading },
         { 'is-disabled': this.disabled || this.loading },
         { 'is-small': this.small },
+        { 'is-big': this.big },
         { 'is-round': this.round },
         { 'is-inline': this.inline },
         { 'is-plain': this.plain },
@@ -84,15 +94,23 @@ export default {
   },
   methods: {
     click () {
-      if (this.disabled) return
+      if (this.disabled || this.loading) return
 
       this.$emit('onClick')
+    },
+    handleTouchStart () {
+      if (this.disabled || this.loading) return
+
+      this.active = true
+    },
+    handleTouchEnd () {
+      this.active = false
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-btn {
   @extend .mtui-common;
   padding-left: 15px;
@@ -107,9 +125,10 @@ export default {
   @include text-overflow;
   cursor: pointer;
   outline: none;
-  transition: all .2s;
+  transition: all .1s;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  user-select: none;
 
   &.is-inline {
     display: inline-block;
@@ -124,6 +143,11 @@ export default {
     min-width: 34px;
     height: 34px;
     font-size: $fontMedium;
+  }
+  &.is-big {
+    min-width: 54px;
+    height: 54px;
+    font-size: $fontLarge;
   }
 
   &.is-disabled {
@@ -152,7 +176,8 @@ export default {
     border-radius: 0;
   }
 
-  &:active {
+  &.active {
+    transform: scale(.95);
     opacity: .6;
   }
 
@@ -169,7 +194,7 @@ export default {
 
   &-default {
     background-color: white;
-    color: $black;
+    color: lighten($black, 20%);
   }
   &-primary {
     background-color: $colorPrimary;
@@ -188,6 +213,11 @@ export default {
     &.is-text {
       color: $colorMinor;
     }
+  }
+
+  label,
+  .ion {
+    pointer-events: none;
   }
 }
 </style>

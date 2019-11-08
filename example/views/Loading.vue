@@ -4,7 +4,7 @@
     <m-panel>
       <div slot="head">默认加载</div>
       <m-box>
-        <m-button @click="showLoading1">显示loading</m-button>
+        <m-button type="primary" @onClick="showLoading1">显示loading</m-button>
       </m-box>
     </m-panel>
   </div>

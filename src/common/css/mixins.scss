@@ -1,7 +1,7 @@
 // 遮罩层
 @mixin mask($zIndex: 100, $opacity: .4, $color: black) {
   position: fixed;
-  z-index: zIndex;
+  z-index: $zIndex;
   bottom: 0;
   right: 0;
   left: 0;
@@ -39,7 +39,7 @@
   z-index: 0;
   transform-origin: 0 0;
 }
-@mixin border-top-line($color: #d9d9d9) {
+@mixin border-top-line($color: #e7e7e7) {
   @include border-line;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   border-top: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin border-bottom-line($color: #d9d9d9) {
+@mixin border-bottom-line($color: #e7e7e7) {
   @include border-line;
   left: 0;
   bottom: 0;
@@ -55,7 +55,7 @@
   border-bottom: 1px solid $color;
   transform: scaleY(.5);
 }
-@mixin border-left-line($color: #d9d9d9) {
+@mixin border-left-line($color: #e7e7e7) {
   @include border-line;
   top: 0;
   left: 0;
@@ -63,7 +63,7 @@
   border-left: 1px solid $color;
   transform: scaleX(.5);
 }
-@mixin border-right-line($color: #d9d9d9) {
+@mixin border-right-line($color: #e7e7e7) {
   @include border-line;
   top: 0;
   right: 0;

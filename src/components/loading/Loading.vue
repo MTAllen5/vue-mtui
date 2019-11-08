@@ -1,6 +1,6 @@
 <template>
   <transition name="fadeIn">
-  <div class="mtui-loading-container" @touchmove.prevent v-if="showFlag">
+  <div class="mtui-loading" @touchmove.prevent v-if="showFlag">
     <div class="mtui-loading-main">
       <div class="mtui-loading-icon"></div>
       <div v-if="tips.length > 0" class="mtui-loading-txt" v-html="tips"></div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'mtui-loading',
+  name: 'm-loading',
   data () {
     return {
       showFlag: false,
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-loading-container {
+.mtui-loading {
   @include mask(900, .6, white);
   @include flex-center();
 

@@ -16,6 +16,7 @@ Confirm.install = function (Vue, options = {}) {
       ConfirmInstance.$data.message = options
     } else if (typeof options === 'object') {
       let keys = Object.keys(ConfirmInstance.$data)
+
       keys.forEach(key => {
         if (typeof options[key] !== 'undefined' && options[key] !== null) {
           ConfirmInstance.$data[key] = options[key]

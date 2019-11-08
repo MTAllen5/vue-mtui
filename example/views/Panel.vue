@@ -7,7 +7,7 @@
     </m-panel>
     <m-title type="5">带头部Panel</m-title>
     <m-panel>
-      <div slot="head"><m-icon type="ios-cloud" style="margin-right: 10px;"></m-icon>我是头部</div>
+      <div slot="head"><m-icon type="earth" style="margin-right: 10px;"></m-icon>我是头部</div>
       <m-box>我是内容</m-box>
     </m-panel>
     <m-title type="5">带脚部Panel</m-title>
@@ -20,9 +20,3 @@
     </m-panel>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.mtui-h5 {
-  color: lighten($black, 50%);
-}
-</style>

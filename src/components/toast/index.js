@@ -1,7 +1,6 @@
 import Toast from './Toast'
 
 Toast.install = function (Vue, options = {}) {
-  
   Vue.prototype.$toast = (params) => {
     // 创建子类
     let ToastConstructor = Vue.extend(Toast)

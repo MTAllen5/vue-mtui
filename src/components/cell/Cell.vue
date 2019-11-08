@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mtui-cell {
   @extend .mtui-common;
   position: relative;
@@ -60,14 +60,14 @@ export default {
   }
 
   &.has-icon::before {
-    left: 48px;
+    left: 43px;
   }
 
   .mtui-cell-icon {
-    margin-right: 15px;
+    margin-right: 10px;
     width: 18px;
     font-size: $fontXLarge;
-    color: $colorPrimary;
+    color: lighten($black, 50%);
     text-align: center;
     line-height: $fontXMedium * 1.6;
   }
@@ -78,6 +78,10 @@ export default {
 
   .mtui-cell-foot {
     color: lighten($black, 60%);
+
+    label {
+      font-size: 14px;
+    }
 
     .ion {
       margin-left: 5px;

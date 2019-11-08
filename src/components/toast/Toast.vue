@@ -1,5 +1,5 @@
 <template>
-  <div class="mtui-toast" :class="'mtui-toast-' + type">
+  <div :class="['mtui-toast', 'mtui-toast-' + type, {'mtui-toast-icon': icon}]">
     <m-icon :type="icon" v-if="icon !== ''"></m-icon>
     <div class="mtui-toast-content">{{ message }}</div>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'mtui-toast',
+  name: 'm-toast',
   data () {
     return {
       icon: '',
@@ -18,6 +18,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .mtui-toast {
   position: fixed;
@@ -31,10 +32,16 @@ export default {
   text-align: center;
   color: white;
 
+  &.mtui-toast-icon {
+    padding: 20px 15px;
+    border-radius: 8px;
+  }
+
   .ion {
     display: block;
-    font-size: 100px;
+    font-size: 80px;
     line-height: .8;
+    margin-bottom: 5px;
     &::before {
       line-height: inherit;
     }

@@ -4,7 +4,7 @@
     <!-- 弹窗主体 -->
     <div class="mtui-dialog-main">
       <!-- 关闭按钮 -->
-      <m-button class="mtui-dialog-close" inline small text @onClick="hide" v-if="showCancelButton">
+      <m-button class="mtui-dialog-close" inline small text @onClick="hide" v-if="showCloseButton">
         <m-icon type="android-close"></m-icon>
       </m-button>
 
@@ -39,7 +39,7 @@ export default {
   },
   props: {
     value: Boolean,
-    showCancelButton: Boolean,
+    showCloseButton: Boolean,
     closeOnClickMask: {
       type: Boolean,
       default: true

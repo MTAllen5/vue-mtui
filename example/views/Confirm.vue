@@ -4,19 +4,19 @@
     <m-panel>
       <div slot="head">默认弹窗</div>
       <m-box>
-        <m-button type="primary" @click="showConfirm1">显示confirm</m-button>
+        <m-button type="primary" @onClick="showConfirm1">显示confirm</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">可文本配置弹窗</div>
       <m-box>
-        <m-button type="minor" @click="showConfirm2">显示confirm</m-button>
+        <m-button type="default" @onClick="showConfirm2">显示confirm</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">绑定取消、确定处理函数</div>
       <m-box>
-        <m-button type="primary" plain @click="showConfirm3">显示confirm</m-button>
+        <m-button type="minor" plain @onClick="showConfirm3">显示confirm</m-button>
       </m-box>
     </m-panel>
   </div>
@@ -53,7 +53,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

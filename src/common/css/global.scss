@@ -19,54 +19,10 @@
 }
 
 // 遮罩层
-// .mtui-mask {
-//   @include mask();
-// }
-
-// .mtui-white-mask {
-//   @include mask(100, .6, white);
-// }
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.mtui-mask {
+  @include mask();
 }
 
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-// ======== 【transition】 ========
-.fadeIn-enter-active {
-  transition: opacity .2s;
-}
-.fadeIn-leave-active {
-  transition: opacity .1s;
-}
-.fadeIn-enter, .fadeIn-leave-to {
-  opacity: 0;
-}
-
-
-.zoomIn-enter-active, .zoomIn-leave-active {
-  transition: all .2s;
-}
-.zoomIn-enter, .zoomIn-leave-to {
-  opacity: 0;
-  transform: scale3d(0.3, 0.3, 0.3);
-}
-
-
-.slide-enter-active, .slide-leave-active {
-  transition: all .2s;
-}
-.slide-enter, .slide-leave-to {
-  opacity: 0;
-  transform: scale3d(1, 0, 1);
+.mtui-white-mask {
+  @include mask(100, .6, white);
 }
