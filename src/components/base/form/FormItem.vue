@@ -41,7 +41,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding: 8px 15px;
+  padding: 8px 16px;
   min-height: 48px;
 
   &:not(:first-child)::before {

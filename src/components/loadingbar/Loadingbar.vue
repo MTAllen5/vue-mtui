@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'mtui-loadingbar',
+  name: 'm-loadingbar',
   data () {
     return {
       showFlag: false,
@@ -63,7 +63,7 @@ export default {
   .mtui-loadingbar-progress {
     width: 0;
     height: 100%;
-    background-color: $colorPrimary;
+    background-color: $colorMinor;
     transition: width .2s linear;
   }
 }

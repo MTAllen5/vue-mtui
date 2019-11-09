@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <m-title type="1">MTUI</m-title>
+
     <p class="mtui-p">这是一套基于vue2.0的UI框架，组件参考了weui、<a href="https://github.com/ElemeFE/mint-ui">mint-ui</a>、<a href="https://github.com/didi/cube-ui">cube-ui</a>、<a href="https://ant.design/index-cn">ant design设计规范</a>。</p>
+
     <m-panel>
       <div slot="head">Basic 基础组件</div>
       <div>
@@ -13,36 +15,35 @@
         <m-cell link="/grids" arrow>Grid 网格</m-cell>
       </div>
     </m-panel>
+
     <m-panel>
-      <div slot="head">MessageBox 消息组件</div>
+      <div slot="head">MessageBox 消息弹窗</div>
       <div>
         <m-cell link="/dialog" arrow>Dialog 对话窗</m-cell>
         <m-cell link="/alert" arrow>Alert 提示窗</m-cell>
         <m-cell link="/confirm" arrow>Confirm 确认窗</m-cell>
         <m-cell link="/toast" arrow>Toast 消息提示</m-cell>
         <m-cell link="/loading" arrow>Loading 加载提示</m-cell>
+        <m-cell link="/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
       </div>
     </m-panel>
+
     <m-panel>
       <div slot="head">Form 表单</div>
       <div>
         <m-cell link="/inputs" arrow>Input 输入框</m-cell>
+        <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
+        <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
         <m-cell link="/demo/datepicker" arrow>DatePicker 日期选择器</m-cell>
       </div>
     </m-panel>
-    <m-panel>
-      <div slot="head">Other 其他组件</div>
-      <div>
-        <m-cell link="/loadingbar" arrow>LoadingBar 页面加载进度条</m-cell>
-      </div>
-    </m-panel>
+
     <div class="testDiv">
         <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
         <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton> -->
       </div>
       <!-- <p><Number :value.sync="counter" style="margin-right: 16px"></Number><Number type="input" :value.sync="counter"></Number></p>
-      <p><Switcher :value="switcher" @change="handleSwitch"></Switcher></p>
       <div style="padding: 0 30px">
         <Former inline label-width="100px">
           <FormItem label="楼宇选择">
@@ -54,18 +55,6 @@
           </FormItem>
         </Former>
       </div> -->
-      <!-- <p @touchstart="manualSlideStart" @touchmove="manualSlideMove" @touchend="manualSlideEnd"> -->
-      <!-- <p>
-        <swiper :options="swiperOption" ref="mySwiper" style="height: 160px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
-          <swiper-slide>I'm Slide 1</swiper-slide>
-          <swiper-slide>I'm Slide 2</swiper-slide>
-          <swiper-slide>I'm Slide 3</swiper-slide>
-          <swiper-slide>I'm Slide 4</swiper-slide>
-          <swiper-slide>I'm Slide 5</swiper-slide>
-          <swiper-slide>I'm Slide 6</swiper-slide>
-          <swiper-slide>I'm Slide 7</swiper-slide>
-        </swiper>
-      </p> -->
     </div>
 
     <!-- <Options ref="options">
@@ -85,18 +74,7 @@ export default {
       switcher: true,
       btnLoading: false,
       swiperOption: {}
-      // swiperTouchStart: {},
-      // swiperTouchMove: {},
-      // swiperTranslate: 0,
     }
-  },
-  // computed: {
-  //   swiper() {
-  //     return this.$refs.mySwiper.swiper
-  //   }
-  // },
-  components: {
-
   },
   methods: {
     getIncrease (val) {
@@ -119,47 +97,13 @@ export default {
     handleOption3 () {
       this.$refs.options.hide()
     },
-    handleSwitch () {
-      this.switcher = !this.switcher
-    },
     showDatePicker () {
       this.$refs.datepicker.show()
     }
-    // manualSlideStart () {
-    //   this.swiperTouchStart = event
-    //   this.swiperTranslate = this.swiper.translate
-    // },
-    // manualSlideMove () {
-    //   this.swiperTouchMove = event
-    //   let diff = this.swiperTouchMove.changedTouches[0].clientX - this.swiperTouchStart.changedTouches[0].clientX
-    //   this.swiper.setTranslate(this.swiperTranslate + diff)
-    // },
-    // manualSlideEnd () {
-    //   let longSwipesRatio = this.swiper.width * 0.1
-    //   let diff = event.changedTouches[0].clientX - this.swiperTouchStart.changedTouches[0].clientX
-
-    //   if (Math.abs(diff) > longSwipesRatio) {
-    //     if (diff > 0) {
-    //       // this.swiper.slidePrev() 有bug
-    //       this.swiper.slideTo(this.swiper.activeIndex - 1)
-    //     } else {
-    //       this.swiper.slideNext()
-    //     }
-    //   } else {
-    //     this.swiper.setTranslate(this.swiperTranslate)
-    //   }
-    // }
   }
 }
 </script>
 
 <style>
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #4390EE;
-    font-size: 50px;
-    color: #fff;
-  }
+
 </style>

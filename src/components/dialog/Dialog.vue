@@ -85,7 +85,7 @@ export default {
 
     .mtui-dialog-head {
       position: relative;
-      padding: 15px 20px 0 20px;
+      padding: 16px 20px 0 20px;
       overflow: hidden;
       font-size: $fontLarge;
       font-weight: 400;

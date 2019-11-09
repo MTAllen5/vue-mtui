@@ -2,7 +2,7 @@
   <transition name="fadeIn">
   <div class="mtui-loading" @touchmove.prevent v-if="showFlag">
     <div class="mtui-loading-main">
-      <div class="mtui-loading-icon"></div>
+      <m-icon class="mtui-loading-icon" type="load-c"></m-icon>
       <div v-if="tips.length > 0" class="mtui-loading-txt" v-html="tips"></div>
     </div>
   </div>
@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import Icon from '../icon/Icon'
+
 export default {
   name: 'm-loading',
+  components: { MIcon: Icon },
   data () {
     return {
       showFlag: false,
@@ -36,19 +39,16 @@ export default {
 
   .mtui-loading-main {
     display: flex;
-    padding: 15px;
-    background-color: transparentize($black, .2);
     align-items: center;
+    padding: 16px;
+    background-color: transparentize($black, .2);
     border-radius: 8px;
     color: white;
     animation: zoomIn .1s ease forwards;
 
     .mtui-loading-icon {
-      width: 28px;
-      height: 28px;
-      background: url($iconLoading) no-repeat;
-      background-size: 100%;
-      animation: rotate-loading 1s linear forwards infinite;
+      font-size: $fontXXLarge;
+      animation: rotate-loading 1.6s linear forwards infinite;
       @keyframes rotate-loading {
         0% { transform: rotate(0); }
         100% { transform: rotate(360deg); }

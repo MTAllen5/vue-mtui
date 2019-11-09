@@ -113,8 +113,8 @@ export default {
 <style lang="scss" scoped>
 .mtui-btn {
   @extend .mtui-common;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
   display: block;
   width: 100%;
   min-width: 46px;

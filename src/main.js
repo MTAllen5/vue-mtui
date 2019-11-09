@@ -14,6 +14,10 @@ import Alert from './components/alert'
 import Confirm from './components/confirm'
 import Toast from './components/toast'
 import Loading from './components/loading'
+import LoadingBar from './components/loadingbar'
+// 表单
+import Input from './components/input'
+import Switch from './components/switch'
 
 const components = {
   Button,
@@ -30,7 +34,11 @@ const components = {
   Alert,
   Confirm,
   Toast,
-  Loading
+  Loading,
+  LoadingBar,
+
+  Input,
+  Switch
 }
 
 const install = function (Vue, config = {}) {

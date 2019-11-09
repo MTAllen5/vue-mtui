@@ -16,8 +16,11 @@
 </template>
 
 <script>
+import Icon from '../icon/Icon'
+
 export default {
   name: 'm-cell',
+  components: { MIcon: Icon },
   props: {
     icon: {
       type: String,
@@ -46,13 +49,11 @@ export default {
 <style lang="scss" scoped>
 .mtui-cell {
   @extend .mtui-common;
+  @include flex-center();
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 15px;
+  padding: 11px 16px;
   font-size: $fontXMedium;
-  line-height: 1.6;
+  line-height: 24px;
   overflow: hidden;
 
   &:not(:first-child)::before {
@@ -69,7 +70,6 @@ export default {
     font-size: $fontXLarge;
     color: lighten($black, 50%);
     text-align: center;
-    line-height: $fontXMedium * 1.6;
   }
 
   .mtui-cell-body {
@@ -77,14 +77,17 @@ export default {
   }
 
   .mtui-cell-foot {
+    display: flex;
+    align-items: center;
     color: lighten($black, 60%);
 
     label {
+      margin-left: 8px;
       font-size: 14px;
     }
 
     .ion {
-      margin-left: 5px;
+      margin-left: 8px;
     }
   }
 }

@@ -5,7 +5,17 @@
       <div slot="head">默认Input</div>
       <m-box>
         <m-input v-model="text1" placeholder="请输入"></m-input>
+      </m-box>
+    </m-panel>
+    <m-panel>
+      <div slot="head">不可用</div>
+      <m-box>
         <m-input v-model="text2" placeholder="请输入" disabled></m-input>
+      </m-box>
+    </m-panel>
+    <m-panel>
+      <div slot="head">只读</div>
+      <m-box>
         <m-input v-model="text3" placeholder="请输入" readonly></m-input>
       </m-box>
     </m-panel>
@@ -16,17 +26,17 @@
       </m-box>
     </m-panel>
     <m-panel>
-      <div slot="head">带按钮的</div>
+      <div slot="head">小型的</div>
       <m-box>
-        <m-input v-model="text5" type="tel" placeholder="请输入验证码" maxlength="5" clearable>
-          <m-button type="minor" inline text @click="sendCode">发送验证码</m-button>
-        </m-input>
+        <m-input v-model="text5" placeholder="请输入" small clearable></m-input>
       </m-box>
     </m-panel>
     <m-panel>
-      <div slot="head">文本域</div>
+      <div slot="head">带按钮的</div>
       <m-box>
-        <m-input v-model="text6" rows="5" type="textarea" placeholder="请输入内容" clearable></m-input>
+        <m-input v-model="text6" type="tel" placeholder="请输入验证码" maxlength="5" clearable>
+          <m-button type="minor" inline text @click="sendCode">发送验证码</m-button>
+        </m-input>
       </m-box>
     </m-panel>
   </div>
@@ -36,9 +46,8 @@
 export default {
   data () {
     return {
-      switcher: false,
       text1: '',
-      text2: '',
+      text2: '文本框不可用',
       text3: 'readonly input 只读',
       text4: '',
       text5: '',
@@ -55,9 +64,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-/deep/ .mtui-input:not(:last-child) {
-  margin-bottom: 15px;
-}
-</style>

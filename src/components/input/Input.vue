@@ -1,5 +1,12 @@
 <template>
-  <div :class="['mtui-input', {'is-disabled': disabled}]" v-if="type !== 'textarea'">
+  <div :class="[
+    'mtui-input',
+    {
+      'is-disabled': disabled,
+      'is-readonly': readonly,
+      'is-small': small
+    }
+  ]" v-if="type !== 'textarea'">
     <input
       :type="type"
       :value="value"
@@ -13,11 +20,17 @@
       @focus="focusHandler"
       @blur="blurHandler"
     >
-    <m-icon class="mtui-input-clear" type="ios-close-circle" v-if="clearable" v-show="value.length > 0" @click.native="clearHandler"></m-icon>
+    <m-icon class="mtui-input-clear" type="close-circled" v-if="clearable && !disabled && !readonly" v-show="value.length > 0" @click.native="clearHandler"></m-icon>
     <slot></slot>
   </div>
 
-  <div :class="['mtui-textarea', {'is-disabled': disabled}]" v-else>
+  <div :class="[
+    'mtui-textarea',
+    {
+      'is-disabled': disabled,
+      'is-readonly': readonly
+    }
+  ]" v-else>
     <textarea
       :value="value"
       :name="name"
@@ -37,50 +50,58 @@
 </template>
 
 <script>
+import Icon from '../icon/Icon'
 
 export default {
-  name: 'mtui-input',
+  name: 'm-input',
+  components: { MIcon: Icon },
   props: {
-    type: {
+    type: { // 输入框类型，可选项同原生input，['text', 'password', 'search', 'number', 'file']
       type: String,
       default: 'text'
     },
-    value: {
+    value: { // 输入值
       type: [String, Number],
       default: ''
     },
-    name: String,
-    placeholder: String,
-    disabled: Boolean,
-    readonly: Boolean,
-    maxlength: String,
-    clearable: {
+    name: String, // input的name
+    placeholder: String, // 提示文本
+    disabled: Boolean, // 是否可用
+    readonly: Boolean, // 是否只读
+    maxlength: String, // 最大字符宽度
+    small: Boolean, // 是否小型输入框
+    clearable: { // 是否可清除输入
       type: Boolean,
       default: false
     },
-    row: {
+    row: { // textarea的默认行数
       type: Number,
       default: 3
     },
-    limit: {
+    limit: { // textarea的最大字符
       type: Number,
       default: 200
     }
   },
   methods: {
+    // 清空输入内容
     clearHandler () {
       this.$emit('input', '')
       this.$emit('clear')
     },
+
     inputHandler (event) {
       this.$emit('input', event.target.value)
     },
+
     changeHandler (event) {
       this.$emit('change', event.target.value)
     },
+
     focusHandler () {
       this.$emit('focus')
     },
+
     blurHandler () {
       this.$emit('blur')
     }
@@ -90,67 +111,85 @@ export default {
 
 <style lang="scss" scoped>
 .mtui-input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend .mtui-common;
+  @include flex-center();
   width: 100%;
-  height: $fontXMedium * 2;
   background-color: white;
-  border-radius: 6px;
+  border-radius: 4px;
 
   &.is-disabled {
     background-color: $colorBg;
     cursor: not-allowed;
 
     input {
-      cursor: not-allowed;
-      color: lighten($black, 70%);
-      &::-webkit-input-placeholder {
-        color: lighten($black, 70%);
-      }
+      color: lighten($black, 60%);
+    }
+  }
+
+  &.is-readonly {
+    input {
+      color: lighten($black, 60%);
+    }
+  }
+
+  &.is-small {
+    input {
+      height: 26px;
     }
   }
 
   input {
-    padding: 0 16px;
     flex: 1;
+    padding: 5px 16px;
     min-width: 100px;
-    height: 100%;
+    height: 36px;
     background-color: transparent;
     border: 0;
-    border-radius: inherit;
     font-size: $fontXMedium;
-    color: lighten($black, 50%);
+    color: lighten($black, 20%);
+    -webkit-tap-highlight-color: transparent;
     outline: none;
     &::-webkit-input-placeholder {
       color: lighten($black, 60%);
     }
   }
 
-  &-clear.ion {
+  &-clear {
     display: inline-block;
-    width: 40px;
-    height: 100%;
-    line-height:  $fontXMedium * 2;
+    width: 36px;
+    line-height:  36px;
     text-align: center;
-    font-size: $fontXLarge;
+    font-size: $fontLarge;
     color: lighten($black, 60%);
   }
 }
 
 .mtui-textarea {
   @extend .mtui-input;
+  padding: 8px 16px;
   height: auto;
   flex-direction: column;
 
+  &.is-disabled {
+    textarea {
+      color: lighten($black, 60%);
+    }
+  }
+
+  &.is-readonly {
+    textarea {
+      color: lighten($black, 60%);
+    }
+  }
+
   textarea {
-    padding: 10px 15px;
+    padding: 0;
     width: 100%;
+    background-color: transparent;
     border: 0;
-    border-radius: inherit;
     font-size: $fontXMedium;
     font-family: $font;
-    color: lighten($black, 50%);
+    color: lighten($black, 20%);
     outline: none;
     resize: none;
     &::-webkit-input-placeholder {
@@ -160,9 +199,11 @@ export default {
 
   &-counter {
     flex: 1;
+    box-sizing: border-box;
     width: 100%;
     text-align: right;
-    color: lighten($black, 50%);
+    line-height: 1.6;
+    color: lighten($black, 60%);
   }
 }
 </style>

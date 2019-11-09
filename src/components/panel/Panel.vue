@@ -53,7 +53,7 @@ export default {
   }
 
   .mtui-panel-head {
-    padding: 10px 15px;
+    padding: 10px 16px;
     color: lighten($black, 60%);
     font-size: $fontMedium;
     line-height: 1.4;
@@ -66,12 +66,12 @@ export default {
   }
 
   .mtui-panel-foot {
-    padding: 10px 15px;
+    padding: 10px 16px;
     color: lighten($black, 60%);
     font-size: $fontMedium;
     &::before {
       @include border-top-line();
-      left: 15px;
+      left: 16px;
     }
 
     .mtui-cell {

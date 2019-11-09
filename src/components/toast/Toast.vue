@@ -24,7 +24,7 @@ export default {
   position: fixed;
   left: 50%;
   z-index: 999;
-  padding: 10px 15px;
+  padding: 10px 16px;
   min-width: 100px;
   max-width: 80%;
   background-color: transparentize($black, .2);
@@ -33,7 +33,7 @@ export default {
   color: white;
 
   &.mtui-toast-icon {
-    padding: 20px 15px;
+    padding: 20px 16px;
     border-radius: 8px;
   }
 
