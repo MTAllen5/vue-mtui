@@ -26,7 +26,7 @@
           <m-checkbox v-model="checkbox2" type="button" label="2">选项二</m-checkbox>
         </m-form-item>
         <m-form-item label="加减按钮">
-          <m-number v-model="text3"></m-number>
+          <m-counter v-model="text3" small></m-counter>
         </m-form-item>
         <m-form-item label="选项">
 

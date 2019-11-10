@@ -134,7 +134,7 @@ export default {
 
   &.is-small {
     input {
-      height: 26px;
+      height: 24px;
     }
   }
 

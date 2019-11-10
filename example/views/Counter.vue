@@ -20,7 +20,7 @@
       <div slot="head">不可用的</div>
       <m-cell>
         <m-counter v-model="counter1" disabled style="margin-right: 8px;"></m-counter>
-        <m-counter v-model="counter1" type="input" disabled></m-counter>
+        <m-counter v-model="counter1" type="input" disabled theme="minor"></m-counter>
       </m-cell>
     </m-panel>
 
@@ -28,7 +28,7 @@
       <div slot="head">小型的</div>
       <m-cell>
         <m-counter v-model="counter1" small style="margin-right: 8px;"></m-counter>
-        <m-counter v-model="counter1" type="input" small></m-counter>
+        <m-counter v-model="counter1" type="input" small theme="minor"></m-counter>
       </m-cell>
     </m-panel>
   </div>

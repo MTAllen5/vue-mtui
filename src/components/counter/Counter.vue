@@ -1,12 +1,12 @@
 <template>
   <div class="mtui-counter">
     <div class="mtui-counter-main" :class="{'is-small': small}">
-      <m-button inline :type="color" :small="small" :disabled="disabled || value <= min" @onClick="reduce"><m-icon type="android-remove"></m-icon></m-button>
+      <m-button inline :type="theme" :small="small" :disabled="disabled || value <= min" @onClick="reduce"><m-icon type="android-remove"></m-icon></m-button>
 
       <input v-if="type === 'input'" class="mtui-counter-ipt" type="tel" v-model="val" :disabled="disabled" @change="editValue">
       <span v-if="type === 'span'" class="mtui-counter-span">{{ value }}</span>
 
-      <m-button inline :type="color" :small="small" :disabled="disabled || value >= max" @onClick="increase"><m-icon type="android-add"></m-icon></m-button>
+      <m-button inline :type="theme" :small="small" :disabled="disabled || value >= max" @onClick="increase"><m-icon type="android-add"></m-icon></m-button>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
     },
     disabled: Boolean, // 是否可用
     small: Boolean,
-    color: { // 主题颜色 可选值['primary', 'minor', 'default']
+    theme: { // 主题颜色 可选值['primary', 'minor', 'default']
       type: String,
       default: 'primary'
     }
