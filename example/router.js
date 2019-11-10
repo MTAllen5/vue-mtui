@@ -19,6 +19,7 @@ import LoadingBar from './views/LoadingBar'
 import Input from './views/Input'
 import Textarea from './views/Textarea'
 import Switch from './views/Switch'
+import Counter from './views/Counter'
 import Form from './views/Form'
 
 import NotFound from './views/404'
@@ -46,6 +47,7 @@ export default new Router({
     { path: '/inputs', name: 'inputs', component: Input },
     { path: '/textareas', name: 'textareas', component: Textarea },
     { path: '/switchs', name: 'switchs', component: Switch },
+    { path: '/counters', name: 'counters', component: Counter },
     { path: '/form', name: 'form', component: Form },
 
     { path: '/:other', name: '404', component: NotFound }

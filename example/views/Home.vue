@@ -34,6 +34,7 @@
         <m-cell link="/inputs" arrow>Input 输入框</m-cell>
         <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
         <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
+        <m-cell link="/counters" arrow>Counter 计数器</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
         <m-cell link="/demo/datepicker" arrow>DatePicker 日期选择器</m-cell>
       </div>

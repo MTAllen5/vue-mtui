@@ -18,6 +18,7 @@ import LoadingBar from './components/loadingbar'
 // 表单
 import Input from './components/input'
 import Switch from './components/switch'
+import Counter from './components/counter'
 
 const components = {
   Button,
@@ -38,7 +39,8 @@ const components = {
   LoadingBar,
 
   Input,
-  Switch
+  Switch,
+  Counter
 }
 
 const install = function (Vue, config = {}) {
