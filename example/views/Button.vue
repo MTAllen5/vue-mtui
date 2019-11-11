@@ -77,18 +77,18 @@
     <m-panel>
       <div slot="head">纯图标按钮</div>
       <m-box>
-        <m-button inline small round type="primary"><m-icon type="android-done"></m-icon></m-button>
-        <m-button inline small round><m-icon type="android-search"></m-icon></m-button>
-        <m-button inline small round type="minor"><m-icon type="android-delete"></m-icon></m-button>
+        <m-button inline round type="primary"><m-icon type="android-done"></m-icon></m-button>
+        <m-button inline round><m-icon type="android-search"></m-icon></m-button>
+        <m-button inline round type="minor"><m-icon type="android-delete"></m-icon></m-button>
       </m-box>
     </m-panel>
 
     <m-panel>
       <div slot="head">无圆角按钮（适合100%宽按钮）</div>
       <div style="padding: 20px 0;">
-        <m-button no-radius big type="primary">大按钮</m-button>
-        <m-button no-radius big>大按钮</m-button>
-        <m-button no-radius big type="minor">大按钮</m-button>
+        <m-button no-radius large type="primary">大按钮</m-button>
+        <m-button no-radius large>大按钮</m-button>
+        <m-button no-radius large type="minor">大按钮</m-button>
       </div>
     </m-panel>
   </div>

@@ -26,16 +26,10 @@
       </m-box>
     </m-panel>
     <m-panel>
-      <div slot="head">小型的</div>
-      <m-box>
-        <m-input v-model="text5" placeholder="请输入" small clearable></m-input>
-      </m-box>
-    </m-panel>
-    <m-panel>
       <div slot="head">带按钮的</div>
       <m-box>
         <m-input v-model="text6" type="tel" placeholder="请输入验证码" maxlength="5" clearable>
-          <m-button type="minor" inline text @click="sendCode">发送验证码</m-button>
+          <m-button type="minor" inline small text @click="sendCode">发送验证码</m-button>
         </m-input>
       </m-box>
     </m-panel>

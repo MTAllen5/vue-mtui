@@ -51,13 +51,14 @@ export default {
   @extend .mtui-common;
   @include flex-center();
   position: relative;
-  padding: 11px 16px;
+  padding: 13px 16px;
   font-size: $fontXMedium;
   line-height: 24px;
   overflow: hidden;
 
   &:not(:first-child)::before {
     @include border-top-line();
+    left: 16px;
   }
 
   &.has-icon::before {

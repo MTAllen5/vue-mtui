@@ -1,18 +1,28 @@
 <template>
-  <label :class="['mtui-checkbox', {'is-checked': value}, 'is-' + type]">
+  <label :class="[
+    'mtui-checkbox',
+    'mtui-checkbox-' + theme,
+    {
+      'is-checked': value
+    },
+    'is-' + type
+  ]">
     <input
       type="checkbox"
       :checked="value"
       @change="handleChange"
     >
-    <m-icon type="ios-checkmark" class="mtui-checkbox-default-icon"></m-icon>
+    <m-icon type="android-checkbox-outline-blank" class="mtui-checkbox-default-icon"></m-icon>
     <slot></slot>
   </label>
 </template>
 
 <script>
+import Icon from '../icon/Icon'
+
 export default {
-  name: 'mtui-checkbox',
+  name: 'm-checkbox',
+  components: { MIcon: Icon },
   model: {
     prop: 'value',
     event: 'change'
@@ -29,11 +39,13 @@ export default {
     type: {
       type: String,
       default: 'default'
-    }
-  },
-  data () {
-    return {
-
+    },
+    theme: {
+      type: String,
+      default: 'primary',
+      validator: (val) => {
+        return ['primary', 'minor'].indexOf(val) !== -1
+      }
     }
   },
   computed: {

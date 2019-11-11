@@ -43,12 +43,10 @@ export default {
 .mtui-switch {
   position: relative;
   display: inline-block;
-  margin-top: 4px;
-  margin-bottom: 4px;
   width: 50px;
-  height: 28px;
+  height: 30px;
   background-color: $colorDefaultAct;
-  border-radius: 28px;
+  border-radius: 30px;
   transition: background-color .1s linear;
 
   &:after {
@@ -57,8 +55,8 @@ export default {
     left: 2px;
     top: 2px;
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 3px 5px rgba(0,0,0,.3);
@@ -68,7 +66,7 @@ export default {
   &.active {
     background-color: $colorDisabled;
     &:after {
-      left: 24px;
+      left: 22px;
     }
   }
 
@@ -76,8 +74,6 @@ export default {
   &-minor.active { background-color: $colorMinor; }
 
   &.is-small {
-    margin-top: 6px;
-    margin-bottom: 6px;
     width: 40px;
     height: 24px;
     border-radius: 24px;

@@ -4,26 +4,26 @@
     <m-panel>
       <div slot="head">默认提示</div>
       <m-box>
-        <m-button type="primary" @onClick="showToast1">显示toast</m-button>
+        <m-button type="primary" @click="showToast1">显示toast</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">其他位置提示</div>
       <m-box>
-        <m-button type="minor" @onClick="showToast2">显示toast</m-button>
-        <m-button type="minor" plain @onClick="showToast3">显示toast</m-button>
+        <m-button type="minor" @click="showToast2">显示toast</m-button>
+        <m-button type="minor" plain @click="showToast3">显示toast</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">自定义显示时间</div>
       <m-box>
-        <m-button type="primary" plain @onClick="showToast4">显示toast</m-button>
+        <m-button type="primary" plain @click="showToast4">显示toast</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">带图标提示</div>
       <m-box>
-        <m-button @onClick="showToast5">显示toast</m-button>
+        <m-button @click="showToast5">显示toast</m-button>
       </m-box>
     </m-panel>
   </div>

@@ -47,7 +47,7 @@ export default {
       type: Boolean,
       default: false
     },
-    big: {
+    large: {
       type: Boolean,
       default: false
     },
@@ -78,7 +78,7 @@ export default {
         { 'is-loading': this.loading },
         { 'is-disabled': this.disabled || this.loading },
         { 'is-small': this.small },
-        { 'is-big': this.big },
+        { 'is-large': this.large },
         { 'is-round': this.round },
         { 'is-inline': this.inline },
         { 'is-plain': this.plain },
@@ -96,7 +96,7 @@ export default {
     click () {
       if (this.disabled || this.loading) return
 
-      this.$emit('onClick')
+      this.$emit('click')
     },
     handleTouchStart () {
       if (this.disabled || this.loading) return
@@ -117,8 +117,8 @@ export default {
   padding-right: 16px;
   display: block;
   width: 100%;
-  min-width: 46px;
-  height: 46px;
+  min-width: 40px;
+  height: 40px;
   border: 1px solid $colorLine;
   border-radius: 4px;
   font-size: $fontXMedium;
@@ -136,17 +136,17 @@ export default {
   }
 
   &.is-round {
-    border-radius: 46px;
+    border-radius: 40px;
   }
 
   &.is-small {
-    min-width: 34px;
-    height: 34px;
+    min-width: 30px;
+    height: 30px;
     font-size: $fontMedium;
   }
-  &.is-big {
-    min-width: 54px;
-    height: 54px;
+  &.is-large {
+    min-width: 50px;
+    height: 50px;
     font-size: $fontLarge;
   }
 
@@ -165,7 +165,7 @@ export default {
 
   &.is-icon-only {
     padding: 0;
-    font-size: $fontXLarge;
+    font-size: $fontLarge;
     &.is-small {
       font-size: $fontXMedium;
     }

@@ -4,19 +4,19 @@
     <m-panel>
       <div slot="head">默认弹窗</div>
       <m-box>
-        <m-button type="primary" @onClick="showDialog1">显示dialog</m-button>
+        <m-button type="primary" @click="showDialog1">显示dialog</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">遮罩不可关闭</div>
       <m-box>
-        <m-button type="default" @onClick="showDialog2">显示dialog</m-button>
+        <m-button type="default" @click="showDialog2">显示dialog</m-button>
       </m-box>
     </m-panel>
     <m-panel>
       <div slot="head">显示关闭按钮</div>
       <m-box>
-        <m-button type="minor" @onClick="showDialog3">显示dialog</m-button>
+        <m-button type="minor" @click="showDialog3">显示dialog</m-button>
       </m-box>
     </m-panel>
 
@@ -26,7 +26,7 @@
     <m-dialog v-model="dialogShow2" :closeOnClickMask="false">
       <div slot="title">这是标题</div>
       <p>这是绑定关闭事件的</p>
-      <m-button type="minor" text @onClick="close2" slot="foot">关闭</m-button>
+      <m-button type="minor" text @click="close2" slot="foot">关闭</m-button>
     </m-dialog>
     <m-dialog v-model="dialogShow3" showCloseButton>
       <div slot="title">这是标题</div>

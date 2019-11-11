@@ -4,7 +4,7 @@
     <m-panel>
       <div slot="head">默认加载进度条</div>
       <m-box>
-        <m-button @onClick="showLoadingBar1">显示loadingbar</m-button>
+        <m-button @click="showLoadingBar1">显示loadingbar</m-button>
       </m-box>
     </m-panel>
   </div>

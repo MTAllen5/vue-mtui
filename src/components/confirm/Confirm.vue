@@ -8,8 +8,8 @@
 
     <!-- 弹窗按钮组 -->
     <template slot="foot">
-      <m-button inline text no-radius @onClick="cancel">{{ cancelTxt }}</m-button>
-      <m-button inline text type="minor" no-radius @onClick="confirm">{{ confirmTxt }}</m-button>
+      <m-button inline text no-radius @click="cancel">{{ cancelTxt }}</m-button>
+      <m-button inline text type="minor" no-radius @click="confirm">{{ confirmTxt }}</m-button>
     </template>
   </m-dialog>
 </template>

@@ -7,7 +7,7 @@
     <div>{{ message }}</div>
 
     <!-- 弹窗按钮组 -->
-    <m-button type="minor" text no-radius @onClick="alert" slot="foot">{{ confirmTxt }}</m-button>
+    <m-button type="minor" text no-radius @click="alert" slot="foot">{{ confirmTxt }}</m-button>
   </m-dialog>
 </template>
 

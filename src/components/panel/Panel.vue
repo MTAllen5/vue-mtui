@@ -59,6 +59,7 @@ export default {
     line-height: 1.4;
     &::after {
       @include border-bottom-line();
+      left: 16px;
     }
     .ion {
       font-size: 16px;

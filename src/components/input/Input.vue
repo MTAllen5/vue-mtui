@@ -3,8 +3,7 @@
     'mtui-input',
     {
       'is-disabled': disabled,
-      'is-readonly': readonly,
-      'is-small': small
+      'is-readonly': readonly
     }
   ]" v-if="type !== 'textarea'">
     <input
@@ -69,7 +68,6 @@ export default {
     disabled: Boolean, // 是否可用
     readonly: Boolean, // 是否只读
     maxlength: String, // 最大字符宽度
-    small: Boolean, // 是否小型输入框
     clearable: { // 是否可清除输入
       type: Boolean,
       default: false
@@ -132,17 +130,11 @@ export default {
     }
   }
 
-  &.is-small {
-    input {
-      height: 24px;
-    }
-  }
-
   input {
     flex: 1;
-    padding: 5px 16px;
+    padding: 6px 8px;
     min-width: 100px;
-    height: 36px;
+    height: 24px;
     background-color: transparent;
     border: 0;
     font-size: $fontXMedium;
@@ -166,7 +158,7 @@ export default {
 
 .mtui-textarea {
   @extend .mtui-input;
-  padding: 8px 16px;
+  padding: 6px 8px;
   height: auto;
   flex-direction: column;
 

@@ -1,12 +1,12 @@
 <template>
   <div class="mtui-counter">
     <div class="mtui-counter-main" :class="{'is-small': small}">
-      <m-button inline :type="theme" :small="small" :disabled="disabled || value <= min" @onClick="reduce"><m-icon type="android-remove"></m-icon></m-button>
+      <m-button inline :type="theme" small :disabled="disabled || value <= min" @click="reduce"><m-icon type="android-remove"></m-icon></m-button>
 
       <input v-if="type === 'input'" class="mtui-counter-ipt" type="tel" v-model="val" :disabled="disabled" @change="editValue">
       <span v-if="type === 'span'" class="mtui-counter-span">{{ value }}</span>
 
-      <m-button inline :type="theme" :small="small" :disabled="disabled || value >= max" @onClick="increase"><m-icon type="android-add"></m-icon></m-button>
+      <m-button inline :type="theme" small :disabled="disabled || value >= max" @click="increase"><m-icon type="android-add"></m-icon></m-button>
     </div>
   </div>
 </template>
@@ -96,13 +96,13 @@ export default {
 
   &-main {
     @include flex-center();
-    height: 46px;
+    height: 30px;
 
     .mtui-counter-span {
       display: inline-block;
       margin: 0 3px;
-      min-width: 40px;
-      line-height: 46px;
+      min-width: 30px;
+      line-height: 30px;
       border: 1px solid transparent;
       border-radius: 4px;
       text-align: center;
@@ -111,8 +111,8 @@ export default {
     .mtui-counter-ipt {
       margin: 0 3px;
       padding: 0 3px;
-      width: 32px;
-      height: 44px;
+      width: 24px;
+      height: 28px;
       border: 1px solid $colorLine;
       border-radius: 4px;
       text-align: center;
@@ -120,19 +120,6 @@ export default {
       -webkit-appearance: none;
       -webkit-tap-highlight-color: transparent;
       outline: none;
-    }
-
-    &.is-small {
-      height: 34px;
-
-      .mtui-counter-span {
-        min-width: 30px;
-        line-height: 34px;
-      }
-      .mtui-counter-ipt {
-        width: 22px;
-        height: 32px;
-      }
     }
   }
 }

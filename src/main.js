@@ -19,6 +19,8 @@ import LoadingBar from './components/loadingbar'
 import Input from './components/input'
 import Switch from './components/switch'
 import Counter from './components/counter'
+import Radio from './components/radio'
+import Checkbox from './components/checkbox'
 
 const components = {
   Button,
@@ -40,7 +42,9 @@ const components = {
 
   Input,
   Switch,
-  Counter
+  Counter,
+  Radio,
+  Checkbox
 }
 
 const install = function (Vue, config = {}) {

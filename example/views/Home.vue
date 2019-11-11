@@ -19,7 +19,7 @@
     <m-panel>
       <div slot="head">MessageBox 消息弹窗</div>
       <div>
-        <m-cell link="/dialog" arrow>Dialog 对话窗</m-cell>
+        <m-cell link="/dialogs" arrow>Dialog 对话窗</m-cell>
         <m-cell link="/alert" arrow>Alert 提示窗</m-cell>
         <m-cell link="/confirm" arrow>Confirm 确认窗</m-cell>
         <m-cell link="/toast" arrow>Toast 消息提示</m-cell>
@@ -35,8 +35,10 @@
         <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
         <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
         <m-cell link="/counters" arrow>Counter 计数器</m-cell>
+        <m-cell link="/radios" arrow>Radio 单选按钮</m-cell>
+        <m-cell link="/checkboxes" arrow>Checkbox 复选按钮</m-cell>
+        <m-cell link="/datepicker" arrow>DatePicker 日期选择器</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
-        <m-cell link="/demo/datepicker" arrow>DatePicker 日期选择器</m-cell>
       </div>
     </m-panel>
 
@@ -44,8 +46,7 @@
         <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
         <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton> -->
       </div>
-      <!-- <p><Number :value.sync="counter" style="margin-right: 16px"></Number><Number type="input" :value.sync="counter"></Number></p>
-      <div style="padding: 0 30px">
+      <!-- <div style="padding: 0 30px">
         <Former inline label-width="100px">
           <FormItem label="楼宇选择">
             <Selecter placeholder="请选择楼宇">

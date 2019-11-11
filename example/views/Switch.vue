@@ -35,9 +35,6 @@ export default {
       switch1: true,
       switch2: true
     }
-  },
-  methods: {
-
   }
 }
 </script>
