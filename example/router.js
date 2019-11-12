@@ -24,6 +24,9 @@ import Radio from './views/Radio'
 import Checkbox from './views/Checkbox'
 import Form from './views/Form'
 
+import Calendar from './views/Calendar'
+import Search from './views/Search'
+
 import NotFound from './views/404'
 
 Vue.use(Router)
@@ -53,6 +56,9 @@ export default new Router({
     { path: '/radios', name: 'radios', component: Radio },
     { path: '/checkboxes', name: 'checkboxes', component: Checkbox },
     { path: '/form', name: 'form', component: Form },
+
+    { path: '/calendars', name: 'calendars', component: Calendar },
+    { path: '/searchs', name: 'searchs', component: Search },
 
     { path: '/:other', name: '404', component: NotFound }
   ]

@@ -3,17 +3,27 @@
     'mtui-checkbox',
     'mtui-checkbox-' + theme,
     {
-      'is-checked': value
+      'is-checked': value,
+      'is-disabled': disabled
     },
     'is-' + type
   ]">
-    <input
-      type="checkbox"
-      :checked="value"
-      @change="handleChange"
-    >
-    <m-icon type="android-checkbox-outline-blank" class="mtui-checkbox-default-icon"></m-icon>
-    <slot></slot>
+    <!-- 虚拟checkbox input图标 -->
+    <span class="mtui-checkbox-input">
+      <span class="mtui-checkbox-input-inner">
+        <m-icon type="android-done" v-show="value"></m-icon>
+      </span>
+      <input
+        type="checkbox"
+        :checked="value"
+        :disabled="disabled"
+        @change="handleChange"
+      >
+    </span>
+    <!-- 选项文本 -->
+    <span class="mtui-checkbox-label">
+      <slot></slot>
+    </span>
   </label>
 </template>
 
@@ -40,17 +50,13 @@ export default {
       type: String,
       default: 'default'
     },
+    disabled: Boolean,
     theme: {
       type: String,
       default: 'primary',
       validator: (val) => {
         return ['primary', 'minor'].indexOf(val) !== -1
       }
-    }
-  },
-  computed: {
-    checkboxIcon () {
-      return this.value ? 'ios-checkbox' : 'ios-square-outline'
     }
   },
   methods: {
@@ -63,68 +69,91 @@ export default {
 
 <style lang="scss" scoped>
 .mtui-checkbox {
+  @extend .mtui-common;
   position: relative;
-  box-sizing: border-box;
   display: inline-block;
-  border-radius: 4px;
-  line-height: 30px;
   color: lighten($black, 40%);
-  text-align: center;
-  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 
-  input[type='checkbox'] {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    outline: none;
-  }
-
-  &-default-icon.ion {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: none;
-    width: 14px;
-    height: 14px;
-    background-color: white;
-    border: 1px solid lighten($black, 50%);
-    border-radius: 2px;
-    transition: all .15s;
-    font-size: 22px;
-
-    &::before {
-      transform: scale(0);
-      transition: all .12s;
+  // 隐藏真实checkbox
+  .mtui-checkbox-input {
+    input[type='checkbox'] {
+      position: absolute;
+      z-index: -1;
+      margin: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      outline: none;
     }
   }
 
   &.is-default {
-    padding-left: 26px;
-    line-height: 32px;
+    .mtui-checkbox-input {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
 
-    .mtui-checkbox-default-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      .mtui-checkbox-input-inner {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border: 1px solid lighten($black, 40%);
+        border-radius: 2px;
+        transition: all .1s;
+        line-height: normal;
+        text-align: center;
+        font-size: 14px;
+        .ion {
+          vertical-align: top;
+        }
+      }
+    }
+
+    .mtui-checkbox-label {
+      display: inline-block;
+      line-height: 30px;
     }
 
     &.is-checked {
-      color: $colorPrimary;
-      .mtui-checkbox-default-icon {
-        background-color: $colorPrimary;
-        border-color: $colorPrimary;
-        color: white;
-        &::before {
-          transform: scale(1);
+      &.mtui-checkbox-primary {
+        color: $colorPrimary;
+        .mtui-checkbox-input-inner {
+          background-color: $colorPrimary;
+          border-color: $colorPrimary;
+          color: white;
+        }
+      }
+      &.mtui-checkbox-minor {
+        color: $colorMinor;
+        .mtui-checkbox-input-inner {
+          background-color: $colorMinor;
+          border-color: $colorMinor;
+          color: white;
+        }
+      }
+    }
+
+    &.is-disabled {
+      &.mtui-checkbox-primary,
+      &.mtui-checkbox-minor {
+        color: $colorDefaultAct;
+      }
+
+      .mtui-checkbox-input-inner {
+        border-color: $colorDefaultAct;
+      }
+
+      &.is-checked {
+        .mtui-checkbox-input-inner {
+          background-color: $colorDisabled;
+          border-color: $colorDisabled;
         }
       }
     }
@@ -132,14 +161,38 @@ export default {
 
   &.is-button {
     padding: 0 8px;
-    border: 1px solid lighten($black, 50%);
+    border: 1px solid lighten($black, 40%);
     border-radius: 4px;
-    transition: all .15s;
+    transition: all .1s;
+    line-height: 28px;
+
+    .mtui-checkbox-input {
+      display: none;
+    }
 
     &.is-checked {
-      background-color: $colorPrimary;
-      border-color: $colorPrimary;
+      &.mtui-checkbox-primary {
+        background-color: $colorPrimary;
+        border-color: $colorPrimary;
+        color: white;
+      }
+      &.mtui-checkbox-minor {
+        background-color: $colorMinor;
+        border-color: $colorMinor;
+        color: white;
+      }
+    }
+
+    &.is-disabled {
+      background-color: $colorDefaultAct;
+      border-color: $colorDefaultAct;
       color: white;
+      cursor: not-allowed;
+
+      &.is-checked {
+        background-color: $colorDisabled;
+        border-color: $colorDisabled;
+      }
     }
   }
 }

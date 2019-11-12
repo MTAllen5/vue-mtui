@@ -37,8 +37,15 @@
         <m-cell link="/counters" arrow>Counter 计数器</m-cell>
         <m-cell link="/radios" arrow>Radio 单选按钮</m-cell>
         <m-cell link="/checkboxes" arrow>Checkbox 复选按钮</m-cell>
-        <m-cell link="/datepicker" arrow>DatePicker 日期选择器</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
+      </div>
+    </m-panel>
+
+    <m-panel>
+      <div slot="head">Other 其他</div>
+      <div>
+        <m-cell link="/calendars" arrow>Calendar 日历</m-cell>
+        <m-cell link="/searchs" arrow>Search 搜索框</m-cell>
       </div>
     </m-panel>
 

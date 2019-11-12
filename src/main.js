@@ -21,6 +21,9 @@ import Switch from './components/switch'
 import Counter from './components/counter'
 import Radio from './components/radio'
 import Checkbox from './components/checkbox'
+// 其他
+import Calendar from './components/calendar'
+import Search from './components/search'
 
 const components = {
   Button,
@@ -44,7 +47,10 @@ const components = {
   Switch,
   Counter,
   Radio,
-  Checkbox
+  Checkbox,
+
+  Calendar,
+  Search
 }
 
 const install = function (Vue, config = {}) {
