@@ -35,8 +35,9 @@
         <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
         <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
         <m-cell link="/counters" arrow>Counter 计数器</m-cell>
-        <m-cell link="/radios" arrow>Radio 单选按钮</m-cell>
-        <m-cell link="/checkboxes" arrow>Checkbox 复选按钮</m-cell>
+        <m-cell link="/radios" arrow>Radio 单选框</m-cell>
+        <m-cell link="/checkboxes" arrow>Checkbox 复选框</m-cell>
+        <m-cell link="/selects" arrow>Select 选择框</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
       </div>
     </m-panel>

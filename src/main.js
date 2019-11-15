@@ -21,6 +21,9 @@ import Switch from './components/switch'
 import Counter from './components/counter'
 import Radio from './components/radio'
 import Checkbox from './components/checkbox'
+import Select from './components/selector'
+import Form from './components/form/index_form'
+import FormItem from './components/form/index_form_item'
 // 其他
 import Calendar from './components/calendar'
 import Search from './components/search'
@@ -48,6 +51,9 @@ const components = {
   Counter,
   Radio,
   Checkbox,
+  Select,
+  Form,
+  FormItem,
 
   Calendar,
   Search

@@ -1,18 +1,21 @@
 <template>
   <div class="mtui-search">
     <form class="mtui-search-form" :class="{ clearable: clearable }" action="*" @submit.prevent="onSearch" @click="$refs.searcher.focus()">
-      <m-icon class="mtui-search-icon" type="search"></m-icon>
+      <m-icon class="mtui-search-icon" type="ios-search-strong"></m-icon>
       <!-- 输入框 -->
       <input class="mtui-search-input" type="search" v-model="keyword" :maxlength="maxlength" :placeholder="placeholder" ref="searcher">
       <!-- 清除按钮 -->
-      <i class="mtui-search-clear" v-if="clearable" v-show="keyword !== ''" @click.stop="clearKeyWord"></i>
+      <m-icon class="mtui-search-clear" type="close-circled" v-if="clearable" v-show="keyword !== ''" @click.native.stop="clearKeyWord"></m-icon>
     </form>
   </div>
 </template>
 
 <script>
+import Icon from '../icon/Icon'
+
 export default {
   name: 'm-search',
+  components: { MIcon: Icon },
   props: {
     value: {
       type: String,
@@ -65,22 +68,24 @@ export default {
 <style lang="scss" scoped>
 .mtui-search {
   padding: 10px 16px;
-  background-color: #fff;
+  background-color: white;
 
   &-form {
     position: relative;
     display: flex;
     background-color: $colorBg;
-    border-radius: 2px;
+    border-radius: 4px;
 
     .mtui-search-icon {
-      width: 30px;
+      flex-shrink: 0;
+      padding-top: 4px;
+      padding-left: 8px;
+      width: 20px;
       text-align: center;
-      line-height: 34px;
+      line-height: 30px;
       color: $colorDisabled;
+      font-size: 20px;
     }
-
-    &.clearable { padding-right: 24px; }
 
     .mtui-search-input {
       padding: 5px 8px;
@@ -89,8 +94,8 @@ export default {
       background-color: transparent;
       border: 0;
       outline: none;
-      font-size: 14px;
-      color: #333;
+      font-size: 16px;
+      color: $black;
       -webkit-appearance:none;
       &::-webkit-search-cancel-button {
         display: none;
@@ -101,30 +106,14 @@ export default {
       }
     }
 
-    .search-clear {
-      position: absolute;
-      right: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      background-color: #d7d7d7;
-      border-radius: 50%;
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -5px;
-        margin-top: -1px;
-        width: 10px;
-        height: 2px;
-        background-color: #9b9b9b;
-      }
-      &::before { transform: rotate(45deg); }
-      &::after { transform: rotate(-45deg); }
+    .mtui-search-clear {
+      flex-shrink: 0;
+      padding-right: 8px;
+      width: 20px;
+      text-align: center;
+      line-height: 34px;
+      color: $colorDisabled;
+      font-size: 16px;
     }
   }
 }

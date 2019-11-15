@@ -15,7 +15,6 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        console.log(args)
         args[0].template = './example/index.html'
         return args
       })

@@ -22,6 +22,7 @@ import Switch from './views/Switch'
 import Counter from './views/Counter'
 import Radio from './views/Radio'
 import Checkbox from './views/Checkbox'
+import Select from './views/Select'
 import Form from './views/Form'
 
 import Calendar from './views/Calendar'
@@ -55,6 +56,7 @@ export default new Router({
     { path: '/counters', name: 'counters', component: Counter },
     { path: '/radios', name: 'radios', component: Radio },
     { path: '/checkboxes', name: 'checkboxes', component: Checkbox },
+    { path: '/selects', name: 'selects', component: Select },
     { path: '/form', name: 'form', component: Form },
 
     { path: '/calendars', name: 'calendars', component: Calendar },

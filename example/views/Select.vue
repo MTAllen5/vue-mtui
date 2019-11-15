@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <m-title type="1">Select</m-title>
+
+    <m-panel>
+      <div slot="head">默认</div>
+      <m-box>
+        <m-select v-model="select" placeholder="请选择" :options="options"></m-select>
+      </m-box>
+    </m-panel>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      select: '',
+      options: [
+        {
+          value: 1,
+          label: '选项一'
+        },
+        {
+          value: 2,
+          label: '选项二'
+        },
+        {
+          value: 3,
+          label: '选项三'
+        },
+        {
+          value: 4,
+          label: '选项四'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>

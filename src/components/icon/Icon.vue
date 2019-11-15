@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import '@/common/ionicons/css/ionicons.min.css';
+import '@/common/ionicons/css/ionicons.min.css'
 
 export default {
   name: 'm-icon',

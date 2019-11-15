@@ -132,7 +132,7 @@ export default {
 
   input {
     flex: 1;
-    padding: 6px 8px;
+    padding: 5px 8px;
     min-width: 100px;
     height: 24px;
     background-color: transparent;
@@ -148,8 +148,8 @@ export default {
 
   &-clear {
     display: inline-block;
-    width: 36px;
-    line-height:  36px;
+    width: 34px;
+    line-height:  34px;
     text-align: center;
     font-size: $fontLarge;
     color: lighten($black, 60%);
