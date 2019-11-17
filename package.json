@@ -1,10 +1,11 @@
 {
   "name": "vue-mtui",
   "version": "0.1.0",
-  "main": "dist/vue-mtui.common.js",
+  "main": "lib/vue-mtui.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --dest lib --target lib --name vue-mtui src/main.js",
+    "demo-build": "vue-cli-service build --dest doc/example",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

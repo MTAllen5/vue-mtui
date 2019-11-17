@@ -13,17 +13,19 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    // config
-    //   .entry('app')
-    //   .clear()
-    //   .add('./example/main.js')
+    if (process.env._ENV !== 'package') {
+      config
+        .entry('app')
+        .clear()
+        .add('./example/main.js')
 
-    // config
-    //   .plugin('html')
-    //   .tap(args => {
-    //     args[0].template = './example/index.html'
-    //     return args
-    //   })
+      config
+        .plugin('html')
+        .tap(args => {
+          args[0].template = './example/index.html'
+          return args
+        })
+    }
 
     config.module
       .rule('js')
