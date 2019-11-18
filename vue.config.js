@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.VUE_CLI_BUILD_TARGET !== 'lib') {
       config
         .entry('app')
         .clear()
@@ -23,7 +23,7 @@ module.exports = {
       config
         .plugin('html')
         .tap(args => {
-          args[0].template = './example/index.html'
+          if (args[0]) args[0].template = './example/index.html'
           return args
         })
     }
