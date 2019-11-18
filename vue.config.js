@@ -5,7 +5,7 @@ function resolve (dir) {
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' && process.env._ENV === 'demo' ? '/vue-mtui/example' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-mtui/example' : '/',
   css: {
     loaderOptions: {
       sass: {
@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    if (process.env._ENV !== 'package') {
+    if (process.env.NODE_ENV !== 'production') {
       config
         .entry('app')
         .clear()
