@@ -5,6 +5,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' && process.env._ENV === 'demo' ? '/vue-mtui/example' : '/',
   css: {
     loaderOptions: {
       sass: {
