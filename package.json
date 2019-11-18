@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --dest lib --target lib --name vue-mtui src/main.js",
-    "demo-build": "vue-cli-service build --dest doc/example",
+    "demo-build": "vue-cli-service build --dest docs/example",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
