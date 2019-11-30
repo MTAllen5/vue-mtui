@@ -1,29 +1,31 @@
 # vue-mtui
 
-## Project setup
+一套基于vue2.0的ui组件库。
+
+[查看Demo](https://mtallen5.github.io/vue-mtui/example/)
+
+## Installation 如何安装
 ```
-npm install
+npm i vue-mtui -S
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+## Usage 使用方法
+在项目入口文件加入
+```javascript
+// main.js
+import Vue from 'vue'
+import MTui from 'vue-mtui'
+import 'vue-mtui/lib/vue-mtui.css'
+ 
+Vue.use(MTui)
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+或导入指定的组件。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```javascript
+// main.js
+import { Button, Cell } from 'vue-mtui'
+ 
+Vue.component(Button.name, Button)
+Vue.component(Cell.name, Cell)
+```
