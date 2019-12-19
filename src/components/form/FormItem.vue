@@ -8,7 +8,9 @@
       <slot></slot>
     </div>
 
-    <div class="form-item-fd"></div>
+    <div class="form-item-fd">
+      <slot name="foot"></slot>
+    </div>
   </div>
 </template>
 
@@ -72,10 +74,14 @@ export default {
     &.align-center {
       justify-content: center;
       text-align: center;
+
+      /deep/ .mtui-input input { text-align: center; }
     }
     &.align-right {
       justify-content: flex-end;
       text-align: right;
+
+      /deep/ .mtui-input input { text-align: right; }
     }
 
     /deep/ .mtui-input input,

@@ -15,7 +15,7 @@
 export default {
   data () {
     return {
-      select: '',
+      select: 0,
       options: [
         {
           value: 1,

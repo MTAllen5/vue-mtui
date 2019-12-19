@@ -1,8 +1,8 @@
 <template>
   <div class="mtui-select">
     <label class="mtui-select-display">
-      <!-- <input class="mtui-select-display-input" v-model="displayText" :placeholder="placeholder" readonly> -->
-      <select v-model="displayText" :placeholder="placeholder">
+      <select v-model="val" @change="onChange" :class="{ placeholder: val === '' }">
+        <option value="" disabled style="display: none;">{{ placeholder }}</option>
         <option v-for="(option, index) in options" :key="index" :value="option.value">{{ option.label }}</option>
       </select>
     </label>
@@ -16,7 +16,12 @@ import Icon from '../icon/Icon'
 export default {
   name: 'm-select',
   components: { MIcon: Icon },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
+    value: [String, Number],
     placeholder: String,
     options: {
       type: Array,
@@ -25,7 +30,17 @@ export default {
   },
   data () {
     return {
-      displayText: 1
+      val: this.options.find(opt => opt.value === this.value) ? this.value : ''
+    }
+  },
+  watch: {
+    value (val) {
+      this.val = val
+    }
+  },
+  methods: {
+    onChange (e) {
+      this.$emit('change', e.target.value)
     }
   }
 }
@@ -57,11 +72,18 @@ export default {
       -webkit-appearance: none;
       outline: none;
       user-select: none;
+
+      &.placeholder {
+        color: lighten($black, 60%);
+      }
+
+      option {
+        color: $black;
+      }
     }
   }
 
   .ion {
-    // width: 20px;
     margin-left: 8px;
     color: $colorDisabled;
   }

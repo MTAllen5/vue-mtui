@@ -54,7 +54,7 @@ export default {
 
   .mtui-panel-head {
     padding: 10px 16px;
-    color: lighten($black, 60%);
+    color: lighten($black, 50%);
     font-size: $fontMedium;
     line-height: 1.4;
     &::after {
