@@ -20,8 +20,8 @@
         <m-form-item label="加减按钮">
           <m-counter v-model="counter"></m-counter>
         </m-form-item>
-        <m-form-item label="选项">
-
+        <m-form-item label="选择器">
+          <m-select v-model="select" placeholder="请选择" :options="selectOptions"></m-select>
         </m-form-item>
         <m-form-item>
           <m-input type="textarea" v-model="textarea" placeholder="请输入文本域内容"></m-input>
@@ -41,7 +41,10 @@ export default {
       radio: '1',
       checkbox1: true,
       checkbox2: false,
-      textarea: ''
+      select: '',
+      textarea: '',
+
+      selectOptions: ['选项一', '选项二', '选项三']
     }
   }
 }

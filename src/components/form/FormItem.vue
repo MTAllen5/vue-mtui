@@ -76,12 +76,20 @@ export default {
       text-align: center;
 
       /deep/ .mtui-input input { text-align: center; }
+      /deep/ .mtui-select select {
+        text-align: center;
+        text-align-last: center;
+      }
     }
     &.align-right {
       justify-content: flex-end;
       text-align: right;
 
       /deep/ .mtui-input input { text-align: right; }
+      /deep/ .mtui-select select {
+        text-align: right;
+        text-align-last: right;
+      }
     }
 
     /deep/ .mtui-input input,

@@ -1,11 +1,9 @@
 <template>
   <div class="mtui-select">
-    <label class="mtui-select-display">
-      <select v-model="val" @change="onChange" :class="{ placeholder: val === '' }">
-        <option value="" disabled style="display: none;">{{ placeholder }}</option>
-        <option v-for="(option, index) in options" :key="index" :value="option.value">{{ option.label }}</option>
-      </select>
-    </label>
+    <select v-model="val" @change="onChange" :class="{ placeholder: val === '' }">
+      <option value="" disabled style="display: none;">{{ placeholder }}</option>
+      <option v-for="(option, index) in opts" :key="index" :value="option.value">{{ option.label }}</option>
+    </select>
     <m-icon type="ios-arrow-forward"></m-icon>
   </div>
 </template>
@@ -22,7 +20,10 @@ export default {
   },
   props: {
     value: [String, Number],
-    placeholder: String,
+    placeholder: {
+      type: String,
+      default: '请选择'
+    },
     options: {
       type: Array,
       default: () => []
@@ -30,12 +31,28 @@ export default {
   },
   data () {
     return {
-      val: this.options.find(opt => opt.value === this.value) ? this.value : ''
+      val: this.options.find(opt => opt.value === this.value || opt === this.value) ? this.value : ''
+    }
+  },
+  computed: {
+    opts () {
+      return this.options.map(opt => {
+        if (Object.prototype.toString.call(opt) === '[object Object]' && opt !== null) {
+          return opt
+        } else if (typeof opt === 'number' || typeof opt === 'string' || typeof opt === 'boolean') {
+          return {
+            value: opt,
+            label: opt
+          }
+        } else {
+          throw new Error('请传入正确的参数')
+        }
+      })
     }
   },
   watch: {
     value (val) {
-      this.val = val
+      this.val = this.opts.find(opt => opt.value === val || opt === val) ? val : ''
     }
   },
   methods: {
@@ -50,36 +67,31 @@ export default {
 .mtui-select {
   @extend .mtui-common;
   @include flex-center();
-  position: relative;
-  padding: 5px 0;
-  height: 34px;
-  font-size: $fontXMedium;
-  line-height: 24px;
-  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
 
-  &-display {
+  select {
     flex: 1;
+    padding: 5px 8px;
+    min-width: 100px;
+    height: 34px;
+    line-height: 24px;
+    background-color: transparent;
+    border: 0;
+    font-size: $fontXMedium;
+    color: lighten($black, 20%);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    user-select: none;
 
-    select {
-      display: block;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 24px;
-      border: 0;
-      font-size: $fontXMedium;
-      -webkit-tap-highlight-color: transparent;
-      -webkit-appearance: none;
-      outline: none;
-      user-select: none;
+    &.placeholder {
+      color: lighten($black, 60%);
+    }
 
-      &.placeholder {
-        color: lighten($black, 60%);
-      }
-
-      option {
-        color: $black;
-      }
+    option {
+      color: $black;
     }
   }
 
