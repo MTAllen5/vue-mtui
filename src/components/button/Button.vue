@@ -1,6 +1,7 @@
 <template>
   <!-- 添加taouchstart事件是为了解决ios下:active无效的bug -->
   <button
+    type="button"
     :class="[
       classAry,
       { 'is-icon-only': isIconOnly },
