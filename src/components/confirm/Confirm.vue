@@ -46,12 +46,12 @@ export default {
     },
 
     confirm () {
-      this.onConfirm && this.onConfirm()
+      this.onConfirm && this.onConfirm.bind(this)()
       this.hide()
     },
 
     cancel () {
-      this.onCancel && this.onCancel()
+      this.onCancel && this.onCancel.bind(this)()
       this.hide()
     },
 

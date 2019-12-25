@@ -39,6 +39,7 @@ export default {
 
   .mtui-loading-main {
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 16px;
     background-color: transparentize($black, .2);

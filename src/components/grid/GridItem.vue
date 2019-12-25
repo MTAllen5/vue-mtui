@@ -80,6 +80,7 @@ export default {
   .mtui-grid-item-label {
     margin: 0;
     margin-top: 5px;
+    width: 100%;
   }
 }
 </style>

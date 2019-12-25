@@ -93,9 +93,15 @@ export default {
     }
 
     /deep/ .mtui-input input,
+    /deep/ .mtui-select select,
+    /deep/ .mtui-cell,
     /deep/ .mtui-textarea {
       padding-left: 0;
       padding-right: 0;
+    }
+    /deep/ .mtui-cell {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

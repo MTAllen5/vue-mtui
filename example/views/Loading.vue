@@ -7,6 +7,13 @@
         <m-button type="primary" @click="showLoading1">显示loading</m-button>
       </m-box>
     </m-panel>
+
+    <m-panel>
+      <div slot="head">加载文字</div>
+      <m-box>
+        <m-button type="minor" primary @click="showLoading1">显示loading</m-button>
+      </m-box>
+    </m-panel>
   </div>
 </template>
 
