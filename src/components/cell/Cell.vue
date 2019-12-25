@@ -9,7 +9,7 @@
     </div>
 
     <div class="mtui-cell-foot">
-      <label>{{ footText }}</label>
+      <label v-if="footText">{{ footText }}</label>
       <m-icon type="ios-arrow-forward" v-if="arrow"></m-icon>
     </div>
   </div>
@@ -40,6 +40,8 @@ export default {
     toLink () {
       if (this.link) {
         this.$router.push(this.link)
+      } else {
+        this.$emit('click')
       }
     }
   }
