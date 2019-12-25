@@ -23,7 +23,7 @@
         <m-form-item label="选择器">
           <m-select v-model="select" placeholder="请选择" :options="selectOptions"></m-select>
         </m-form-item>
-        <m-form-item>
+        <m-form-item label="文本域" block>
           <m-input type="textarea" v-model="textarea" placeholder="请输入文本域内容"></m-input>
         </m-form-item>
       </m-form>

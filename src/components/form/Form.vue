@@ -27,13 +27,8 @@ export default {
     },
     labelWidth: Number,
     labelAlign: String,
-    align: String
+    align: String,
+    block: Boolean
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.mtui-form {
-  background: #fff;
-}
-</style>

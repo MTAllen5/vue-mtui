@@ -1,5 +1,5 @@
 <template>
-  <div class="mtui-form-item">
+  <div class="mtui-form-item" :class="{'is-block': cBlock}">
     <div class="mtui-form-item-hd">
       <label v-if="label" :style="{ width: lWidth + 'px', 'text-align': lAlign }">{{ label }}</label>
     </div>
@@ -21,19 +21,35 @@ export default {
     label: String,
     labelWidth: Number,
     labelAlign: String,
-    align: String
+    align: String,
+    block: Boolean
   },
   data () {
     return {
       lWidth: 85,
       lAlign: 'left',
-      cAlign: 'left'
+      cAlign: 'left',
+      cBlock: false
     }
   },
   created () {
-    this.lWidth = this.labelWidth || this.$parent.labelWidth || this.lWidth
-    this.lAlign = this.labelAlign || this.$parent.labelAlign || this.lAlign
-    this.cAlign = this.align || this.$parent.align || this.cAlign
+    let parent = this.$parent || this.$root
+    let name = parent.$options.name
+    console.log(parent)
+
+    while (parent && (!name || name !== 'm-form')) {
+      parent = parent.$parent
+
+      if (parent) {
+        name = parent.$options.name
+      }
+    }
+    if (parent) {
+      this.lWidth = this.labelWidth || parent.labelWidth || this.lWidth
+      this.lAlign = this.labelAlign || parent.labelAlign || this.lAlign
+      this.cAlign = this.align || parent.align || this.cAlign
+      this.cBlock = this.block || parent.block || this.cBlock
+    }
   }
 }
 </script>
@@ -47,6 +63,7 @@ export default {
   box-sizing: border-box;
   padding: 8px 16px;
   min-height: 50px;
+  background-color: #fff;
 
   &:not(:first-child)::before {
     @include border-top-line();
@@ -89,6 +106,7 @@ export default {
       /deep/ .mtui-select select {
         text-align: right;
         text-align-last: right;
+        direction: rtl;
       }
     }
 
@@ -102,6 +120,17 @@ export default {
     /deep/ .mtui-cell {
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+
+  &.is-block {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .mtui-form-item-hd,
+    .mtui-form-item-bd {
+      width: 100%;
     }
   }
 }
