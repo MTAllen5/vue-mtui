@@ -42,6 +42,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 16px;
+    min-width: 50px;
     background-color: transparentize($black, .2);
     border-radius: 8px;
     color: white;
@@ -57,7 +58,7 @@ export default {
     }
 
     .mtui-loading-txt {
-      margin-right: 10px;
+      margin-top: 5px;
       font-size: $fontMedium;
       max-width: 140px;
       @include text-overflow();

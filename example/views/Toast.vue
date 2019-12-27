@@ -21,9 +21,17 @@
       </m-box>
     </m-panel>
     <m-panel>
-      <div slot="head">带图标提示</div>
+      <div slot="head">自定义图标提示</div>
       <m-box>
         <m-button @click="showToast5">显示toast</m-button>
+      </m-box>
+    </m-panel>
+    <m-panel>
+      <div slot="head">常用图标提示</div>
+      <m-box>
+        <m-button @click="showToast6" type="primary" inline style="margin-right: 10px;">成功</m-button>
+        <m-button @click="showToast7" inline style="margin-right: 10px;">警告</m-button>
+        <m-button @click="showToast8" type="minor" inline>错误</m-button>
       </m-box>
     </m-panel>
   </div>
@@ -54,6 +62,15 @@ export default {
         message: '提交成功',
         timeout: 2000
       })
+    },
+    showToast6 () {
+      this.$toast.success('保存成功')
+    },
+    showToast7 () {
+      this.$toast.warning('保存失败')
+    },
+    showToast8 () {
+      this.$toast.error('系统异常')
     }
   }
 }

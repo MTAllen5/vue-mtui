@@ -8,7 +8,7 @@
       { active }
     ]"
     :disabled="disabled || loading"
-    @click="click"
+    @click.stop="click"
     @touchstart.stop="handleTouchStart"
     @touchend.stop="handleTouchEnd"
   >

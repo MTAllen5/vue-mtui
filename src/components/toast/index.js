@@ -43,6 +43,39 @@ Toast.install = function (Vue, options = {}) {
       return Vue.prototype.$toast(params)
     }
   })
+
+  Vue.prototype.$toast.success = (params) => {
+    if (typeof params !== 'string') {
+      throw new TypeError('参数错误')
+    }
+
+    Vue.prototype.$toast.center({
+      icon: 'android-done',
+      message: params
+    })
+  }
+
+  Vue.prototype.$toast.warning = (params) => {
+    if (typeof params !== 'string') {
+      throw new TypeError('参数错误')
+    }
+
+    Vue.prototype.$toast.center({
+      icon: 'android-alert',
+      message: params
+    })
+  }
+
+  Vue.prototype.$toast.error = (params) => {
+    if (typeof params !== 'string') {
+      throw new TypeError('参数错误')
+    }
+
+    Vue.prototype.$toast.center({
+      icon: 'android-close',
+      message: params
+    })
+  }
 }
 
 export default Toast

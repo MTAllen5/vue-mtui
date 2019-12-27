@@ -1,7 +1,7 @@
 <template>
   <div class="mtui-form-item" :class="{'is-block': cBlock}">
     <div class="mtui-form-item-hd">
-      <label v-if="label" :style="{ width: lWidth + 'px', 'text-align': lAlign }">{{ label }}</label>
+      <label v-if="label" :style="{ width: lWidth + 'px', 'text-align': lAlign }">{{ label }}<i v-if="required">*</i></label>
     </div>
 
     <div class="mtui-form-item-bd" :class="['align-' + cAlign]">
@@ -22,7 +22,8 @@ export default {
     labelWidth: Number,
     labelAlign: String,
     align: String,
-    block: Boolean
+    block: Boolean,
+    required: Boolean
   },
   data () {
     return {
@@ -35,7 +36,6 @@ export default {
   created () {
     let parent = this.$parent || this.$root
     let name = parent.$options.name
-    console.log(parent)
 
     while (parent && (!name || name !== 'm-form')) {
       parent = parent.$parent
@@ -78,6 +78,8 @@ export default {
       margin: 5px 0;
       padding-right: 10px;
       line-height: 1.5;
+
+      i { color: #f5222d; }
     }
   }
 

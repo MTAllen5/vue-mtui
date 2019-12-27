@@ -9,6 +9,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Icon from '../icon/Icon'
 
 export default {
@@ -31,7 +32,7 @@ export default {
   },
   data () {
     return {
-      val: this.options.find(opt => opt.value === this.value || opt === this.value) ? this.value : ''
+      val: this.options.find(opt => opt.value == this.value || opt == this.value) ? this.value : ''
     }
   },
   computed: {
@@ -52,7 +53,7 @@ export default {
   },
   watch: {
     value (val) {
-      this.val = this.opts.find(opt => opt.value === val || opt === val) ? val : ''
+      this.val = this.opts.find(opt => opt.value == val || opt == val) ? val : ''
     }
   },
   methods: {
