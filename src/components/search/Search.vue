@@ -48,11 +48,6 @@ export default {
   },
   methods: {
     onSearch () {
-      if (this.keyword.trim() === '') {
-        this.$tooltip.show('下属姓名不能为空')
-        return
-      }
-
       this.$refs.searcher.blur()
       this.$emit('on-search', this.keyword.trim())
     },

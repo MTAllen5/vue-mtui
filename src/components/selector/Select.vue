@@ -76,6 +76,7 @@ export default {
     flex: 1;
     padding: 5px 8px;
     min-width: 100px;
+    width: 100%;
     height: 34px;
     line-height: 24px;
     background-color: transparent;
