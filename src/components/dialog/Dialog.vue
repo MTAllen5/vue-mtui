@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Button from '../button'
+import Button from '../button/Button'
 
 export default {
   name: 'm-dialog',

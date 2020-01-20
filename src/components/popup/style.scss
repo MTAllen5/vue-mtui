@@ -1,0 +1,79 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+@import '@/common/css/global.scss';
+@import '@/common/css/animate.scss';
+
+.mtui-popup {
+  position: fixed;
+  z-index: 9990;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  &-mask {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: transparentize(black, .6);
+  }
+
+  &-container {
+    position: absolute;
+    z-index: 2;
+    min-width: 80px;
+    min-height: 50px;
+    padding: 34px 15px 15px;
+    background-color: white;
+    
+    .mtui-popup-close {
+      position: absolute;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      font-size: $fontLarge;
+      color: $colorMinorTxt;
+      text-align: center;
+    }
+
+    &.position-center {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      &.is-round { border-radius: 20px; }
+      .mtui-popup-close { right: 0; }
+    }
+    &.position-top {
+      right: 0;
+      left: 0;
+      top: 0;
+      &.is-round { border-radius: 0 0 20px 20px; }
+      .mtui-popup-close { right: 0; }
+    }
+    &.position-bottom {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      &.is-round { border-radius: 20px 20px 0 0; }
+      .mtui-popup-close { right: 0; }
+    }
+    &.position-left {
+      bottom: 0;
+      left: 0;
+      top: 0;
+      &.is-round { border-radius: 0 20px 20px 0; }
+      .mtui-popup-close { right: 0; }
+    }
+    &.position-right {
+      bottom: 0;
+      right: 0;
+      top: 0;
+      &.is-round { border-radius: 20px 0 0 20px; }
+      .mtui-popup-close { left: 0; }
+    }
+  }
+}

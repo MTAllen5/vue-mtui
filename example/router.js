@@ -4,10 +4,11 @@ import Home from './views/Home'
 
 import Button from './views/Button'
 import Icon from './views/Icon'
+import Cell from './views/Cell'
 import Title from './views/Title'
 import Panel from './views/Panel'
-import Cell from './views/Cell'
 import Grid from './views/Grid'
+import Popup from './views/Popup'
 
 import Dialog from './views/Dialog'
 import Alert from './views/Alert'
@@ -42,6 +43,7 @@ export default new Router({
     { path: '/panels', name: 'panels', component: Panel },
     { path: '/cells', name: 'cells', component: Cell },
     { path: '/grids', name: 'grid', component: Grid },
+    { path: '/popups', name: 'popup', component: Popup },
 
     { path: '/dialogs', name: 'dialogs', component: Dialog },
     { path: '/alert', name: 'alert', component: Alert },

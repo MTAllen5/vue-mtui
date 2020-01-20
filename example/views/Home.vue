@@ -2,22 +2,23 @@
   <div class="home">
     <m-title type="1">MTUI</m-title>
 
-    <p class="mtui-p">这是一套基于vue2.0的UI框架，组件参考了weui、<a href="https://github.com/ElemeFE/mint-ui">mint-ui</a>、<a href="https://github.com/didi/cube-ui">cube-ui</a>、<a href="https://ant.design/index-cn">ant design设计规范</a>。</p>
+    <p class="mtui-p" style="margin-bottom: 40px;">一套基于vue2.0的移动端UI组件库，组件设计参考了<a class="mtui-link" target="_blank" href="https://weui.io/">weui</a>、<a class="mtui-link" target="_blank" href="https://youzan.github.io/vant/#/zh-CN/">vant</a>、<a class="mtui-link" target="_blank" href="https://github.com/ElemeFE/mint-ui">mint-ui</a>、<a class="mtui-link" target="_blank" href="https://github.com/didi/cube-ui">cube-ui</a>、<a class="mtui-link" target="_blank" href="https://ant.design/index-cn">ant design设计规范</a></p>
 
+    <m-title type="5">Basic 基础组件</m-title>
     <m-panel>
-      <div slot="head">Basic 基础组件</div>
       <div>
         <m-cell link="/buttons" arrow>Button 按钮</m-cell>
         <m-cell link="/icons" arrow>Icon 图标</m-cell>
+        <m-cell link="/cells" arrow>Cell 单行列表</m-cell>
         <m-cell link="/titles" arrow>Title 标题</m-cell>
         <m-cell link="/panels" arrow>Panel 面板</m-cell>
-        <m-cell link="/cells" arrow>Cell 单行列表</m-cell>
         <m-cell link="/grids" arrow>Grid 网格</m-cell>
+        <m-cell link="/popups" arrow>Popup 弹出层</m-cell>
       </div>
     </m-panel>
 
+    <m-title type="5">MessageBox 消息组件</m-title>
     <m-panel>
-      <div slot="head">MessageBox 消息弹窗</div>
       <div>
         <m-cell link="/dialogs" arrow>Dialog 对话窗</m-cell>
         <m-cell link="/alert" arrow>Alert 提示窗</m-cell>
@@ -28,8 +29,8 @@
       </div>
     </m-panel>
 
+    <m-title type="5">Form 表单组件</m-title>
     <m-panel>
-      <div slot="head">Form 表单</div>
       <div>
         <m-cell link="/inputs" arrow>Input 输入框</m-cell>
         <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
@@ -42,8 +43,8 @@
       </div>
     </m-panel>
 
+    <m-title type="5">Other 其他组件</m-title>
     <m-panel>
-      <div slot="head">Other 其他</div>
       <div>
         <m-cell link="/calendars" arrow>Calendar 日历</m-cell>
         <m-cell link="/searchs" arrow>Search 搜索框</m-cell>
@@ -113,7 +114,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

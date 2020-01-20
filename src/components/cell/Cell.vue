@@ -1,7 +1,12 @@
 <template>
-  <div :class="['mtui-cell', {'has-icon': icon !== ''}]" @click="toLink">
-    <div class="mtui-cell-icon" v-if="icon !== ''">
-      <m-icon :type="icon"></m-icon>
+  <div :class="[
+    'mtui-cell',
+    {'has-icon': icon},
+    {'clickable': arrow}
+  ]" @click.stop="toLink">
+    <div class="mtui-cell-head">
+        <m-icon class="mtui-cell-icon" :type="icon" v-if="icon"></m-icon>
+        <label v-if="label">{{ label }}</label>
     </div>
 
     <div class="mtui-cell-body">
@@ -9,7 +14,7 @@
     </div>
 
     <div class="mtui-cell-foot">
-      <label v-if="footText">{{ footText }}</label>
+      <label v-if="desc">{{ desc }}</label>
       <m-icon type="ios-arrow-forward" v-if="arrow"></m-icon>
     </div>
   </div>
@@ -22,19 +27,11 @@ export default {
   name: 'm-cell',
   components: { MIcon: Icon },
   props: {
-    icon: {
-      type: String,
-      default: ''
-    },
-    link: {
-      type: String,
-      default: ''
-    },
-    arrow: {
-      type: Boolean,
-      default: false
-    },
-    footText: String
+    icon: String,
+    label: String,
+    link: String,
+    arrow: Boolean,
+    desc: String
   },
   methods: {
     toLink () {
@@ -49,49 +46,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-cell {
-  @extend .mtui-common;
-  @include flex-center();
-  position: relative;
-  padding: 13px 16px;
-  font-size: $fontXMedium;
-  line-height: 24px;
-  overflow: hidden;
-
-  &:not(:first-child)::before {
-    @include border-top-line();
-    left: 16px;
-  }
-
-  &.has-icon::before {
-    left: 43px;
-  }
-
-  .mtui-cell-icon {
-    margin-right: 10px;
-    width: 18px;
-    font-size: $fontXLarge;
-    color: lighten($black, 50%);
-    text-align: center;
-  }
-
-  .mtui-cell-body {
-    flex: 1;
-  }
-
-  .mtui-cell-foot {
-    display: flex;
-    align-items: center;
-    color: lighten($black, 60%);
-
-    label {
-      margin-left: 8px;
-      font-size: 14px;
-    }
-
-    .ion {
-      margin-left: 8px;
-    }
-  }
-}
+@import './style.scss';
 </style>

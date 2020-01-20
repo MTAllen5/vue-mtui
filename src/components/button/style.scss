@@ -1,0 +1,160 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+@import '@/common/css/animate.scss';
+
+.mtui-btn {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  width: 100%;
+  min-width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid $colorLine;
+  border-radius: 4px;
+  color: $colorPrimaryTxt;
+  font-size: $fontMedium;
+  line-height: $fontXMedium;
+  @include text-overflow;
+  cursor: pointer;
+  outline: none;
+  transition: all .1s;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  user-select: none;
+
+  label, .ion { pointer-events: none; }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: $colorBlack;
+    transform: opacity .1s;
+    opacity: 0;
+  }
+
+  .btn-icon {
+    margin-right: 5px;
+    font-size: $fontXMedium;
+    vertical-align: top;
+  }
+
+  &.is-inline {
+    display: inline-block;
+    width: auto;
+  }
+
+  &.is-plain {
+    background-color: white;
+  }
+
+  &.is-round {
+    border-radius: 40px;
+  }
+
+  &-mini {
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 20px;
+    height: 20px;
+    font-size: $fontXSmall;
+    line-height: $fontSmall;
+    &.is-round { border-radius: 20px; }
+    .btn-icon { font-size: $fontSmall; }
+  }
+  &-small {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 30px;
+    height: 30px;
+    font-size: $fontSmall;
+    line-height: $fontMedium;
+    &.is-round { border-radius: 30px; }
+    .btn-icon { font-size: $fontMedium; }
+  }
+  &-large {
+    min-width: 50px;
+    height: 50px;
+    font-size: $fontXMedium;
+    line-height: $fontXMedium;
+    &.is-round { border-radius: 50px; }
+    .btn-icon { font-size: $fontLarge; }
+  }
+
+  &.is-disabled {
+    opacity: .3;
+  }
+
+  &.is-text {
+    background-color: transparent;
+    border: none;
+  }
+
+  &.is-icon-only {
+    padding: 0;
+    .btn-icon {
+      margin-right: 0;
+    }
+  }
+
+  &.is-block {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  &.is-loading {
+    .btn-icon-loading {
+      margin-right: 6px;
+      animation: turnRound 1s linear forwards infinite;
+    }
+  }
+
+  &.active {
+    transform: scale(.97);
+    &::after {
+      opacity: .1;
+    }
+  }
+
+  &-primary {
+    background-color: $colorPrimary;
+    border-color: $colorPrimary;
+    color: white;
+    &.is-plain,
+    &.is-text {
+      color: $colorPrimary;
+    }
+  }
+  &-minor {
+    background-color: $colorMinor;
+    border-color: $colorMinor;
+    color: white;
+    &.is-plain,
+    &.is-text {
+      color: $colorMinor;
+    }
+  }
+  &-warn {
+    background-color: $colorWarning;
+    border-color: $colorWarning;
+    color: white;
+    &.is-plain,
+    &.is-text {
+      color: $colorWarning;
+    }
+  }
+  &-danger {
+    background-color: $colorDanger;
+    border-color: $colorDanger;
+    color: white;
+    &.is-plain,
+    &.is-text {
+      color: $colorDanger;
+    }
+  }
+}

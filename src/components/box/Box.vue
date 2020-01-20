@@ -12,8 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .mtui-box {
-  @extend .mtui-common;
-  padding: 16px;
+  padding: 15px;
   background-color: white;
 }
 </style>

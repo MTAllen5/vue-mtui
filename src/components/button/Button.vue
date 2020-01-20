@@ -1,19 +1,29 @@
 <template>
-  <!-- 添加taouchstart事件是为了解决ios下:active无效的bug -->
   <button
     type="button"
     :class="[
-      classAry,
+      'mtui-btn',
+      'mtui-btn-' + type,
+      'mtui-btn-' + (['normal', 'mini', 'small', 'large'].includes(size) ? size : 'normal'),
+      { 'is-inline': inline },
+      { 'is-plain': plain },
+      { 'is-round': round },
+      { 'is-disabled': disabled || loading },
+      { 'is-text': text },
+      { 'is-loading': loading },
+      { 'is-block': block },
       { 'is-icon-only': isIconOnly },
       { active }
     ]"
+    :style="customStyle"
     :disabled="disabled || loading"
-    @click.stop="click"
+    @click.stop="handleClick"
     @touchstart.stop="handleTouchStart"
     @touchend.stop="handleTouchEnd"
   >
-    <m-icon type="load-c" v-if="loading && !isIconOnly"></m-icon>
-    <label><slot></slot></label>
+    <m-icon class="btn-icon-loading" type="load-c" v-if="loading && !isIconOnly" />
+    <m-icon class="btn-icon" :type="icon" v-if="icon" />
+    <label v-if="!isIconOnly"><slot></slot></label>
   </button>
 </template>
 
@@ -24,51 +34,30 @@ export default {
   name: 'm-button',
   components: { MIcon: Icon },
   props: {
-    round: { // 圆角按钮
-      type: Boolean,
-      default: false
-    },
-    loading: { // 正在加载
-      type: Boolean,
-      default: false
-    },
-    disabled: { // 不可用
-      type: Boolean,
-      default: false
-    },
-    inline: { // 行内按钮
-      type: Boolean,
-      default: false
-    },
-    plain: { // 平面按钮
-      type: Boolean,
-      default: false
-    },
-    small: { // 尺寸
-      type: Boolean,
-      default: false
-    },
-    large: {
-      type: Boolean,
-      default: false
-    },
-    type: { // 按钮类型 可选值：['default', 'primary', 'minor']
+    type: { // 按钮类型 可选值：['default', 'primary', 'minor', 'warn', 'danger']
       type: String,
       default: 'default'
     },
-    text: { // 文本按钮
-      type: Boolean,
-      default: false
+    size: { // 尺寸 可选值：['normal', 'mini', 'small', 'large']
+      type: String,
+      default: 'noraml'
     },
-    noRadius: { // 无圆角
-      type: Boolean,
-      default: false
-    }
+    icon: String, // 图标
+    inline: Boolean, // 行内按钮
+    plain: Boolean, // 平面按钮
+    round: Boolean, // 圆角按钮
+    disabled: Boolean, // 不可用
+    text: Boolean, // 文本按钮
+    loading: Boolean, // 加载状态
+    block: Boolean, // 块状按钮
+    color: String, // 自定义颜色
+    link: String // 页面导航
   },
   data () {
     return {
       isIconOnly: false,
-      active: false
+      active: false,
+      customStyle: {}
     }
   },
   computed: {
@@ -76,34 +65,58 @@ export default {
       return [
         'mtui-btn',
         'mtui-btn-' + this.type,
-        { 'is-loading': this.loading },
-        { 'is-disabled': this.disabled || this.loading },
-        { 'is-small': this.small },
-        { 'is-large': this.large },
-        { 'is-round': this.round },
+        'mtui-btn-' + ['normal', 'mini', 'small', 'large'].includes(this.size) ? this.size : 'normal',
         { 'is-inline': this.inline },
         { 'is-plain': this.plain },
+        { 'is-round': this.round },
+        { 'is-disabled': this.disabled || this.loading },
         { 'is-text': this.text },
-        { 'no-radius': this.noRadius }
+        { 'is-loading': this.loading },
+        { 'is-block': this.block }
       ]
     }
   },
   created () {
-    if (this.$slots.default.length === 1 && this.$slots.default[0].componentOptions && this.$slots.default[0].componentOptions.tag === 'm-icon') {
+    if (
+      !this.$slots.default || // 没有slot内容
+      (this.$slots.default && this.$slots.default.length === 1 && this.$slots.default[0].componentOptions && this.$slots.default[0].componentOptions.tag === 'm-icon') // slot内容只有m-icon
+    ) {
       this.isIconOnly = true
+    }
+
+    // 自定义颜色
+    if (this.color) {
+      if (this.plain || this.text) {
+        this.customStyle = {
+          borderColor: this.color,
+          color: this.color
+        }
+      } else {
+        this.customStyle = {
+          backgroundColor: this.color,
+          borderColor: this.color,
+          color: 'white'
+        }
+      }
     }
   },
   methods: {
-    click () {
+    handleClick () {
       if (this.disabled || this.loading) return
 
-      this.$emit('click')
+      if (this.link && this.$router) {
+        this.$router.push(this.link)
+      } else {
+        this.$emit('click')
+      }
     },
+
     handleTouchStart () {
       if (this.disabled || this.loading) return
 
       this.active = true
     },
+
     handleTouchEnd () {
       this.active = false
     }
@@ -112,113 +125,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-btn {
-  @extend .mtui-common;
-  padding-left: 16px;
-  padding-right: 16px;
-  display: block;
-  width: 100%;
-  min-width: 40px;
-  height: 40px;
-  border: 1px solid $colorLine;
-  border-radius: 4px;
-  font-size: $fontXMedium;
-  @include text-overflow;
-  cursor: pointer;
-  outline: none;
-  transition: all .1s;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  user-select: none;
-
-  &.is-inline {
-    display: inline-block;
-    width: auto;
-  }
-
-  &.is-round {
-    border-radius: 40px;
-  }
-
-  &.is-small {
-    min-width: 30px;
-    height: 30px;
-    font-size: $fontMedium;
-  }
-  &.is-large {
-    min-width: 50px;
-    height: 50px;
-    font-size: $fontLarge;
-  }
-
-  &.is-disabled {
-    opacity: .3;
-  }
-
-  &.is-plain {
-    background-color: white;
-  }
-
-  &.is-text {
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  &.is-icon-only {
-    padding: 0;
-    font-size: $fontLarge;
-    &.is-small {
-      font-size: $fontXMedium;
-    }
-  }
-
-  &.no-radius {
-    border: none;
-    border-radius: 0;
-  }
-
-  &.active {
-    transform: scale(.95);
-    opacity: .6;
-  }
-
-  &.is-loading {
-    >.ion {
-      margin-right: 6px;
-      animation: rotate-loading 1s linear forwards infinite;
-      @keyframes rotate-loading {
-        0% { transform: rotate(0); }
-        100% { transform: rotate(360deg); }
-      }
-    }
-  }
-
-  &-default {
-    background-color: white;
-    color: lighten($black, 20%);
-  }
-  &-primary {
-    background-color: $colorPrimary;
-    border-color: $colorPrimary;
-    color: white;
-    &.is-plain,
-    &.is-text {
-      color: $colorPrimary;
-    }
-  }
-  &-minor {
-    background-color: $colorMinor;
-    border-color: $colorMinor;
-    color: white;
-    &.is-plain,
-    &.is-text {
-      color: $colorMinor;
-    }
-  }
-
-  label,
-  .ion {
-    pointer-events: none;
-  }
-}
+@import './style.scss';
 </style>

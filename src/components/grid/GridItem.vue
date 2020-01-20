@@ -1,10 +1,16 @@
 <template>
-  <a href="javascript:;" class="mtui-grid-item" :style="{width: colWidth}">
-    <m-icon :type="icon" v-if="icon != ''"></m-icon>
-    <p class="mtui-grid-item-label">
+  <div class="mtui-grid-item" :style="{width: colWidth, color: color}" @click.stop="toLink">
+    <div :class="[
+      'mtui-grid-item-content',
+      {'mtui-grid-item-content-gap': gap !== 0},
+      {clickable: link !== undefined},
+      {'mtui-grid-item-border': border}
+    ]" :style="{marginRight: gap + 'px', marginBottom: gap + 'px'}">
       <slot></slot>
-    </p>
-  </a>
+      <m-icon class="mtui-grid-item-icon" :type="icon" v-if="icon"></m-icon>
+      <p class="mtui-grid-item-label" v-if="text">{{ text }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -14,14 +20,16 @@ export default {
   name: 'm-grid-item',
   components: { MIcon: Icon },
   props: {
-    icon: {
-      type: String,
-      default: ''
-    }
+    icon: String,
+    text: String,
+    link: String,
+    color: String
   },
   data () {
     return {
-      col: 3
+      col: 3,
+      gap: 0,
+      border: true
     }
   },
   computed: {
@@ -42,45 +50,80 @@ export default {
     }
     if (parent) {
       this.col = parent.col
+      this.gap = parent.gap
+      this.border = parent.border
+    }
+  },
+  methods: {
+    toLink () {
+      if (this.link) {
+        this.$router.push(this.link)
+      } else {
+        this.$emit('click')
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+
 .mtui-grid-item {
-  position: relative;
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  padding: 20px 10px;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: $black;
-  text-align: center;
+  font-size: $fontMedium;
+  color: $colorPrimaryTxt;
 
-  &::before {
-    @include border-right-line();
-  }
-  &::after {
-    @include border-bottom-line();
+  &-content {
+    position: relative;
+    @include flex-center();
+    flex-direction: column;
+    padding: 15px 8px;
+    background-color: white;
+    overflow: hidden;
+
+    &.mtui-grid-item-border {
+      &::before {
+        @include border-right-line();
+      }
+      &::after {
+        @include border-bottom-line();
+      }
+
+      &.mtui-grid-item-content-gap {
+        &::before,
+        &::after { display: none; }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -50%;
+          right: -50%;
+          left: -50%;
+          top: -50%;
+          z-index: 1;
+          display: block;
+          width: auto;
+          pointer-events: none;
+          border: 1px solid $colorDivider;
+          transform-origin: center;
+          transform: scale(.5);
+        }
+      }
+    }
+
+    &.clickable:active {
+      background-color: $colorBg;
+    }
   }
 
-  .ion {
-    width: $fontXXLarge * 1.2;
-    height: $fontXXLarge * 1.2;
+  &-icon {
     font-size: $fontXXLarge;
-    line-height: $fontXXLarge * 1.2;
-    text-align: center;
-    color: lighten($black, 30%);
   }
 
-  .mtui-grid-item-label {
-    margin: 0;
-    margin-top: 5px;
-    width: 100%;
+  &-label {
+    margin-top: 8px;
+    margin-bottom: 0;
   }
 }
 </style>

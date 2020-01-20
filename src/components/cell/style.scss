@@ -1,0 +1,54 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+
+.mtui-cell {
+  display: flex;
+  position: relative;
+  padding: 12px 15px;
+  background-color: white;
+  font-size: $fontMedium;
+  line-height: 24px;
+  overflow: hidden;
+
+  &:not(:first-child)::before {
+    @include border-top-line();
+    left: 15px;
+  }
+
+  &.has-icon::before {
+    left: 33px;
+  }
+
+  &.clickable:active {
+    background-color: $colorBg;
+  }
+
+  .mtui-cell-head {
+    color: $colorMinorTxt;
+
+    .mtui-cell-icon {
+      margin-right: 5px;
+      width: 13px;
+      font-size: $fontXMedium;
+    }
+
+    label {
+      padding-right: 10px;
+      width: 70px;
+    }
+  }
+
+  .mtui-cell-body {
+    flex: 1;
+  }
+
+  .mtui-cell-foot {
+    display: flex;
+    align-items: center;
+    color: $colorDisabled;
+
+    label, .ion {
+      margin-left: 8px;
+    }
+  }
+}

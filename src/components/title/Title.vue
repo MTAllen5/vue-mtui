@@ -22,11 +22,11 @@ export default {
 .mtui-h5,
 .mtui-h6 {
   @extend .mtui-common;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
-  padding: 0 20px;
+  padding: 0 15px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.8;
 }
 
 .mtui-h1 { color: lighten($black, 10%); font-size: $fontXXLarge; }

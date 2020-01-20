@@ -1,0 +1,60 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+
+.mtui-panel {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  font-size: $fontMedium;
+
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  &::before {
+    @include border-top-line();
+  }
+  &::after {
+    @include border-bottom-line();
+  }
+
+  .mtui-panel-head,
+  .mtui-panel-body,
+  .mtui-panel-foot {
+    position: relative;
+  }
+
+  .mtui-panel-head {
+    display: flex;
+    padding: 12px 15px;
+    color: $colorMinorTxt;
+    line-height: 24px;
+    &::after {
+      @include border-bottom-line();
+      left: 15px;
+    }
+
+    .mtui-panel-title {
+      flex: 1;
+      margin-top: 0;
+      margin-bottom: 0;
+      @include text-overflow();
+      font-weight: normal;
+      font-size: $fontMedium;
+
+      .ion {
+        margin-right: 5px;
+        font-size: $fontXMedium;
+      }
+    }
+  }
+
+  .mtui-panel-foot {
+    color: $colorMinorTxt;
+    line-height: 24px;
+    &::before {
+      @include border-top-line();
+      left: 15px;
+    }
+  }
+}

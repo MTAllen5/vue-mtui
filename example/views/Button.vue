@@ -2,111 +2,109 @@
   <div>
     <m-title type="1">Button</m-title>
 
-    <m-panel>
-      <div slot="head">普通按钮</div>
-      <m-box>
-        <m-button type="primary">主操作按钮</m-button>
-        <m-button>辅助按钮</m-button>
-        <m-button type="minor">警告按钮</m-button>
-      </m-box>
+    <m-panel title="普通按钮">
+      <m-button-group type="column">
+        <m-button>默认按钮</m-button>
+        <m-button type="primary">主色按钮</m-button>
+        <m-button type="minor">副色按钮</m-button>
+        <m-button type="warn">警告按钮</m-button>
+        <m-button type="danger">危险按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">禁用按钮</div>
-      <m-box>
-        <m-button disabled type="primary">primary</m-button>
-        <m-button disabled>default</m-button>
-        <m-button disabled type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="行内按钮">
+      <m-button-group>
+        <m-button inline type="primary">主色按钮</m-button>
+        <m-button inline type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">平面按钮</div>
-      <m-box>
-        <m-button plain type="primary">primary</m-button>
-        <m-button plain>default</m-button>
-        <m-button plain type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="平面按钮">
+      <m-button-group>
+        <m-button inline plain type="primary">主色按钮</m-button>
+        <m-button inline plain type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">行内按钮</div>
-      <m-box>
-        <m-button inline type="primary">primary</m-button>
-        <m-button inline>default</m-button>
-        <m-button inline type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="圆角按钮">
+      <m-button-group>
+        <m-button inline round type="primary">主色按钮</m-button>
+        <m-button inline round type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">小按钮</div>
-      <m-box>
-        <m-button inline small type="primary">primary</m-button>
-        <m-button inline small>default</m-button>
-        <m-button inline small type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="禁用按钮">
+      <m-button-group>
+        <m-button inline disabled type="primary">主色按钮</m-button>
+        <m-button inline disabled type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">圆角按钮</div>
-      <m-box>
-        <m-button inline small round type="primary">primary</m-button>
-        <m-button inline small round>default</m-button>
-        <m-button inline small round type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="按钮尺寸">
+      <m-button-group>
+        <m-button inline size="large" type="primary">主色按钮</m-button>
+        <m-button inline size="normal" type="minor">副色按钮</m-button>
+        <m-button inline size="small" type="warn">警告按钮</m-button>
+        <m-button inline size="mini" type="danger">危险按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">文本按钮</div>
-      <m-box>
-        <m-button inline text type="primary">primary</m-button>
-        <m-button inline text>default</m-button>
-        <m-button inline text type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="文本按钮">
+      <m-button-group>
+        <m-button inline text type="primary">主色按钮</m-button>
+        <m-button inline text type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">加载状态按钮</div>
-      <m-box>
-        <m-button inline loading type="primary">primary</m-button>
-        <m-button inline loading>default</m-button>
-        <m-button inline loading plain type="minor">minor</m-button>
-      </m-box>
+    <m-panel title="加载状态按钮">
+      <m-button-group>
+        <m-button inline loading type="primary">主色按钮</m-button>
+        <m-button inline loading plain type="minor">副色按钮</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">纯图标按钮</div>
-      <m-box>
-        <m-button inline round type="primary"><m-icon type="android-done"></m-icon></m-button>
-        <m-button inline round><m-icon type="android-search"></m-icon></m-button>
-        <m-button inline round type="minor"><m-icon type="android-delete"></m-icon></m-button>
-      </m-box>
+    <m-panel title="图标按钮">
+      <m-button-group>
+        <m-button inline round icon="android-done" type="primary"></m-button>
+        <m-button inline round icon="android-search"></m-button>
+        <m-button inline plain round icon="android-delete" type="minor"></m-button>
+        <m-button inline plain round icon="android-star" type="warn">收藏</m-button>
+      </m-button-group>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">无圆角按钮（适合100%宽按钮）</div>
-      <div style="padding: 20px 0;">
-        <m-button no-radius large type="primary">大按钮</m-button>
-        <m-button no-radius large>大按钮</m-button>
-        <m-button no-radius large type="minor">大按钮</m-button>
+    <m-panel title="块级按钮">
+      <div>
+        <m-button block size="large" type="primary" style="margin-bottom: 10px;">提交</m-button>
+        <m-button block size="large" loading type="danger">保存</m-button>
       </div>
+    </m-panel>
+
+    <m-panel title="自定义按钮颜色">
+      <m-button-group>
+        <m-button inline color="#8b21ff">按钮</m-button>
+        <m-button inline color="#ffdc33">按钮</m-button>
+        <m-button inline plain color="#a16711">按钮</m-button>
+      </m-button-group>
+    </m-panel>
+
+    <m-panel title="页面跳转">
+      <m-button-group>
+        <m-button type="minor" inline link="/">返回首页</m-button>
+      </m-button-group>
+    </m-panel>
+
+    <m-panel title="按钮组（水平排列）">
+      <m-button-group type="row">
+        <m-button type="primary">主色按钮</m-button>
+        <m-button type="danger" plain>危险按钮</m-button>
+      </m-button-group>
+    </m-panel>
+
+    <m-panel title="按钮组（垂直排列）">
+      <m-button-group type="column">
+        <m-button type="primary">主色按钮</m-button>
+        <m-button type="danger" plain>危险按钮</m-button>
+      </m-button-group>
     </m-panel>
   </div>
 </template>
-
-<script>
-export default {}
-</script>
-
-<style lang="scss" scoped>
-.mtui-btn {
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-
-  &.is-inline {
-    margin-right: 10px;
-    margin-bottom: 0;
-  }
-}
-</style>

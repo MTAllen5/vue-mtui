@@ -1,13 +1,14 @@
 // 基本元素
-import Button from './components/button'
+import Button from './components/button/index_button'
+import ButtonGroup from './components/button/index_button_group'
 import Icon from './components/icon'
-import Title from './components/title'
-// 布局
-import Box from './components/box'
 import Cell from './components/cell'
+import Title from './components/title'
+import Box from './components/box'
+import Panel from './components/panel'
 import Grid from './components/grid/index_grid'
 import GridItem from './components/grid/index_grid_item'
-import Panel from './components/panel'
+import Popup from './components/popup'
 // 消息弹窗
 import Dialog from './components/dialog'
 import Alert from './components/alert'
@@ -30,14 +31,15 @@ import Search from './components/search'
 
 const components = {
   Button,
+  ButtonGroup,
   Icon,
   Title,
-
-  Box,
   Cell,
+  Box,
+  Panel,
   Grid,
   GridItem,
-  Panel,
+  Popup,
 
   Dialog,
   Alert,
