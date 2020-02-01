@@ -3,7 +3,8 @@
     'mtui-input',
     {
       'is-disabled': disabled,
-      'is-readonly': readonly
+      'is-readonly': readonly,
+      'is-error': error
     }
   ]" v-if="type !== 'textarea'">
     <input
@@ -14,12 +15,18 @@
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="maxlength"
+      ref="input"
       @input="inputHandler"
       @change="changeHandler"
       @focus="focusHandler"
       @blur="blurHandler"
     >
-    <m-icon class="mtui-input-clear" type="close-circled" v-if="clearable && !disabled && !readonly" v-show="value.length > 0" @click.native="clearHandler"></m-icon>
+    <m-icon
+      v-if="clearable && !disabled && !readonly"
+      v-show="value.length > 0"
+      class="mtui-input-clear"
+      type="close-circled"
+      @click.native.stop="clearHandler" />
     <slot></slot>
   </div>
 
@@ -27,7 +34,8 @@
     'mtui-textarea',
     {
       'is-disabled': disabled,
-      'is-readonly': readonly
+      'is-readonly': readonly,
+      'is-error': error
     }
   ]" v-else>
     <textarea
@@ -37,14 +45,15 @@
       :disabled="disabled"
       :readonly="readonly"
       :rows="row"
-      :maxlength="limit"
+      :maxlength="maxlength"
+      ref="input"
       @input="inputHandler"
       @change="changeHandler"
       @focus="focusHandler"
       @blur="blurHandler"
     >
     </textarea>
-    <div class="mtui-textarea-counter">{{ value.length }}/{{ limit }}</div>
+    <div class="mtui-textarea-counter">{{ value.length }}/{{ maxLen }}</div>
   </div>
 </template>
 
@@ -55,7 +64,7 @@ export default {
   name: 'm-input',
   components: { MIcon: Icon },
   props: {
-    type: { // 输入框类型，可选项同原生input，['text', 'password', 'search', 'number', 'file']
+    type: { // 输入框类型，可选项同原生input，['text', 'password', 'search', 'number']
       type: String,
       default: 'text'
     },
@@ -67,7 +76,8 @@ export default {
     placeholder: String, // 提示文本
     disabled: Boolean, // 是否可用
     readonly: Boolean, // 是否只读
-    maxlength: String, // 最大字符宽度
+    maxlength: [String, Number], // 最大字符宽度
+    error: Boolean, // 是否错误提示
     clearable: { // 是否可清除输入
       type: Boolean,
       default: false
@@ -75,10 +85,23 @@ export default {
     row: { // textarea的默认行数
       type: Number,
       default: 3
-    },
-    limit: { // textarea的最大字符
-      type: Number,
-      default: 200
+    }
+  },
+  data () {
+    return {
+      maxLen: 200
+    }
+  },
+  watch: {
+    maxlength (val) {
+      if (this.type === 'textarea') {
+        this.maxLen = val
+      }
+    }
+  },
+  created () {
+    if (this.type === 'textarea') {
+      this.maxLen = this.maxlength || this.maxLen
     }
   },
   methods: {
@@ -96,106 +119,25 @@ export default {
       this.$emit('change', event.target.value)
     },
 
-    focusHandler () {
-      this.$emit('focus')
+    focusHandler (event) {
+      this.$emit('focus', event)
     },
 
-    blurHandler () {
-      this.$emit('blur')
+    blurHandler (event) {
+      this.$emit('blur', event)
+    },
+
+    makeFocus () {
+      this.$refs.input.focus()
+    },
+
+    makeBlur () {
+      this.$refs.input.blur()
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.mtui-input {
-  @extend .mtui-common;
-  @include flex-center();
-  width: 100%;
-  background-color: white;
-  border-radius: 4px;
-
-  &.is-disabled {
-    background-color: $colorBg;
-    cursor: not-allowed;
-
-    input {
-      color: lighten($black, 60%);
-    }
-  }
-
-  &.is-readonly {
-    input {
-      color: lighten($black, 60%);
-    }
-  }
-
-  input {
-    flex: 1;
-    padding: 5px 8px;
-    min-width: 100px;
-    height: 24px;
-    background-color: transparent;
-    border: 0;
-    font-size: $fontXMedium;
-    color: lighten($black, 20%);
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    &::-webkit-input-placeholder {
-      color: lighten($black, 60%);
-    }
-  }
-
-  &-clear {
-    display: inline-block;
-    width: 34px;
-    line-height:  34px;
-    text-align: center;
-    font-size: $fontLarge;
-    color: lighten($black, 60%);
-  }
-}
-
-.mtui-textarea {
-  @extend .mtui-input;
-  padding: 6px 8px;
-  height: auto;
-  flex-direction: column;
-
-  &.is-disabled {
-    textarea {
-      color: lighten($black, 60%);
-    }
-  }
-
-  &.is-readonly {
-    textarea {
-      color: lighten($black, 60%);
-    }
-  }
-
-  textarea {
-    padding: 0;
-    width: 100%;
-    background-color: transparent;
-    border: 0;
-    font-size: $fontXMedium;
-    font-family: $font;
-    color: lighten($black, 20%);
-    outline: none;
-    resize: none;
-    &::-webkit-input-placeholder {
-      color: lighten($black, 60%);
-    }
-  }
-
-  &-counter {
-    flex: 1;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: right;
-    line-height: 1.6;
-    color: lighten($black, 60%);
-  }
-}
+@import './style.scss';
 </style>

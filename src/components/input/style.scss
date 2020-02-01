@@ -1,0 +1,93 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+@import '@/common/css/animate.scss';
+
+.mtui-input {
+  box-sizing: border-box;
+  @include flex-center();
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  font-size: $fontMedium;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    input { color: $colorDisabled; }
+  }
+  
+  &.is-error {
+    input { color: $colorDanger; }
+  }
+  
+  input {
+    flex: 1;
+    padding: 3px 0;
+    min-width: 50px;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+    font-family: $font;
+    font-size: $fontMedium;
+    color: $colorPrimaryTxt;
+    line-height: 24px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance:none;
+    outline: none;
+    &::-webkit-input-placeholder {
+      color: $colorDisabled;
+    }
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &-clear {
+    display: inline-block;
+    width: 30px;
+    line-height:  30px;
+    text-align: center;
+    font-size: $fontXMedium;
+    color: $colorDisabled;
+  }
+}
+
+.mtui-textarea {
+  @extend .mtui-input;
+  flex-direction: column;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    textarea { color: $colorDisabled; }
+  }
+
+  textarea {
+    flex: 1;
+    padding: 3px 0;
+    min-width: 50px;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: 0;
+    font-size: $fontMedium;
+    font-family: $font;
+    color: $colorPrimaryTxt;
+    line-height: 24px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    resize: none;
+    &::-webkit-input-placeholder {
+      color: $colorDisabled;
+    }
+  }
+
+  &-counter {
+    flex: 1;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: right;
+    line-height: 1.6;
+    color: $colorDisabled;
+  }
+}

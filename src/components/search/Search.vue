@@ -1,21 +1,40 @@
 <template>
   <div class="mtui-search">
-    <form class="mtui-search-form" :class="{ clearable: clearable }" action="*" @submit.prevent="onSearch" @click="$refs.searcher.focus()">
+    <form
+      :class="[
+        'mtui-search-form',
+        { clearable: clearable }
+      ]"
+      action="*"
+      @submit.prevent="onSearch"
+      @click="$refs.searcher.makeFocus()"
+    >
       <m-icon class="mtui-search-icon" type="ios-search-strong"></m-icon>
-      <!-- 输入框 -->
-      <input class="mtui-search-input" type="search" v-model="keyword" :maxlength="maxlength" :placeholder="placeholder" ref="searcher">
-      <!-- 清除按钮 -->
-      <m-icon class="mtui-search-clear" type="close-circled" v-if="clearable" v-show="keyword !== ''" @click.native.stop="clearKeyWord"></m-icon>
+      <m-input
+        v-model="keyword"
+        class="mtui-search-input"
+        type="search"
+        :clearable="clearable"
+        :disabled="disabled"
+        :maxlength="maxlength"
+        :placeholder="placeholder"
+        ref="searcher"
+        @clear="clearKeyWord"
+      />
     </form>
   </div>
 </template>
 
 <script>
 import Icon from '../icon/Icon'
+import Input from '../input/Input'
 
 export default {
   name: 'm-search',
-  components: { MIcon: Icon },
+  components: {
+    MIcon: Icon,
+    MInput: Input
+  },
   props: {
     value: {
       type: String,
@@ -25,12 +44,14 @@ export default {
       type: Number,
       default: 30
     },
-    clearable: { // 是否可以清除
-      type: Boolean
+    clearable: { // 是否可清除输入
+      type: Boolean,
+      default: false
     },
+    disabled: Boolean, // 是否可用
     placeholder: {
       type: String,
-      default: '请输入'
+      default: '请输入搜索关键字'
     }
   },
   data () {
@@ -48,68 +69,18 @@ export default {
   },
   methods: {
     onSearch () {
-      this.$refs.searcher.blur()
+      this.$refs.searcher.makeBlur()
       this.$emit('on-search', this.keyword.trim())
     },
 
     clearKeyWord () {
       this.keyword = ''
-      this.$refs.searcher.focus()
+      this.$refs.searcher.makeFocus()
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.mtui-search {
-  padding: 10px 16px;
-  background-color: white;
-
-  &-form {
-    position: relative;
-    display: flex;
-    background-color: $colorBg;
-    border-radius: 4px;
-
-    .mtui-search-icon {
-      flex-shrink: 0;
-      padding-top: 4px;
-      padding-left: 8px;
-      width: 20px;
-      text-align: center;
-      line-height: 30px;
-      color: $colorDisabled;
-      font-size: 20px;
-    }
-
-    .mtui-search-input {
-      padding: 5px 8px;
-      width: 100%;
-      height: 34px;
-      background-color: transparent;
-      border: 0;
-      outline: none;
-      font-size: 16px;
-      color: $black;
-      -webkit-appearance:none;
-      &::-webkit-search-cancel-button {
-        display: none;
-      }
-
-      &::placeholder {
-        color: #9b9b9b;
-      }
-    }
-
-    .mtui-search-clear {
-      flex-shrink: 0;
-      padding-right: 8px;
-      width: 20px;
-      text-align: center;
-      line-height: 34px;
-      color: $colorDisabled;
-      font-size: 16px;
-    }
-  }
-}
+@import './style.scss';
 </style>

@@ -1,0 +1,74 @@
+@import '@/common/css/variable.scss';
+
+.mtui-toast {
+  position: fixed;
+  left: 50%;
+  z-index: 9997;
+  padding: 10px 15px;
+  min-width: 100px;
+  max-width: 80%;
+  background-color: rgba(0,0,0,.7);
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-size: $fontMedium;
+
+  &.has-icon {
+    padding: 20px 15px;
+  }
+
+  &-icon {
+    display: block;
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  &-content {
+    word-break: break-all;
+  }
+
+  &.mtui-toast-top {
+    top: 2%;
+    transform: translate(-50%, 0);
+    animation: toast-top .1s ease-out forwards;
+  }
+  &.mtui-toast-center {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: toast-center .1s ease-out forwards;
+  }
+  &.mtui-toast-bottom {
+    bottom: 6%;
+    transform: translate(-50%, 0);
+    animation: toast-bottom .1s ease-out forwards;
+  }
+}
+
+@keyframes toast-top {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes toast-center {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes toast-bottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  50% {
+    opacity: 1;
+  }
+}

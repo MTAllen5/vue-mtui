@@ -3,6 +3,11 @@
     class="mtui-form"
     :action="action"
     :autocomplete="autocomplete"
+    :enctype="enctype"
+    :method="method"
+    :name="name"
+    :novalidate="novalidate"
+    :target="target"
   >
     <slot></slot>
   </form>

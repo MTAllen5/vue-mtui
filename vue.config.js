@@ -5,14 +5,7 @@ function resolve (dir) {
 }
 
 module.exports = {
-  // publicPath: process.env.NODE_ENV === 'production' ? '/vue-mtui/example' : '/',
-  css: {
-    loaderOptions: {
-      sass: {
-        data: '@import "@/common/css/index.scss";'
-      }
-    }
-  },
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-mtui/example' : '/',
   chainWebpack: config => {
     if (process.env.VUE_CLI_BUILD_TARGET !== 'lib') {
       config

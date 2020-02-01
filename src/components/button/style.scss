@@ -34,7 +34,7 @@
     left: 0;
     top: 0;
     background-color: $colorBlack;
-    transform: opacity .1s;
+    transition: opacity .1s;
     opacity: 0;
   }
 

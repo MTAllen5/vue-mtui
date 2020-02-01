@@ -1,26 +1,48 @@
 <template>
   <div class="mtui-counter">
-    <div class="mtui-counter-main" :class="{'is-small': small}">
-      <m-button inline :type="theme" small :disabled="disabled || value <= min" @click="reduce"><m-icon type="android-remove"></m-icon></m-button>
+    <div class="mtui-counter-main">
+      <m-button
+        inline
+        size="small"
+        icon="android-remove"
+        :type="theme"
+        :disabled="disabled || value <= min"
+        @click="reduce"
+      />
 
-      <input v-if="type === 'input'" class="mtui-counter-ipt" type="tel" v-model="val" :disabled="disabled" @change="editValue">
-      <span v-if="type === 'span'" class="mtui-counter-span">{{ value }}</span>
+      <input
+        v-if="type === 'input'"
+        v-model="val"
+        class="mtui-counter-ipt"
+        type="tel"
+        :disabled="disabled"
+        @change="editValue"
+      >
+      <span
+        v-if="type === 'span'"
+        :class="[
+          'mtui-counter-span',
+          { 'is-disabled': disabled }
+        ]">{{ value }}</span>
 
-      <m-button inline :type="theme" small :disabled="disabled || value >= max" @click="increase"><m-icon type="android-add"></m-icon></m-button>
+      <m-button
+        inline
+        size="small"
+        icon="android-add"
+        :type="theme"
+        :disabled="disabled || value >= max"
+        @click="increase"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import Button from '../button/Button'
-import Icon from '../icon/Icon'
 
 export default {
   name: 'm-counter',
-  components: {
-    MButton: Button,
-    MIcon: Icon
-  },
+  components: { MButton: Button },
   model: {
     prop: 'value',
     event: 'change'
@@ -47,7 +69,7 @@ export default {
     },
     disabled: Boolean, // 是否可用
     small: Boolean,
-    theme: { // 主题颜色 可选值['primary', 'minor', 'default']
+    theme: { // 主题颜色 可选值['primary', 'minor', 'warn', 'danger']
       type: String,
       default: 'primary'
     }
@@ -91,36 +113,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-counter {
-  display: inline-block;
-
-  &-main {
-    @include flex-center();
-    height: 30px;
-
-    .mtui-counter-span {
-      display: inline-block;
-      margin: 0 3px;
-      min-width: 30px;
-      line-height: 30px;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      text-align: center;
-      font-size: $fontXMedium;
-    }
-    .mtui-counter-ipt {
-      margin: 0 3px;
-      padding: 0 3px;
-      width: 24px;
-      height: 28px;
-      border: 1px solid $colorLine;
-      border-radius: 4px;
-      text-align: center;
-      font-size: $fontXMedium;
-      -webkit-appearance: none;
-      -webkit-tap-highlight-color: transparent;
-      outline: none;
-    }
-  }
-}
+@import './style.scss';
 </style>

@@ -6,6 +6,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import '@/common/css/mixins.scss';
+@import '@/common/css/global.scss';
+
 .page-404 {
   @include flex-center();
   flex-direction: column;

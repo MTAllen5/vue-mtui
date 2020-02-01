@@ -1,3 +1,5 @@
+@import './variable.scss';
+
 // 遮罩层
 @mixin mask($zIndex: 100, $opacity: .4, $color: black) {
   position: fixed;

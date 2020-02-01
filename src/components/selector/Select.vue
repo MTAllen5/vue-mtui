@@ -1,10 +1,25 @@
 <template>
-  <div class="mtui-select">
-    <select v-model="val" @change="onChange" :class="{ placeholder: val === '' }">
+  <div
+    :class="[
+      'mtui-select',
+      { 'is-disabled': disabled }
+    ]"
+  >
+    <select
+      v-model="val"
+      :class="{ placeholder: val === '' }"
+      :disabled="disabled"
+      @change="onChange"
+    >
       <option value="" disabled style="display: none;">{{ placeholder }}</option>
-      <option v-for="(option, index) in opts" :key="index" :value="option.value">{{ option.label }}</option>
+      <option
+        v-for="(option, index) in opts"
+        :key="index"
+        :value="option.value"
+        :disabled="option.disabled"
+      >{{ option.label }}</option>
     </select>
-    <m-icon type="ios-arrow-forward"></m-icon>
+    <m-icon type="ios-arrow-forward" />
   </div>
 </template>
 
@@ -25,6 +40,7 @@ export default {
       type: String,
       default: '请选择'
     },
+    disabled: Boolean,
     options: {
       type: Array,
       default: () => []
@@ -53,7 +69,7 @@ export default {
   },
   watch: {
     value (val) {
-      this.val = this.opts.find(opt => opt.value == val || opt == val) ? val : ''
+      this.val = this.opts.find(opt => opt.value == val) ? val : ''
     }
   },
   methods: {
@@ -65,41 +81,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-select {
-  @extend .mtui-common;
-  @include flex-center();
-  width: 100%;
-  background-color: white;
-  border-radius: 4px;
-
-  select {
-    flex: 1;
-    padding: 5px 8px;
-    min-width: 100px;
-    width: 100%;
-    height: 34px;
-    line-height: 24px;
-    background-color: transparent;
-    border: 0;
-    font-size: $fontXMedium;
-    color: lighten($black, 20%);
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-    outline: none;
-    user-select: none;
-
-    &.placeholder {
-      color: lighten($black, 60%);
-    }
-
-    option {
-      color: $black;
-    }
-  }
-
-  .ion {
-    margin-left: 8px;
-    color: $colorDisabled;
-  }
-}
+@import './style.scss';
 </style>

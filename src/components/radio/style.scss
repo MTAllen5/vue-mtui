@@ -1,0 +1,161 @@
+@import '@/common/css/variable.scss';
+
+.mtui-radio {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  color: $colorPrimaryTxt;
+  font-size: $fontMedium;
+  -webkit-tap-highlight-color: transparent;
+
+  &:not(:last-child) { margin-right: 10px; }
+
+  &-container { display: flex; }
+
+  // 隐藏真实checkbox
+  .mtui-radio-input {
+    input[type='radio'] {
+      position: absolute;
+      z-index: -1;
+      margin: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      outline: none;
+    }
+  }
+
+  &.is-default {
+    line-height: 30px;
+
+    .mtui-radio-input {
+      display: inline-block;
+      margin-right: 5px;
+
+      .mtui-radio-input-inner {
+        position: relative;
+        margin-top: 7px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border: 1px solid $colorMinorTxt;
+        border-radius: 50%;
+        transition: all .1s;
+        vertical-align: top;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          width: 6px;
+          height: 6px;
+          background-color: white;
+          border-radius: 50%;
+          transition: all .1s;
+        }
+      }
+    }
+
+    &.is-checked {
+      &.mtui-radio-primary {
+        color: $colorPrimary;
+        .mtui-radio-input-inner {
+          background-color: $colorPrimary;
+          border-color: $colorPrimary;
+        }
+      }
+      &.mtui-radio-minor {
+        color: $colorMinor;
+        .mtui-radio-input-inner {
+          background-color: $colorMinor;
+          border-color: $colorMinor;
+        }
+      }
+      &.mtui-radio-warn {
+        color: $colorWarning;
+        .mtui-radio-input-inner {
+          background-color: $colorWarning;
+          border-color: $colorWarning;
+        }
+      }
+      &.mtui-radio-danger {
+        color: $colorDanger;
+        .mtui-radio-input-inner {
+          background-color: $colorDanger;
+          border-color: $colorDanger;
+        }
+      }
+      .mtui-radio-input-inner::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &.is-disabled {
+      &.mtui-radio-primary,
+      &.mtui-radio-minor,
+      &.mtui-radio-warn,
+      &.mtui-radio-danger {
+        color: $colorDisabled;
+      }
+      
+      .mtui-radio-input-inner {
+        background-color: $colorBg;
+        border-color: $colorDisabled;
+      }
+
+      &.is-checked {
+        .mtui-radio-input-inner {
+          background-color: $colorDisabled;
+          border-color: $colorDisabled;
+        }
+      }
+    }
+  }
+
+  &.is-button {
+    padding: 0 8px;
+    border: 1px solid $colorMinorTxt;
+    border-radius: 4px;
+    transition: all .1s;
+    line-height: 28px;
+
+    .mtui-radio-input { display: none; }
+
+    &.is-checked {
+      color: white;
+      &.mtui-radio-primary {
+        background-color: $colorPrimary;
+        border-color: $colorPrimary;
+      }
+      &.mtui-radio-minor {
+        background-color: $colorMinor;
+        border-color: $colorMinor;
+      }
+      &.mtui-radio-warn {
+        background-color: $colorWarning;
+        border-color: $colorWarning;
+      }
+      &.mtui-radio-danger {
+        background-color: $colorDanger;
+        border-color: $colorDanger;
+      }
+    }
+
+    &.is-disabled {
+      background-color: $colorBg;
+      border-color: $colorDisabled;
+      color: $colorDisabled;
+      cursor: not-allowed;
+      
+      &.is-checked {
+        background-color: $colorDisabled;
+        border-color: $colorDisabled;
+        color: white;
+      }
+    }
+  }
+}

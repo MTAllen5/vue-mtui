@@ -5,6 +5,8 @@
 </template>
 
 <style lang="scss">
+@import '@/common/css/variable.scss';
+
 html, body {
   margin: 0;
   padding: 0;
@@ -15,6 +17,6 @@ html, body {
   font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $black;
+  color: $colorBlack;
 }
 </style>

@@ -2,24 +2,26 @@
   <div>
     <m-title type="1">Checkbox</m-title>
 
-    <m-panel>
-      <div slot="head">默认Checkbox</div>
+    <m-panel title="默认Checkbox">
       <m-cell>
         <m-checkbox v-model="checkbox1">选项一</m-checkbox>
         <m-checkbox v-model="checkbox2">选项二</m-checkbox>
       </m-cell>
-    </m-panel>
-
-    <m-panel>
-      <div slot="head">不同颜色主题</div>
       <m-cell>
         <m-checkbox v-model="checkbox1" theme="minor">选项一</m-checkbox>
         <m-checkbox v-model="checkbox2" theme="minor">选项二</m-checkbox>
       </m-cell>
+      <m-cell>
+        <m-checkbox v-model="checkbox1" theme="warn">选项一</m-checkbox>
+        <m-checkbox v-model="checkbox2" theme="warn">选项二</m-checkbox>
+      </m-cell>
+      <m-cell>
+        <m-checkbox v-model="checkbox1" theme="danger">选项一</m-checkbox>
+        <m-checkbox v-model="checkbox2" theme="danger">选项二</m-checkbox>
+      </m-cell>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">按钮Radio</div>
+    <m-panel title="按钮Radio">
       <m-cell>
         <m-checkbox v-model="checkbox1" type="button">选项一</m-checkbox>
         <m-checkbox v-model="checkbox2" type="button">选项二</m-checkbox>
@@ -27,8 +29,7 @@
       </m-cell>
     </m-panel>
 
-    <m-panel>
-      <div slot="head">不可用的</div>
+    <m-panel title="不可用的">
       <m-cell>
         <m-checkbox v-model="checkbox1" disabled>选项一</m-checkbox>
         <m-checkbox v-model="checkbox2" disabled>选项二</m-checkbox>

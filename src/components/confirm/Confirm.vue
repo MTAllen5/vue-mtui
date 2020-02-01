@@ -1,22 +1,25 @@
 <template>
-  <m-dialog v-model="showFlag" :closeOnClickMask="false" :showCloseButton="closeable">
-    <!-- 弹窗标题 -->
-    <template slot="title" v-if="title !== ''">{{ title }}</template>
-
+  <m-dialog class="mtui-confirm" v-model="showFlag" :maskCloseable="false" :title="title" ref="dialog">
     <!-- 弹窗内容 -->
     <div>{{ message }}</div>
 
-    <!-- 弹窗按钮组 -->
-    <template slot="foot">
-      <m-button inline text no-radius @click="cancel">{{ cancelTxt }}</m-button>
-      <m-button inline text type="minor" no-radius @click="confirm">{{ confirmTxt }}</m-button>
-    </template>
+    <div class="mtui-confirm-btns" slot="foot">
+      <m-button text @click="cancel">{{ cancelTxt }}</m-button>
+      <m-button text type="primary" @click="confirm">{{ confirmTxt }}</m-button>
+    </div>
   </m-dialog>
 </template>
 
 <script>
+import Dialog from '../dialog/Dialog'
+import Button from '../button/Button'
+
 export default {
   name: 'm-confirm',
+  components: {
+    MDialog: Dialog,
+    MButton: Button
+  },
   data () {
     return {
       showFlag: false,
@@ -25,20 +28,12 @@ export default {
       cancelTxt: '取消',
       confirmTxt: '确定',
       onCancel: null,
-      onConfirm: null,
-      closeable: false
-    }
-  },
-  watch: {
-    showFlag (val) {
-      if (!val) {
-        this.dataReset()
-      }
+      onConfirm: null
     }
   },
   methods: {
     hide () {
-      this.showFlag = false
+      this.$refs.dialog.close()
     },
 
     show () {
@@ -46,40 +41,33 @@ export default {
     },
 
     confirm () {
-      this.onConfirm && this.onConfirm.bind(this)()
+      this.onConfirm && this.onConfirm()
       this.hide()
     },
 
     cancel () {
-      this.onCancel && this.onCancel.bind(this)()
+      this.onCancel && this.onCancel()
       this.hide()
-    },
-
-    // 关闭的时候重置默认数据，以防下次调用使用了旧数据
-    dataReset () {
-      this.title = ''
-      this.message = ''
-      this.cancelTxt = '取消'
-      this.confirmTxt = '确定'
-      this.onCancel = null
-      this.onConfirm = null
-      this.closeable = false
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.mtui-dialog {
-  z-index: 980;
+@import '@/common/css/mixins.scss';
 
-  .mtui-dialog-foot .mtui-btn {
-    position: relative;
-    flex: 1;
-    &:not(:first-child)::after {
-      @include border-left-line();
-      top: 50%;
-      transform: scale(.5, .5) translateY(-50%);
+.mtui-dialog {
+  z-index: 9998;
+
+  .mtui-confirm-btns {
+    display: flex;
+
+    .mtui-btn {
+      position: relative;
+      flex: 1;
+      &:not(:first-child)::before {
+        @include border-left-line();
+      }
     }
   }
 }

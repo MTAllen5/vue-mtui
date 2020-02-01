@@ -124,6 +124,7 @@ export default {
   &-label {
     margin-top: 8px;
     margin-bottom: 0;
+    text-align: center;
   }
 }
 </style>

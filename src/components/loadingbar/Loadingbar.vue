@@ -28,6 +28,7 @@ export default {
       this.progress = 0
       this.loadingTimer = setTimeout(this.setProgress, 40)
     },
+
     finish () {
       this.showFlag = true
       this.loadingFlag = false
@@ -36,6 +37,7 @@ export default {
         this.showFlag = false
       }, 500)
     },
+
     setProgress () {
       if (this.loadingFlag && this.progress < 94) {
         this.progress += 2
@@ -44,6 +46,16 @@ export default {
         clearInterval(this.loadingTimer)
       }
     },
+
+    setPercent (percent = 10) {
+      if (percent === 100) {
+        this.finish()
+      } else {
+        this.progress = percent
+        clearInterval(this.loadingTimer)
+      }
+    },
+
     isLoading () {
       return this.showFlag && this.loadingFlag
     }
@@ -52,6 +64,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/common/css/variable.scss';
+
 .mtui-loadingbar-container {
   position: fixed;
   top: 0;
@@ -63,7 +77,7 @@ export default {
   .mtui-loadingbar-progress {
     width: 0;
     height: 100%;
-    background-color: $colorMinor;
+    background-color: $colorPrimary;
     transition: width .2s linear;
   }
 }

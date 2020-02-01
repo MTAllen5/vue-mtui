@@ -1,13 +1,9 @@
 <template>
-  <m-dialog v-model="showFlag" :closeOnClickMask="false" :showCloseButton="closeable">
-    <!-- 弹窗标题 -->
-    <template slot="title" v-if="title !== ''">{{ title }}</template>
-
+  <m-dialog class="mtui-alert" v-model="showFlag" :maskCloseable="false" :title="title" ref="dialog">
     <!-- 弹窗内容 -->
     <div>{{ message }}</div>
 
-    <!-- 弹窗按钮组 -->
-    <m-button type="minor" text no-radius @click="alert" slot="foot">{{ confirmTxt }}</m-button>
+    <m-button type="primary" text block slot="foot" @click="alert">{{ confirmTxt }}</m-button>
   </m-dialog>
 </template>
 
@@ -24,23 +20,15 @@ export default {
   data () {
     return {
       showFlag: false,
-      title: '',
+      title: '提示',
       message: '',
       confirmTxt: '确定',
-      onConfirm: null,
-      closeable: false
-    }
-  },
-  watch: {
-    showFlag (val) {
-      if (!val) {
-        this.dataReset()
-      }
+      onConfirm: null
     }
   },
   methods: {
     hide () {
-      this.showFlag = false
+      this.$refs.dialog.close()
     },
 
     show () {
@@ -50,15 +38,6 @@ export default {
     alert () {
       this.onConfirm && this.onConfirm()
       this.hide()
-    },
-
-    // 关闭的时候重置默认数据，以防下次调用使用了旧数据
-    dataReset () {
-      this.title = ''
-      this.message = ''
-      this.confirmTxt = '确定'
-      this.onConfirm = null
-      this.closeable = false
     }
   }
 }
@@ -66,6 +45,6 @@ export default {
 
 <style lang="scss" scoped>
 .mtui-dialog {
-  z-index: 990;
+  z-index: 9999;
 }
 </style>

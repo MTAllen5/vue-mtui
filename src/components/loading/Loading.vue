@@ -24,6 +24,7 @@ export default {
   methods: {
     hide () {
       this.showFlag = false
+      this.tips = ''
     },
     show () {
       this.showFlag = true
@@ -33,34 +34,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+@import '@/common/css/animate.scss';
+
 .mtui-loading {
-  @include mask(900, .6, white);
+  @include mask(9992, .6, white);
   @include flex-center();
 
   .mtui-loading-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px;
+    justify-content: center;
+    padding: 15px;
     min-width: 50px;
-    background-color: transparentize($black, .2);
+    min-height: 50px;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 8px;
-    color: white;
     animation: zoomIn .1s ease forwards;
+    color: white;
 
     .mtui-loading-icon {
-      font-size: $fontXXLarge;
-      animation: rotate-loading 1.6s linear forwards infinite;
-      @keyframes rotate-loading {
-        0% { transform: rotate(0); }
-        100% { transform: rotate(360deg); }
-      }
+      font-size: 40px;
+      animation: turnRound 1.6s linear forwards infinite;
     }
 
     .mtui-loading-txt {
       margin-top: 5px;
       font-size: $fontMedium;
-      max-width: 140px;
+      max-width: 120px;
       @include text-overflow();
     }
   }

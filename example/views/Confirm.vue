@@ -1,22 +1,22 @@
 <template>
   <div>
     <m-title type="1">Confirm</m-title>
-    <m-panel>
-      <div slot="head">默认弹窗</div>
+
+    <m-panel title="默认弹窗">
       <m-box>
-        <m-button type="primary" @click="showConfirm1">显示confirm</m-button>
+        <m-button @click="showConfirm1">显示confirm</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">可文本配置弹窗</div>
+
+    <m-panel title="可文本配置弹窗">
       <m-box>
-        <m-button type="default" @click="showConfirm2">显示confirm</m-button>
+        <m-button @click="showConfirm2">显示confirm</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">绑定取消、确定处理函数</div>
+
+    <m-panel title="绑定取消、确定处理函数">
       <m-box>
-        <m-button type="minor" plain @click="showConfirm3">显示confirm</m-button>
+        <m-button @click="showConfirm3">显示confirm</m-button>
       </m-box>
     </m-panel>
   </div>
@@ -24,10 +24,16 @@
 
 <script>
 export default {
+  data () {
+    return {
+      bbb: '1234'
+    }
+  },
   methods: {
     showConfirm1 () {
       this.$confirm('这是一条提示消息')
     },
+
     showConfirm2 () {
       this.$confirm({
         title: '这是提示标题',
@@ -36,6 +42,7 @@ export default {
         cancelTxt: '不要啦'
       })
     },
+
     showConfirm3 () {
       this.$confirm({
         title: '这是提示标题',

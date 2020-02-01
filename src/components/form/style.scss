@@ -1,0 +1,73 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+
+.mtui-form-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 9px 15px;
+  min-height: 48px;
+  background-color: white;
+  font-size: $fontMedium;
+
+  &:not(:first-child)::before {
+    @include border-top-line();
+  }
+
+  &-hd {
+    flex-shrink: 0;
+    font-size: $fontMedium;
+
+    label {
+      display: inline-block;
+      padding-right: 5px;
+      width: 80px;
+      line-height: 30px;
+      color: $colorMinorTxt;
+
+      i { color: $colorDanger; }
+    }
+  }
+
+  &-bd {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+
+    &.align-right {
+      justify-content: flex-end;
+      text-align: right;
+
+      /deep/ .mtui-input input { text-align: right; }
+      /deep/ .mtui-select select {
+        text-align: right;
+        text-align-last: right;
+        direction: rtl;
+      }
+    }
+
+    /deep/ .mtui-cell {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    /deep/ .mtui-cell {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &.is-block {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .mtui-form-item-hd,
+    .mtui-form-item-bd {
+      width: 100%;
+    }
+  }
+}

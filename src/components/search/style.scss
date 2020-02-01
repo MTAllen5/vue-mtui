@@ -1,0 +1,27 @@
+@import '@/common/css/variable.scss';
+
+.mtui-search {
+  padding: 10px 15px;
+  background-color: white;
+
+  &-form {
+    position: relative;
+    display: flex;
+    padding: 0 5px;
+    background-color: $colorBg;
+    border-radius: 4px;
+
+    .mtui-search-icon {
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+      line-height: 30px;
+      color: $colorDisabled;
+      font-size: $fontXMedium;
+    }
+
+    .mtui-search-input {
+      background-color: transparent;
+    }
+  }
+}

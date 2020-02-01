@@ -1,0 +1,44 @@
+@import '@/common/css/variable.scss';
+@import '@/common/css/mixins.scss';
+
+.mtui-counter {
+  display: inline-block;
+
+  &-main {
+    @include flex-center();
+
+    .mtui-counter-span {
+      display: inline-block;
+      margin: 0 3px;
+      min-width: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: $fontMedium;
+      color: $colorPrimaryTxt;
+
+      &.is-disabled {
+        color: $colorDisabled;
+      }
+    }
+    .mtui-counter-ipt {
+      margin: 0 3px;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      background-color: white;
+      border: 1px solid $colorLine;
+      border-radius: 4px;
+      text-align: center;
+      font-family: $font;
+      font-size: $fontMedium;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+
+      &[disabled] {
+        background-color: $colorBg;
+        color: $colorDisabled;
+      }
+    }
+  }
+}

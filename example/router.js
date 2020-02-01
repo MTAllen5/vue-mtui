@@ -18,12 +18,11 @@ import Loading from './views/Loading'
 import LoadingBar from './views/LoadingBar'
 
 import Input from './views/Input'
-import Textarea from './views/Textarea'
-import Switch from './views/Switch'
-import Counter from './views/Counter'
 import Radio from './views/Radio'
 import Checkbox from './views/Checkbox'
 import Select from './views/Select'
+import Switch from './views/Switch'
+import Counter from './views/Counter'
 import Form from './views/Form'
 
 import Calendar from './views/Calendar'
@@ -53,17 +52,23 @@ export default new Router({
     { path: '/loadingbar', name: 'loadingbar', component: LoadingBar },
 
     { path: '/inputs', name: 'inputs', component: Input },
-    { path: '/textareas', name: 'textareas', component: Textarea },
-    { path: '/switchs', name: 'switchs', component: Switch },
-    { path: '/counters', name: 'counters', component: Counter },
     { path: '/radios', name: 'radios', component: Radio },
     { path: '/checkboxes', name: 'checkboxes', component: Checkbox },
     { path: '/selects', name: 'selects', component: Select },
+    { path: '/switchs', name: 'switchs', component: Switch },
+    { path: '/counters', name: 'counters', component: Counter },
     { path: '/form', name: 'form', component: Form },
 
     { path: '/calendars', name: 'calendars', component: Calendar },
     { path: '/searchs', name: 'searchs', component: Search },
 
     { path: '/:other', name: '404', component: NotFound }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })

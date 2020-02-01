@@ -1,0 +1,55 @@
+@import '@/common/css/variable.scss';
+
+.mtui-switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+  background-color: $colorLine;
+  border-radius: 30px;
+  transition: background-color .1s linear;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0,0,0,.3);
+    transition: left .1s linear;
+  }
+
+  &.active {
+    background-color: $colorPrimary;
+    &:after { left: 26px; }
+  }
+
+  &-primary.active { background-color: $colorPrimary; }
+  &-minor.active { background-color: $colorMinor; }
+  &-warn.active { background-color: $colorWarning; }
+  &-danger.active { background-color: $colorDanger; }
+
+  &.is-small {
+    width: 36px;
+    height: 20px;
+    border-radius: 20px;
+
+    &:after {
+      width: 16px;
+      height: 16px;
+      box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    }
+
+    &.active {
+      &:after {
+        left: 18px;
+      }
+    }
+  }
+
+  &.is-disabled { opacity: .4; }
+}

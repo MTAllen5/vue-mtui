@@ -8,7 +8,7 @@ Confirm.install = function (Vue, options = {}) {
 
   Vue.prototype.$confirm = (options) => {
     if (typeof options !== 'number' && typeof options !== 'string' && typeof options !== 'object') {
-      throw new Error('alert: 不合法的参数类型')
+      throw new Error('confirm: 不合法的参数类型')
     }
 
     // 配置参数

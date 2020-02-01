@@ -17,7 +17,7 @@
       </div>
     </m-panel>
 
-    <m-title type="5">MessageBox 消息组件</m-title>
+    <m-title type="5">Message 消息组件</m-title>
     <m-panel>
       <div>
         <m-cell link="/dialogs" arrow>Dialog 对话窗</m-cell>
@@ -33,12 +33,11 @@
     <m-panel>
       <div>
         <m-cell link="/inputs" arrow>Input 输入框</m-cell>
-        <m-cell link="/textareas" arrow>Textarea 文本域</m-cell>
-        <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
-        <m-cell link="/counters" arrow>Counter 计数器</m-cell>
         <m-cell link="/radios" arrow>Radio 单选框</m-cell>
         <m-cell link="/checkboxes" arrow>Checkbox 复选框</m-cell>
         <m-cell link="/selects" arrow>Select 选择框</m-cell>
+        <m-cell link="/switchs" arrow>Switch 转换开关</m-cell>
+        <m-cell link="/counters" arrow>Counter 计数器</m-cell>
         <m-cell link="/form" arrow>Form 表单</m-cell>
       </div>
     </m-panel>
@@ -50,30 +49,7 @@
         <m-cell link="/searchs" arrow>Search 搜索框</m-cell>
       </div>
     </m-panel>
-
-    <div class="testDiv">
-        <!-- <MButton class="warn" @click="showOptions">显示options</MButton>
-        <MButton class="success plain" @click="showDatePicker">显示日期选择器</MButton> -->
-      </div>
-      <!-- <div style="padding: 0 30px">
-        <Former inline label-width="100px">
-          <FormItem label="楼宇选择">
-            <Selecter placeholder="请选择楼宇">
-              <Option label="环球都汇" value="1"></Option>
-              <Option label="东塔" value="2"></Option>
-              <Option label="西塔" value="3"></Option>
-            </Selecter>
-          </FormItem>
-        </Former>
-      </div> -->
-    </div>
-
-    <!-- <Options ref="options">
-      <Button class="long plain info" @click="handleOption1" style="border: 0">选项1</Button>
-      <Button class="long plain blue" @click="handleOption2" style="border: 0">选项2</Button>
-      <Button class="long plain primary" @click="handleOption3" style="border: 0">选项3</Button>
-    </Options> -->
-
+  </div>
 </template>
 
 <script>
@@ -114,3 +90,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/common/css/global.scss';
+</style>

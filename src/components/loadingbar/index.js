@@ -8,6 +8,7 @@ Loadingbar.install = function (Vue, options = {}) {
 
   Vue.prototype.$loadingbar = {
     start: LoadingBarInstance.start,
+    set: LoadingBarInstance.setPercent,
     finish: LoadingBarInstance.finish,
     isLoading: LoadingBarInstance.isLoading
   }

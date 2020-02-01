@@ -1,7 +1,10 @@
 <template>
-  <div class="mtui-form-item" :class="{'is-block': cBlock}">
+  <div :class="['mtui-form-item', {'is-block': cBlock}]">
     <div class="mtui-form-item-hd">
-      <label v-if="label" :style="{ width: lWidth + 'px', 'text-align': lAlign }">{{ label }}<i v-if="required">*</i></label>
+      <label
+        v-if="label"
+        :style="{ width: lWidth + 'px', 'text-align': lAlign }"
+      >{{ label }}<i v-if="required">*</i></label>
     </div>
 
     <div class="mtui-form-item-bd" :class="['align-' + cAlign]">
@@ -27,7 +30,7 @@ export default {
   },
   data () {
     return {
-      lWidth: 85,
+      lWidth: 80,
       lAlign: 'left',
       cAlign: 'left',
       cBlock: false
@@ -55,85 +58,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mtui-form-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  padding: 8px 16px;
-  min-height: 50px;
-  background-color: #fff;
-
-  &:not(:first-child)::before {
-    @include border-top-line();
-  }
-
-  &-hd {
-    flex-shrink: 0;
-    font-size: $fontXMedium;
-
-    label {
-      display: inline-block;
-      margin: 5px 0;
-      padding-right: 10px;
-      line-height: 1.5;
-
-      i { color: #f5222d; }
-    }
-  }
-
-  &-bd {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-
-    &.align-center {
-      justify-content: center;
-      text-align: center;
-
-      /deep/ .mtui-input input { text-align: center; }
-      /deep/ .mtui-select select {
-        text-align: center;
-        text-align-last: center;
-      }
-    }
-    &.align-right {
-      justify-content: flex-end;
-      text-align: right;
-
-      /deep/ .mtui-input input { text-align: right; }
-      /deep/ .mtui-select select {
-        text-align: right;
-        text-align-last: right;
-        direction: rtl;
-      }
-    }
-
-    /deep/ .mtui-input input,
-    /deep/ .mtui-select select,
-    /deep/ .mtui-cell,
-    /deep/ .mtui-textarea {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    /deep/ .mtui-cell {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  &.is-block {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    .mtui-form-item-hd,
-    .mtui-form-item-bd {
-      width: 100%;
-    }
-  }
-}
+@import './style.scss';
 </style>

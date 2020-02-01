@@ -1,27 +1,28 @@
 <template>
   <div class="mtui-popup" v-if="value">
-    <transition name="fadeIn">
-    <div
-      class="mtui-popup-mask"
-      v-show="show"
-      v-if="showMask"
-      @click.self.stop="onClickMask">
-    </div>
-    </transition>
+    <div :class="['mtui-popup-outer', 'position-' + position]">
+      <transition name="fadeIn">
+      <div
+        class="mtui-popup-mask"
+        v-show="show"
+        v-if="showMask"
+        @click.self.stop="onClickMask">
+      </div>
+      </transition>
 
-    <transition :name="comTransition">
-    <div
-      v-show="show"
-      :class="[
-        'mtui-popup-container',
-        'position-' + position,
-        { 'is-round': round }
-      ]"
-    >
-      <span v-if="closeable" class="mtui-popup-close" @click.stop="close"><m-icon type="android-close"></m-icon></span>
-      <slot></slot>
+      <transition :name="comTransition">
+      <div
+        v-show="show"
+        :class="[
+          'mtui-popup-container',
+          { 'is-round': round }
+        ]"
+      >
+        <span v-if="closeable" class="mtui-popup-close" @click.stop="close"><m-icon type="android-close"></m-icon></span>
+        <slot></slot>
+      </div>
+      </transition>
     </div>
-    </transition>
   </div>
 </template>
 

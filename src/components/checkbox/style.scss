@@ -1,0 +1,152 @@
+@import '@/common/css/variable.scss';
+
+.mtui-checkbox {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  color: $colorPrimaryTxt;
+  font-size: $fontMedium;
+  -webkit-tap-highlight-color: transparent;
+
+  &:not(:last-child) { margin-right: 10px; }
+
+  &-container { display: flex; }
+
+  // 隐藏真实checkbox
+  .mtui-checkbox-input {
+    input[type='checkbox'] {
+      position: absolute;
+      z-index: -1;
+      margin: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      outline: none;
+    }
+  }
+
+  &.is-default {
+    line-height: 30px;
+
+    .mtui-checkbox-input {
+      display: inline-block;
+      margin-right: 5px;
+
+      .mtui-checkbox-input-inner {
+        position: relative;
+        margin-top: 7px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border: 1px solid $colorMinorTxt;
+        border-radius: 2px;
+        transition: all .1s;
+        vertical-align: top;
+        text-align: center;
+
+        .ion {
+          vertical-align: top;
+        }
+      }
+    }
+
+    &.is-checked {
+      .mtui-checkbox-input-inner { color: white; }
+
+      &.mtui-checkbox-primary {
+        color: $colorPrimary;
+        .mtui-checkbox-input-inner {
+          background-color: $colorPrimary;
+          border-color: $colorPrimary;
+        }
+      }
+      &.mtui-checkbox-minor {
+        color: $colorMinor;
+        .mtui-checkbox-input-inner {
+          background-color: $colorMinor;
+          border-color: $colorMinor;
+        }
+      }
+      &.mtui-checkbox-warn {
+        color: $colorWarning;
+        .mtui-checkbox-input-inner {
+          background-color: $colorWarning;
+          border-color: $colorWarning;
+        }
+      }
+      &.mtui-checkbox-danger {
+        color: $colorDanger;
+        .mtui-checkbox-input-inner {
+          background-color: $colorDanger;
+          border-color: $colorDanger;
+        }
+      }
+    }
+
+    &.is-disabled {
+      &.mtui-checkbox-primary,
+      &.mtui-checkbox-minor,
+      &.mtui-checkbox-warn,
+      &.mtui-checkbox-danger {
+        color: $colorDisabled;
+      }
+      
+      .mtui-checkbox-input-inner {
+        background-color: $colorBg;
+        border-color: $colorDisabled;
+      }
+
+      &.is-checked {
+        .mtui-checkbox-input-inner {
+          background-color: $colorDisabled;
+          border-color: $colorDisabled;
+        }
+      }
+    }
+  }
+
+  &.is-button {
+    padding: 0 8px;
+    border: 1px solid $colorMinorTxt;
+    border-radius: 4px;
+    transition: all .1s;
+    line-height: 28px;
+
+    .mtui-checkbox-input { display: none; }
+
+    &.is-checked {
+      color: white;
+      &.mtui-checkbox-primary {
+        background-color: $colorPrimary;
+        border-color: $colorPrimary;
+      }
+      &.mtui-checkbox-minor {
+        background-color: $colorMinor;
+        border-color: $colorMinor;
+      }
+      &.mtui-checkbox-warn {
+        background-color: $colorWarning;
+        border-color: $colorWarning;
+      }
+      &.mtui-checkbox-danger {
+        background-color: $colorDanger;
+        border-color: $colorDanger;
+      }
+    }
+
+    &.is-disabled {
+      background-color: $colorBg;
+      border-color: $colorDisabled;
+      color: $colorDisabled;
+      cursor: not-allowed;
+      
+      &.is-checked {
+        background-color: $colorDisabled;
+        border-color: $colorDisabled;
+        color: white;
+      }
+    }
+  }
+}

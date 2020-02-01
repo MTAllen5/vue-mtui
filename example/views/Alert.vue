@@ -1,22 +1,22 @@
 <template>
   <div>
     <m-title type="1">Alert</m-title>
-    <m-panel>
-      <div slot="head">默认弹窗</div>
+
+    <m-panel title="默认弹窗">
       <m-box>
-        <m-button type="primary" @click="showAlert1">显示alert</m-button>
+        <m-button @click="showAlert1">显示alert</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">可文本配置弹窗</div>
+
+    <m-panel title="可文本配置弹窗">
       <m-box>
-        <m-button type="default" @click="showAlert2">显示alert</m-button>
+        <m-button @click="showAlert2">显示alert</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">绑定确定处理函数</div>
+
+    <m-panel title="绑定确定处理函数">
       <m-box>
-        <m-button type="minor" plain @click="showAlert3">显示alert</m-button>
+        <m-button @click="showAlert3">显示alert</m-button>
       </m-box>
     </m-panel>
   </div>
@@ -28,6 +28,7 @@ export default {
     showAlert1 () {
       this.$alert('这是一条提示消息')
     },
+
     showAlert2 () {
       this.$alert({
         title: '这是提示标题',
@@ -35,6 +36,7 @@ export default {
         confirmTxt: '这是自定义确定按钮'
       })
     },
+
     showAlert3 () {
       this.$alert({
         title: '这是提示标题',

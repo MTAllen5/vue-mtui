@@ -1,38 +1,40 @@
 <template>
   <div>
     <m-title type="1">Toast</m-title>
-    <m-panel>
-      <div slot="head">默认提示</div>
+
+    <m-panel title="默认提示">
       <m-box>
-        <m-button type="primary" @click="showToast1">显示toast</m-button>
+        <m-button @click="showToast1">显示toast</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">其他位置提示</div>
+
+    <m-panel title="不同位置提示">
+      <m-button-group>
+        <m-button inline type="primary" @click="showToast2">顶部提示</m-button>
+        <m-button inline type="warn" @click="showToast3">中间提示</m-button>
+        <m-button inline type="danger" @click="showToast1">底部提示</m-button>
+      </m-button-group>
+    </m-panel>
+
+    <m-panel title="自定义显示时间">
       <m-box>
-        <m-button type="minor" @click="showToast2">显示toast</m-button>
-        <m-button type="minor" plain @click="showToast3">显示toast</m-button>
+        <m-button @click="showToast4">显示toast</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">自定义显示时间</div>
-      <m-box>
-        <m-button type="primary" plain @click="showToast4">显示toast</m-button>
-      </m-box>
-    </m-panel>
-    <m-panel>
-      <div slot="head">自定义图标提示</div>
+
+    <m-panel title="自定义图标提示">
+      <div slot="head"></div>
       <m-box>
         <m-button @click="showToast5">显示toast</m-button>
       </m-box>
     </m-panel>
-    <m-panel>
-      <div slot="head">常用图标提示</div>
-      <m-box>
-        <m-button @click="showToast6" type="primary" inline style="margin-right: 10px;">成功</m-button>
-        <m-button @click="showToast7" inline style="margin-right: 10px;">警告</m-button>
-        <m-button @click="showToast8" type="minor" inline>错误</m-button>
-      </m-box>
+
+    <m-panel title="常用图标提示">
+      <m-button-group>
+        <m-button type="minor" inline  @click="showToast6">成功</m-button>
+        <m-button type="warn" inline  @click="showToast7">警告</m-button>
+        <m-button type="danger" inline  @click="showToast8">错误</m-button>
+      </m-button-group>
     </m-panel>
   </div>
 </template>
@@ -51,14 +53,14 @@ export default {
     },
     showToast4 () {
       this.$toast({
-        message: '我是提示',
+        message: '我3秒后会消失',
         timeout: 3000,
         type: 'bottom'
       })
     },
     showToast5 () {
       this.$toast.center({
-        icon: 'android-done',
+        icon: 'android-alarm-clock',
         message: '提交成功',
         timeout: 2000
       })
@@ -75,9 +77,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-/deep/ .mtui-btn:not(:last-child) {
-  margin-bottom: 16px;
-}
-</style>
