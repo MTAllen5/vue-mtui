@@ -19,7 +19,9 @@
     :disabled="disabled || loading"
     @click.stop="handleClick"
     @touchstart.stop="handleTouchStart"
+    @mousedown.stop="handleTouchStart"
     @touchend.stop="handleTouchEnd"
+    @mouseup.stop="handleTouchEnd"
   >
     <m-icon class="btn-icon-loading" type="load-c" v-if="loading && !isIconOnly" />
     <m-icon class="btn-icon" :type="icon" v-if="icon" />
@@ -101,13 +103,13 @@ export default {
     }
   },
   methods: {
-    handleClick () {
+    handleClick (event) {
       if (this.disabled || this.loading) return
 
       if (this.link && this.$router) {
         this.$router.push(this.link)
       } else {
-        this.$emit('click')
+        this.$emit('click', event)
       }
     },
 

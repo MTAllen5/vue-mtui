@@ -6,6 +6,7 @@
 
 <style lang="scss">
 @import '@/common/css/variable.scss';
+@import './views/style.scss';
 
 html, body {
   margin: 0;
