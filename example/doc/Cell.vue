@@ -15,68 +15,26 @@
         </thead>
         <tbody>
           <tr>
-            <td>type</td>
-            <td>类型，可选值为：['default', 'primary', 'minor', 'warn', 'danger']</td>
-            <td>String</td>
-            <td>default</td>
-          </tr>
-          <tr>
-            <td>size</td>
-            <td>尺寸，可选值：['normal', 'mini', 'small', 'large']</td>
-            <td>String</td>
-            <td>normal</td>
-          </tr>
-          <tr>
             <td>icon</td>
             <td>图标，参考Icon</td>
             <td>String</td>
             <td>-</td>
           </tr>
           <tr>
-            <td>inline</td>
-            <td>是否行内按钮</td>
+            <td>label</td>
+            <td>标签</td>
+            <td>String</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>arrow</td>
+            <td>是否显示箭头</td>
             <td>Boolean</td>
             <td>false</td>
           </tr>
           <tr>
-            <td>plain</td>
-            <td>是否简单按钮</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>round</td>
-            <td>是否圆形按钮</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>block</td>
-            <td>是否块级按钮</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>text</td>
-            <td>是否文本按钮</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>disabled</td>
-            <td>是否禁用</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>loading</td>
-            <td>是否加载状态</td>
-            <td>Boolean</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>color</td>
-            <td>自定义按钮颜色</td>
+            <td>desc</td>
+            <td>描述信息</td>
             <td>String</td>
             <td>-</td>
           </tr>
@@ -103,7 +61,7 @@
         <tbody>
           <tr>
             <td>click</td>
-            <td>点击按钮，且按钮状态不为加载或禁用时触发</td>
+            <td>点击按钮，没有设置属性link时触发</td>
             <td>event: Event</td>
           </tr>
         </tbody>
@@ -122,7 +80,7 @@
         <tbody>
           <tr>
             <td>default</td>
-            <td>自定义按钮文本</td>
+            <td>自定义内容</td>
           </tr>
         </tbody>
       </table>

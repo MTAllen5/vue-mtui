@@ -121,7 +121,3 @@ export default {
   components: { DocContent: Content }
 }
 </script>
-
-<style lang="scss" scoped>
-@import '@/common/css/global.scss';
-</style>

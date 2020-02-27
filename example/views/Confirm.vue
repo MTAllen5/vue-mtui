@@ -1,29 +1,37 @@
 <template>
-  <div>
-    <m-title type="1">Confirm</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel title="默认弹窗">
-      <m-box>
-        <m-button @click="showConfirm1">显示confirm</m-button>
-      </m-box>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Confirm</m-title>
 
-    <m-panel title="可文本配置弹窗">
-      <m-box>
-        <m-button @click="showConfirm2">显示confirm</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="默认弹窗">
+        <m-box>
+          <m-button @click="showConfirm1">显示confirm</m-button>
+        </m-box>
+      </m-panel>
 
-    <m-panel title="绑定取消、确定处理函数">
-      <m-box>
-        <m-button @click="showConfirm3">显示confirm</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="可文本配置弹窗">
+        <m-box>
+          <m-button @click="showConfirm2">显示confirm</m-button>
+        </m-box>
+      </m-panel>
+
+      <m-panel title="绑定取消、确定处理函数">
+        <m-box>
+          <m-button @click="showConfirm3">显示confirm</m-button>
+        </m-box>
+      </m-panel>
+    </div>
   </div>
 </template>
 
 <script>
+import Content from '../doc/Confirm'
+
 export default {
+  name: 'exp-confirm',
+  components: { DocContent: Content },
   data () {
     return {
       bbb: '1234'

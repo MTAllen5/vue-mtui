@@ -2,12 +2,11 @@
 
 .api-layout {
   display: flex;
-  margin: 0 auto;
-  padding: 20px;
-  width: 1300px;
+  margin: 20px auto;
+  width: 1200px;
 
   .api-content {
-    width: 905px;
+    width: 805px;
     background-color: white;
     border-radius: 12px;
     color: $colorPrimaryTxt;
@@ -27,7 +26,7 @@
 
     .api-code {
       margin: 20px auto;
-      width: 70%;
+      width: 80%;
       .mtui-h1,
       .mtui-h3 {
         padding: 0;
@@ -67,6 +66,8 @@
   }
 
   .emulated-phone {
+    position: sticky;
+    top: 20px;
     margin-left: 20px;
     width: 375px;
     height: 667px;
@@ -74,5 +75,32 @@
     border-radius: 12px;
     overflow: auto;
     box-shadow: 0 8px 12px #ebedf0;
+  }
+}
+
+@media all and (max-width:751px){
+  .api-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+    width: 100%;
+
+    .api-content {
+      box-sizing: border-box;
+      margin-top: 20px;
+      padding: 15px;
+      width: 100%;
+
+      .api-code {
+        width: 100%;
+      }
+    }
+
+    .emulated-phone {
+      position: static;
+      margin-left: 0;
+      height: auto;
+      box-shadow: none;
+    }
   }
 }

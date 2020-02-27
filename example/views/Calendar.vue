@@ -1,48 +1,55 @@
 <template>
-  <div>
-    <m-title type="1">Calendar</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel>
-      <div slot="head">默认</div>
-      <m-calendar @on-change="handleChange"></m-calendar>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Calendar</m-title>
 
-    <m-panel>
-      <div slot="head">多选</div>
-      <m-calendar v-model="selected" showBack type="multi" @on-change="handleChange"></m-calendar>
-    </m-panel>
+      <m-panel>
+        <div slot="head">默认</div>
+        <m-calendar @on-change="handleChange"></m-calendar>
+      </m-panel>
 
-    <m-panel>
-      <div slot="head">起止</div>
-      <m-calendar type="fromto" v-model="selectedFromTo"></m-calendar>
-    </m-panel>
+      <m-panel>
+        <div slot="head">多选</div>
+        <m-calendar v-model="selected" showBack type="multi" @on-change="handleChange"></m-calendar>
+      </m-panel>
 
-    <m-panel>
-      <div slot="head">有范围限制</div>
-      <m-calendar :range="range"></m-calendar>
-    </m-panel>
+      <m-panel>
+        <div slot="head">起止</div>
+        <m-calendar type="fromto" v-model="selectedFromTo"></m-calendar>
+      </m-panel>
 
-    <m-panel>
-      <div slot="head">显示事件</div>
-      <m-calendar :events="events" @on-change-month="handleChangeMonth"></m-calendar>
-    </m-panel>
+      <m-panel>
+        <div slot="head">有范围限制</div>
+        <m-calendar :range="range"></m-calendar>
+      </m-panel>
 
-    <m-panel>
-      <div slot="head">禁用</div>
-      <m-calendar :selected="today" disabled></m-calendar>
-    </m-panel>
+      <m-panel>
+        <div slot="head">显示事件</div>
+        <m-calendar :events="events" @on-change-month="handleChangeMonth"></m-calendar>
+      </m-panel>
 
-    <!-- <m-panel>
-      <div slot="head">月开始日偏移</div>
-      <m-calendar :selected="today" :startAt="-26" @on-change="handleChange"></m-calendar>
-    </m-panel> -->
+      <m-panel>
+        <div slot="head">禁用</div>
+        <m-calendar :selected="today" disabled></m-calendar>
+      </m-panel>
+
+      <!-- <m-panel>
+        <div slot="head">月开始日偏移</div>
+        <m-calendar :selected="today" :startAt="-26" @on-change="handleChange"></m-calendar>
+      </m-panel> -->
+    </div>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import Content from '../doc/Calendar'
 
 export default {
+  name: 'exp-calendar',
+  components: { DocContent: Content },
   data () {
     let now = new Date()
     let today = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate()

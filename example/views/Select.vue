@@ -1,23 +1,31 @@
 <template>
-  <div>
-    <m-title type="1">Select</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel title="默认用法">
-      <m-box>
-        <m-select v-model="select" placeholder="请选择" :options="options"></m-select>
-      </m-box>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Select</m-title>
 
-    <m-panel title="禁用">
-      <m-box>
-        <m-select v-model="select" placeholder="请选择" :options="options" disabled></m-select>
-      </m-box>
-    </m-panel>
+      <m-panel title="默认用法">
+        <m-box>
+          <m-select v-model="select" placeholder="请选择" :options="options" @change="a"></m-select>
+        </m-box>
+      </m-panel>
+
+      <m-panel title="禁用">
+        <m-box>
+          <m-select v-model="select" placeholder="请选择" :options="options" disabled></m-select>
+        </m-box>
+      </m-panel>
+    </div>
   </div>
 </template>
 
 <script>
+import Content from '../doc/Select'
+
 export default {
+  name: 'exp-select',
+  components: { DocContent: Content },
   data () {
     return {
       select: 0,
@@ -40,6 +48,11 @@ export default {
           label: '选项四'
         }
       ]
+    }
+  },
+  methods: {
+    a (val) {
+      console.log(val)
     }
   }
 }

@@ -55,11 +55,11 @@ export default {
     }
   },
   methods: {
-    toLink () {
+    toLink (event) {
       if (this.link) {
         this.$router.push(this.link)
       } else {
-        this.$emit('click')
+        this.$emit('click', event)
       }
     }
   }

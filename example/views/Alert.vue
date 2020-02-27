@@ -1,29 +1,37 @@
 <template>
-  <div>
-    <m-title type="1">Alert</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel title="默认弹窗">
-      <m-box>
-        <m-button @click="showAlert1">显示alert</m-button>
-      </m-box>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Alert</m-title>
 
-    <m-panel title="可文本配置弹窗">
-      <m-box>
-        <m-button @click="showAlert2">显示alert</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="默认弹窗">
+        <m-box>
+          <m-button @click="showAlert1">显示alert</m-button>
+        </m-box>
+      </m-panel>
 
-    <m-panel title="绑定确定处理函数">
-      <m-box>
-        <m-button @click="showAlert3">显示alert</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="可文本配置弹窗">
+        <m-box>
+          <m-button @click="showAlert2">显示alert</m-button>
+        </m-box>
+      </m-panel>
+
+      <m-panel title="绑定确定处理函数">
+        <m-box>
+          <m-button @click="showAlert3">显示alert</m-button>
+        </m-box>
+      </m-panel>
+    </div>
   </div>
 </template>
 
 <script>
+import Content from '../doc/Alert'
+
 export default {
+  name: 'exp-alert',
+  components: { DocContent: Content },
   methods: {
     showAlert1 () {
       this.$alert('这是一条提示消息')

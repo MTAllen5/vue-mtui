@@ -1,46 +1,54 @@
 <template>
-  <div>
-    <m-title type="1">Toast</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel title="默认提示">
-      <m-box>
-        <m-button @click="showToast1">显示toast</m-button>
-      </m-box>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Toast</m-title>
 
-    <m-panel title="不同位置提示">
-      <m-button-group>
-        <m-button inline type="primary" @click="showToast2">顶部提示</m-button>
-        <m-button inline type="warn" @click="showToast3">中间提示</m-button>
-        <m-button inline type="danger" @click="showToast1">底部提示</m-button>
-      </m-button-group>
-    </m-panel>
+      <m-panel title="默认提示">
+        <m-box>
+          <m-button @click="showToast1">显示toast</m-button>
+        </m-box>
+      </m-panel>
 
-    <m-panel title="自定义显示时间">
-      <m-box>
-        <m-button @click="showToast4">显示toast</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="不同位置提示">
+        <m-button-group>
+          <m-button inline type="primary" @click="showToast2">顶部提示</m-button>
+          <m-button inline type="warn" @click="showToast3">中间提示</m-button>
+          <m-button inline type="danger" @click="showToast1">底部提示</m-button>
+        </m-button-group>
+      </m-panel>
 
-    <m-panel title="自定义图标提示">
-      <div slot="head"></div>
-      <m-box>
-        <m-button @click="showToast5">显示toast</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="自定义显示时间">
+        <m-box>
+          <m-button @click="showToast4">显示toast</m-button>
+        </m-box>
+      </m-panel>
 
-    <m-panel title="常用图标提示">
-      <m-button-group>
-        <m-button type="minor" inline  @click="showToast6">成功</m-button>
-        <m-button type="warn" inline  @click="showToast7">警告</m-button>
-        <m-button type="danger" inline  @click="showToast8">错误</m-button>
-      </m-button-group>
-    </m-panel>
+      <m-panel title="自定义图标提示">
+        <div slot="head"></div>
+        <m-box>
+          <m-button @click="showToast5">显示toast</m-button>
+        </m-box>
+      </m-panel>
+
+      <m-panel title="常用图标提示">
+        <m-button-group>
+          <m-button type="minor" inline  @click="showToast6">成功</m-button>
+          <m-button type="warn" inline  @click="showToast7">警告</m-button>
+          <m-button type="danger" inline  @click="showToast8">错误</m-button>
+        </m-button-group>
+      </m-panel>
+    </div>
   </div>
 </template>
 
 <script>
+import Content from '../doc/Toast'
+
 export default {
+  name: 'exp-toast',
+  components: { DocContent: Content },
   methods: {
     showToast1 () {
       this.$toast('我是提示')

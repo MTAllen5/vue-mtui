@@ -1,23 +1,31 @@
 <template>
-  <div>
-    <m-title type="1">Loading</m-title>
+  <div class="api-layout">
+    <doc-content></doc-content>
 
-    <m-panel title="默认加载">
-      <m-box>
-        <m-button @click="showLoading1">显示loading</m-button>
-      </m-box>
-    </m-panel>
+    <div class="emulated-phone">
+      <m-title type="1">Loading</m-title>
 
-    <m-panel title="加载文字">
-      <m-box>
-        <m-button @click="showLoading2">显示loading</m-button>
-      </m-box>
-    </m-panel>
+      <m-panel title="默认加载">
+        <m-box>
+          <m-button @click="showLoading1">显示loading</m-button>
+        </m-box>
+      </m-panel>
+
+      <m-panel title="加载文字">
+        <m-box>
+          <m-button @click="showLoading2">显示loading</m-button>
+        </m-box>
+      </m-panel>
+    </div>
   </div>
 </template>
 
 <script>
+import Content from '../doc/Loading'
+
 export default {
+  name: 'exp-loading',
+  components: { DocContent: Content },
   methods: {
     showLoading1 () {
       this.$loading.show()

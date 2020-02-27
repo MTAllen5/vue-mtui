@@ -1,13 +1,17 @@
 <template>
-  <span :class="[
-    'mtui-switch',
-    'mtui-switch-' + type,
-    {
-      active: value,
-      'is-disabled': disabled,
-      'is-small': small
-    }
-  ]" @touchend.prevent="change"></span>
+  <span
+    :class="[
+      'mtui-switch',
+      'mtui-switch-' + type,
+      {
+        active: value,
+        'is-disabled': disabled,
+        'is-small': small
+      }
+    ]"
+    @touchend.prevent="change"
+    @mouseup.prevent="change"
+  ></span>
 </template>
 
 <script>
