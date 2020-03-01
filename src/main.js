@@ -77,4 +77,36 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 components.install = install
 
-module.exports = components
+// export default components
+export {
+  Button,
+  ButtonGroup,
+  Icon,
+  Title,
+  Cell,
+  Box,
+  Panel,
+  Grid,
+  GridItem,
+  Popup,
+
+  Dialog,
+  Alert,
+  Confirm,
+  Toast,
+  Loading,
+  LoadingBar,
+
+  Input,
+  Switch,
+  Counter,
+  Radio,
+  Checkbox,
+  Select,
+  Form,
+  FormItem,
+
+  Calendar,
+  Search,
+  install
+}
