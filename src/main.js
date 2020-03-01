@@ -77,7 +77,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 components.install = install
 
-// export default components
 export {
   Button,
   ButtonGroup,
