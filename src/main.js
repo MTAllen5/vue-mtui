@@ -75,8 +75,6 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-components.install = install
-
 export {
   Button,
   ButtonGroup,
@@ -106,6 +104,6 @@ export {
   FormItem,
 
   Calendar,
-  Search,
-  install
+  Search
 }
+export default { install }
